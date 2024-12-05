@@ -31,6 +31,7 @@ class ODPPackageTag(str, Enum):
     CONTRIBUTOR = 'Package.Contributor'
     GEOLOCATION = 'Package.GeoLocation'
     DATERANGE = 'Package.DateRange'
+    DATERANGEINC = 'Package.DateRangeInc'
     SDG = 'Package.SDG'
 
 
@@ -68,6 +69,7 @@ class ODPTagSchema(str, Enum):
     CONTRIBUTOR = 'Tag.Contributor'
     GEOLOCATION = 'Tag.GeoLocation'
     DATERANGE = 'Tag.DateRange'
+    DATERANGEINC = 'Tag.DateRangeInc'
     COLLECTION_INFRASTRUCTURE = 'Tag.Collection.Infrastructure'
     COLLECTION_PROJECT = 'Tag.Collection.Project'
     RECORD_QC = 'Tag.Record.QC'
@@ -99,3 +101,8 @@ class ODPVocabularySchema(str, Enum):
     INFRASTRUCTURE = 'Vocabulary.Infrastructure'
     PROJECT = 'Vocabulary.Project'
     SDG = 'Vocabulary.SDG'
+
+
+class ODPDateRangeIncType(str, Enum):
+    CURRENT_DATE = 'current_date'
+    TOMORROW = 'tomorrow'
