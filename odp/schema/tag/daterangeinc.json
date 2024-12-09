@@ -1,0 +1,22 @@
+{
+    "$id": "https://odp.saeon.ac.za/schema/tag/daterangeinc",
+    "$schema": "https://jschon.dev/meta/translation/schema",
+    "title": "Date Range Increment",
+    "description": "Schema for a date range increment tag.",
+    "type": "object",
+    "properties": {
+        "start": {
+            "enum": [
+                "current_date",
+                "tomorrow"
+            ]
+        },
+        "end": {
+            "enum": [
+                "current_date",
+                "tomorrow"
+            ]
+        }
+    },
+    "additionalProperties": false
+}
