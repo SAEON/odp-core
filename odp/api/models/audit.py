@@ -57,10 +57,13 @@ class ProviderAuditModel(AuditModel):
     provider_users: list[str]
 
 
-class VocabularyTermAuditModel(AuditModel):
+class KeywordAuditModel(AuditModel):
     vocabulary_id: str
-    term_id: str
+    keyword_id: int
+    key: str
     data: dict[str, Any]
+    status: str
+    parent_id: Optional[int]
 
 
 class IdentityAuditModel(BaseModel):

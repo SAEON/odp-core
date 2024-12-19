@@ -21,6 +21,7 @@ class ODPScope(str, Enum):
     COLLECTION_NOSEARCH = 'odp.collection:nosearch'
     COLLECTION_HARVESTED = 'odp.collection:harvested'
     KEYWORD_ADMIN = 'odp.keyword:admin'
+    KEYWORD_READ_ALL = 'odp.keyword:read_all'
     KEYWORD_READ = 'odp.keyword:read'
     KEYWORD_SUGGEST = 'odp.keyword:suggest'
     PACKAGE_ADMIN = 'odp.package:admin'
@@ -54,9 +55,6 @@ class ODPScope(str, Enum):
     TOKEN_READ = 'odp.token:read'
     USER_ADMIN = 'odp.user:admin'
     USER_READ = 'odp.user:read'
-    VOCABULARY_INFRASTRUCTURE = 'odp.vocabulary:infrastructure'
-    VOCABULARY_PROJECT = 'odp.vocabulary:project'
-    VOCABULARY_SDG = 'odp.vocabulary:sdg'
     VOCABULARY_READ = 'odp.vocabulary:read'
 
     @cached_property

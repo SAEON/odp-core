@@ -7,7 +7,6 @@ from .audit import (
     ProviderAuditModel,
     RecordAuditModel,
     RecordTagAuditModel,
-    VocabularyTermAuditModel,
 )
 from .auth import AccessTokenModel, ScopeModel
 from .catalog import (
@@ -34,4 +33,4 @@ from .role import RoleModel, RoleModelIn
 from .schema import SchemaModel
 from .tag import TagInstanceModel, TagInstanceModelIn, TagModel
 from .user import UserModel, UserModelIn
-from .vocabulary import VocabularyModel, VocabularyTermModel, VocabularyTermModelIn
+from .vocabulary import VocabularyDetailModel, VocabularyModel
