@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://saeon.ac.za/schemas/SAEON.EML",
+  "title": "SAEON EML Metadata Schema",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Dataset title"
+    },
+    "date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date of publication"
+    },
+    "responsibleParties": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "individualName": { "type": "string" },
+          "organizationName": { "type": "string" },
+          "role": { "type": "string" }
+        },
+        "required": ["organizationName"]
+      }
+    },
+    "extents": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "description": { "type": "string" },
+          "westBoundLongitude": { "type": "number" },
+          "eastBoundLongitude": { "type": "number" },
+          "southBoundLatitude": { "type": "number" },
+          "northBoundLatitude": { "type": "number" }
+        },
+        "required": ["westBoundLongitude", "eastBoundLongitude", "southBoundLatitude", "northBoundLatitude"]
+      }
+    },
+    "languages": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "characterSet": {
+      "type": "string"
+    },
+    "topicCategories": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "spatialResolution": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "abstract": {
+      "type": "string"
+    }
+  },
+  "required": ["title", "date", "responsibleParties", "extents"]
+}
