@@ -85,6 +85,7 @@ class ODPMetadataSchema(str, Enum):
     DATACITE_4_3 = 'DataCite.4.3'
     SCHEMAORG_DATASET = 'SchemaOrg.Dataset'
     RIS_CITATION = 'RIS.Citation'
+    SAEON_EML = 'SAEON.EML'
 
 
 class ODPTagSchema(str, Enum):
