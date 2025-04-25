@@ -1,0 +1,47 @@
+{
+  "title": [
+    "Temporal dynamics of phytoplankton in St. Lucia Estuary",
+    "Biological productivity data for 2020–2023"
+  ],
+  "date": "2023-12-15",
+  "abstract": "This dataset describes the temporal variability of phytoplankton species collected monthly from St. Lucia Estuary as part of long-term ecological monitoring.",
+  "keywords": ["phytoplankton", "estuary", "long-term monitoring", "biodiversity"],
+  "responsibleParties": [
+    {
+      "individualName": "Dr. A. Biologist",
+      "organizationName": "SAEON",
+      "email": "abiologist@saeon.ac.za",
+      "role": "principalInvestigator"
+    }
+  ],
+  "extents": {
+  "spatialExtent": [
+    {
+      "westBoundLongitude": 32.1,
+      "eastBoundLongitude": 32.9,
+      "southBoundLatitude": -28.5,
+      "northBoundLatitude": -27.9
+    }
+  ],
+  "temporalExtent": [
+    {
+      "startDate": "2020-01-01",
+      "endDate": "2023-12-01"
+    }
+  ]
+  },
+  "language": ["en"],
+  "characterSet": "UTF-8",
+  "topicCategory": ["biota", "environment"],
+  "spatialResolution": ["Monthly sampling"],
+  "distribution": {
+    "url": "https://data.saeon.ac.za/phytoplankton2023.csv",
+    "format": "CSV"
+  },
+  "onlineResource": [
+    {
+      "name": "Project page",
+      "linkage": "https://saeon.ac.za/projects/phytoplankton"
+    }
+  ]
+},
