@@ -9,9 +9,14 @@ class SOMISANADBConfig(BaseConfig, DBConfigMixin):
         env_prefix = 'SOMISANA_DB_'
 
 
-class SOMISANAWebConfig(BaseConfig, AppConfigMixin):
+class SOMISANAAdminConfig(BaseConfig, AppConfigMixin):
     class Config:
-        env_prefix = 'SOMISANA_WEB_'
+        env_prefix = 'SOMISANA_ADMIN_'
+
+
+class SOMISANACatalogConfig(BaseConfig, AppConfigMixin):
+    class Config:
+        env_prefix = 'SOMISANA_CATALOG_'
 
 
 class SOMISANAConfig(BaseConfig):
@@ -22,7 +27,8 @@ class SOMISANAConfig(BaseConfig):
 
     _subconfig = {
         'DB': SOMISANADBConfig,
-        'WEB': SOMISANAWebConfig
+        'ADMIN': SOMISANAAdminConfig,
+        'CATALOG': SOMISANACatalogConfig
     }
 
 
