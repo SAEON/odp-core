@@ -24,6 +24,7 @@ class SOMISANAConfig(BaseConfig):
         env_prefix = 'SOMISANA_'
 
     API_URL: AnyHttpUrl = None
+    API_EXTERNAL_URL: AnyHttpUrl = None
 
     _subconfig = {
         'DB': SOMISANADBConfig,
