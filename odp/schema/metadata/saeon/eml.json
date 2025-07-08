@@ -1,0 +1,142 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "title": {
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "value": { "type": "string" },
+      "lang": { "type": "string" }
+    },
+    "required": ["value"]
+  },
+  "minItems": 1
+},
+    "pubDate": {
+      "type": "string",
+      "format": "date",
+      "description": "Publication date in ISO 8601 format (e.g., YYYY or YYYY-MM-DD)"
+    },
+    "responsibleParty": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "minItems": 1
+    },
+    "geographicCoverage": {
+      "type": "object",
+      "description": "Bounding box and geographic description"
+    },
+    "language": {
+      "type": "string",
+      "description": "ISO 639-1 two-letter code"
+    },
+    "characterEncoding": {
+      "type": "string"
+    },
+    "descriptor": {
+      "type": "string"
+    },
+    "additionalMetadata": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "abstract": {
+      "type": "string"
+    },
+    "dataFormat": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "coverage": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "minItems": 1
+    },
+    "spatialReference": {
+      "type": "object",
+      "properties": {
+        "geogCoordSys": {
+          "type": "string"
+        },
+        "projCoordSys": {
+          "type": "string"
+        }
+      }
+    },
+    "methods": {
+      "type": "object"
+    },
+    "onlineUrl": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uri"
+      }
+    },
+    "id": {
+      "type": "string"
+    },
+    "metadataLanguage": {
+      "type": "string"
+    },
+    "metadataProvider": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "minItems": 1
+    },
+    "dateStamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+"purpose": {
+  "type": "object",
+  "properties": {
+    "para": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  },
+  "required": ["para"]
+},
+    "keywordSet": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "intellectualRights": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "gettingStarted": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "title",
+    "responsibleParty",
+    "geographicCoverage",
+    "characterEncoding",
+    "abstract",
+    "coverage",
+    "methods",
+    "metadataProvider"
+  ]
+}
