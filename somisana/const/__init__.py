@@ -29,3 +29,8 @@ class EntityType(str, Enum):
     """Somisana entity type"""
     PRODUCT = 'product'
     DATASET = 'dataset'
+
+
+class DatasetType(str, Enum):
+    """Somisana dataset type"""
+    OCEAN = 'OCEAN'
