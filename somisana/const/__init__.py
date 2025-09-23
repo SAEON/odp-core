@@ -15,6 +15,7 @@ class ResourceType(str, Enum):
     """Resource type."""
     DOCUMENT = 'document'
     COVER_IMAGE = 'cover_image'
+    COVER_CLIP = 'cover_clip'
     THUMBNAIL = 'thumbnail'
     DATA_ACCESS_URL = 'data_access_url'
 

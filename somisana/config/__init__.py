@@ -25,6 +25,7 @@ class SOMISANAConfig(BaseConfig):
 
     API_URL: AnyHttpUrl = None
     API_EXTERNAL_URL: AnyHttpUrl = None
+    VISUALISATIONS_EXTERNAL_URL: AnyHttpUrl = None
 
     _subconfig = {
         'DB': SOMISANADBConfig,
