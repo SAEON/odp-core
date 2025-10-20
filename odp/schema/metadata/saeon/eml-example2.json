@@ -1,0 +1,81 @@
+{
+  "title": [
+    {
+      "value": "Marine Biodiversity Survey",
+      "lang": "en"
+    },
+    {
+      "value": "See Biodiversitätserhebung",
+      "lang": "de"
+    }
+  ],
+  "pubDate": "2023-06-15",
+  "responsibleParty": [
+    {
+      "individualName": "Dr. Alex Mbeki",
+      "organizationName": "Cape Marine Research Institute",
+      "positionName": "Lead Biologist",
+      "contact": {
+        "email": "alex.mbeki@cmri.org",
+        "phone": "+27-21-987-6543",
+        "address": "456 Ocean View Drive, Cape Town"
+      },
+      "role": "principalInvestigator"
+    }
+  ],
+  "geographicCoverage": {
+    "geographicDescription": "Coastal waters off Cape Town",
+    "boundingCoordinates": {
+      "westBoundingCoordinate": 17.5,
+      "eastBoundingCoordinate": 18.8,
+      "northBoundingCoordinate": -33.5,
+      "southBoundingCoordinate": -34.3
+    }
+  },
+  "language": "en",
+  "characterEncoding": "UTF-8",
+  "abstract": "The dataset includes species observations and oceanographic parameters collected between 2018 and 2022 along the Cape Town coastline.",
+  "coverage": [
+    {
+      "temporalCoverage": {
+        "startDate": "2018-03-01",
+        "endDate": "2022-11-30"
+      },
+      "taxonomicCoverage": {
+        "phylum": "Chordata"
+      }
+    }
+  ],
+  "methods": {
+    "description": "Diving surveys and underwater video transects were used to identify species presence and abundance."
+  },
+  "onlineUrl": [
+    "https://marine-data.org/cape-biodiversity"
+  ],
+  "id": "cape-marine-2023",
+  "metadataProvider": [
+    {
+      "individualName": "Lindiwe Jacobs",
+      "organizationName": "Cape Marine Research Institute",
+      "role": "Metadata Curator"
+    }
+  ],
+  "dateStamp": "2023-07-01T09:00:00Z",
+  "purpose": {
+    "para": [
+      "To document marine species diversity along the Cape coast.",
+      "To support marine conservation planning and public awareness."
+    ]
+  },
+  "keywordSet": [
+    {
+      "keyword": ["marine biology", "biodiversity", "Cape Town", "oceanography"],
+      "keywordThesaurus": "South African Marine Terms"
+    }
+  ],
+  "intellectualRights": [
+    {
+      "value": "© 2023 Cape Marine Research Institute. Licensed under CC-BY 4.0."
+    }
+  ]
+}

@@ -7,7 +7,7 @@ import os
 
 # Paths to your schema and instance files
 SCHEMA_PATH = "/home/g.zhou/odp-core/odp/schema/metadata/saeon/eml.json"
-INSTANCE_PATH = "/home/g.zhou/odp-core/odp/schema/metadata/saeon/eml-example.json"
+INSTANCE_PATH = "/home/g.zhou/odp-core/odp/schema/metadata/saeon/eml-template.json"
 
 def load_json(filepath):
     """Load a JSON file from disk."""
