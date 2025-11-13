@@ -1,6 +1,16 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://odp.saeon.ac.za/schema/metadata/saeon/eml.json",
   "type": "object",
+      "translations": [
+        {
+            "t9nScheme": "saeon/datacite4",
+            "t9nTarget": "",
+            "t9nConst": {
+                "schemaVersion": "http://datacite.org/schema/kernel-4"
+            }
+        }
+    ],
   "properties": {
     "title": {
       "type": "array",
@@ -12,141 +22,244 @@
         },
         "required": ["value"]
       },
-      "minItems": 1
+      "translations": [
+        {
+          "t9nScheme": "saeon/datacite4",
+          "t9nTarget": "/titles",
+          "t9nArray": {
+            "t9nObject": {
+              "title": { "t9nSource": "0/value" },
+              "lang": { "t9nSource": "0/lang" }
+            }
+          }
+        }
+      ]
     },
     "pubDate": {
       "type": "string",
       "format": "date",
-      "description": "Publication date in ISO 8601 format (e.g., YYYY or YYYY-MM-DD)"
+      "translations": [
+        {
+          "t9nScheme": "saeon/datacite4",
+          "t9nTarget": "/publicationYear",
+          "t9nFilter": "date-to-year"
+        },
+        {
+          "t9nScheme": "saeon/datacite4",
+          "t9nTarget": "/dates",
+          "t9nArray": {
+            "t9nObject": {
+              "date": { "t9nSource": "0" },
+              "dateType": { "t9nConst": "Issued" }
+            }
+          }
+        }
+      ]
     },
     "responsibleParty": {
       "type": "array",
       "items": {
         "type": "object",
         "properties": {
-          "individualName": {
-            "type": "string",
-            "description": "The full name of the responsible or associated party."
-          },
-          "organizationName": {
-            "type": "string",
-            "description": "The full name of the organization that is associated with the resource."
-          },
-          "positionName": {
-            "type": "string",
-            "description": "Used when the role changes frequently; e.g., GBIF Data Manager."
-          },
-          "role": {
-            "type": "string",
-            "description": "Function performed by the responsible party."
-          },
-          "personnel": {
-            "type": "string",
-            "description": "Documents people involved in a research project with contact info and role."
-          },
-          "contact": {
-            "type": "object",
-            "description": "Information required to enable contact with the responsible person or organization.",
-            "properties": {
-              "phone": {
-                "type": "string",
-                "description": "Telephone or fax number."
-              },
-              "address": {
-                "type": "object",
-                "description": "Physical or electronic addresses.",
-                "properties": {
-                  "deliveryPoint": { "type": "string", "description": "Physical address for postal communication." },
-                  "city": { "type": "string", "description": "City name of the contact." },
-                  "administrativeArea": { "type": "string", "description": "State, province, or administrative region." },
-                  "postalCode": { "type": "string", "description": "Postal or ZIP code." },
-                  "country": { "type": "string", "description": "Country name." },
-                  "electronicMailAddress": {
-                    "type": "array",
-                    "items": { "type": "string", "format": "email" },
-                    "description": "List of email addresses."
+          "individualName": { "type": "string" },
+          "organizationName": { "type": "string" },
+          "positionName": { "type": "string" },
+          "role": { "type": "string" }
+        },
+        "translations": [
+          {
+            "t9nScheme": "saeon/datacite4",
+            "t9nTarget": "/creators",
+            "t9nCondition": {
+              "properties": { "role": { "enum": ["originator", "principalInvestigator"] } }
+            },
+            "t9nArray": {
+              "t9nObject": {
+                "name": { "t9nSource": "0/individualName" },
+                "affiliation": {
+                  "t9nArray": {
+                    "t9nObject": { "affiliation": { "t9nSource": "0/organizationName" } }
                   }
                 }
-              },
-              "onlineUrl": {
-                "type": "string",
-                "format": "uri",
-                "description": "URL to associated online information."
               }
+            }
+          },
+          {
+            "t9nScheme": "saeon/datacite4",
+            "t9nTarget": "/contributors",
+            "t9nCondition": {
+              "properties": { "role": { "enum": ["processor", "custodian", "distributor", "pointOfContact"] } }
             },
-            "required": []
+            "t9nArray": {
+              "t9nObject": {
+                "name": { "t9nSource": "0/individualName" },
+                "affiliation": {
+                  "t9nArray": {
+                    "t9nObject": { "affiliation": { "t9nSource": "0/organizationName" } }
+                  }
+                },
+                "contributorType": {
+                  "t9nSource": "0/role",
+                  "t9nFilter": {
+                    "processor": "ProjectMember",
+                    "custodian": "DataManager",
+                    "distributor": "Distributor",
+                    "pointOfContact": "ContactPerson"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "t9nScheme": "saeon/datacite4",
+            "t9nTarget": "/publisher",
+            "t9nCondition": {
+              "properties": { "role": { "const": "publisher" } }
+            },
+            "t9nSource": "0/organizationName"
           }
-        },
-        "required": ["role"],
-        "anyOf": [
-          { "required": ["individualName"] },
-          { "required": ["organizationName"] },
-          { "required": ["positionName"] }
         ]
+      }
+    },
+    "abstract": {
+      "type": "string",
+      "translations": [
+        {
+          "t9nScheme": "saeon/datacite4",
+          "t9nTarget": "/descriptions",
+          "t9nArray": {
+            "t9nObject": {
+              "description": { "t9nSource": "." },
+              "descriptionType": { "t9nConst": "Abstract" }
+            }
+          }
+        }
+      ]
+    },
+    "purpose": {
+      "type": "object",
+      "properties": {
+        "para": { "type": "array", "items": { "type": "string" } }
       },
-      "minItems": 1
+      "translations": [
+        {
+          "t9nScheme": "saeon/datacite4",
+          "t9nTarget": "/descriptions",
+          "t9nArray": {
+            "t9nObject": {
+              "description": { "t9nSource": "0/para/0" },
+              "descriptionType": { "t9nConst": "Other" }
+            }
+          }
+        }
+      ]
+    },
+    "methods": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "methodStep": { "type": "array", "items": { "type": "string" } }
+        },
+        "translations": [
+          {
+            "t9nScheme": "saeon/datacite4",
+            "t9nTarget": "/descriptions",
+            "t9nArray": {
+              "t9nObject": {
+                "description": { "t9nSource": "0/methodStep/0" },
+                "descriptionType": { "t9nConst": "Methods" }
+              }
+            }
+          }
+        ]
+      }
+    },
+    "keywordSet": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "keyword": { "type": "array", "items": { "type": "string" } }
+        },
+        "translations": [
+          {
+            "t9nScheme": "saeon/datacite4",
+            "t9nTarget": "/subjects",
+            "t9nArray": {
+              "t9nObject": { "subject": { "t9nSource": "0/keyword/0" } }
+            }
+          }
+        ]
+      }
+    },
+    "intellectualRights": {
+      "type": "object",
+      "properties": {
+        "licensed": { "type": "string" },
+        "licenseName": { "type": "string" }
+      },
+      "translations": [
+        {
+          "t9nScheme": "saeon/datacite4",
+          "t9nTarget": "/rightsList",
+          "t9nArray": {
+            "t9nObject": {
+              "rights": { "t9nSource": "0/licenseName" },
+              "rightsURI": { "t9nFilter": { "CC BY-SA 4.0": "https://creativecommons.org/licenses/by-sa/4.0/" } }
+            }
+          }
+        }
+      ]
+    },
+    "dataFormat": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": { "formatName": { "type": "string" } },
+        "translations": [
+          {
+            "t9nScheme": "saeon/datacite4",
+            "t9nTarget": "/formats",
+            "t9nArray": { "t9nObject": { "format": { "t9nSource": "0/formatName" } } }
+          }
+        ]
+      }
     },
     "geographicCoverage": {
       "type": "object",
       "properties": {
         "boundingCoordinates": {
           "type": "object",
-          "description": "Bounding Coordinates are the four margins (N, S, E, W) of a bounding box, or when considered in lat-lon pairs, the corners of the box.",
           "properties": {
             "northBoundingCoordinate": { "type": "number" },
             "southBoundingCoordinate": { "type": "number" },
             "eastBoundingCoordinate": { "type": "number" },
-            "westBoundingCoordinate": { "type": "number" },
-            "boundingAltitudes": {
-              "type": "object",
-              "properties": {
-                "altitudeMaximum": { "type": "number" },
-                "altitudeMinimum": { "type": "number" },
-                "altitudeUnits": {
-                  "type": "string",
-                  "enum": [
-                    "meter", "nanometer", "micrometer", "micron",
-                    "millimeter", "centimeter", "decimeter",
-                    "decameter", "hectometer", "kilometer"
-                  ]
-                }
-              },
-              "required": []
-            }
-          },
-          "required": [
-            "northBoundingCoordinate",
-            "southBoundingCoordinate",
-            "eastBoundingCoordinate",
-            "westBoundingCoordinate"
-          ]
+            "westBoundingCoordinate": { "type": "number" }
+          }
         }
       },
-      "required": ["boundingCoordinates"]
-    },
-    "language": { "type": "string", "description": "ISO 639-1 two-letter code" },
-    "characterEncoding": { "type": "string" },
-    "descriptor": { "type": "string" },
-    "additionalMetadata": {
-      "type": "array",
-      "items": { "type": "object" }
-    },
-    "abstract": { "type": "string" },
-    "dataFormat": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "formatName": { "type": "string", "description": "Name of the format of the data object.", "examples": ["Microsoft Excel"] },
-          "formatVersion": { "type": "string", "description": "Version of the format of the data object.", "examples": ["2000 (9.0.2720)"] },
-          "dataTable": { "type": "string", "description": "The dataTable field documents the dataTable(s) that make up this dataset.", "examples": ["CSV"] }
-        },
-        "required": []
-      }
+      "translations": [
+        {
+          "t9nScheme": "saeon/datacite4",
+          "t9nTarget": "/geoLocations",
+          "t9nArray": {
+            "t9nObject": {
+              "geoLocationBox": {
+                "t9nObject": {
+                  "westBoundLongitude": { "t9nSource": "0/boundingCoordinates/westBoundingCoordinate" },
+                  "eastBoundLongitude": { "t9nSource": "0/boundingCoordinates/eastBoundingCoordinate" },
+                  "southBoundLatitude": { "t9nSource": "0/boundingCoordinates/southBoundingCoordinate" },
+                  "northBoundLatitude": { "t9nSource": "0/boundingCoordinates/northBoundingCoordinate" }
+                }
+              }
+            }
+          }
+        }
+      ]
     },
     "coverage": {
       "type": "array",
-      "minItems": 1,
       "items": {
         "type": "object",
         "properties": {
@@ -157,190 +270,45 @@
                 "type": "object",
                 "properties": {
                   "beginDate": { "type": "string", "format": "date" },
-                  "endDate": { "type": "string", "format": "date" },
-                  "singleDateTime": { "type": "string", "format": "date" },
-                  "calendarDate": { "type": "string", "format": "date" },
-                  "dateTime": { "type": "string", "format": "date-time" }
-                },
-                "required": ["beginDate", "endDate"]
-              }
-            }
-          },
-          "taxonomicCoverage": {
-            "type": "object",
-            "properties": {
-              "generalTaxonomicCoverage": {
-                "type": "array",
-                "items": { "type": "string" }
-              },
-              "taxonomicClassification": {
-                "type": "array",
-                "items": {
-                  "type": "object",
-                  "properties": {
-                    "taxonRankName": { "type": "string" },
-                    "taxonRankValue": { "type": "string" },
-                    "taxonId": { "type": "string" },
-                    "commonName": { "type": "string" }
-                  }
-                }
-              },
-              "taxonomicSystem": {
-                "type": "object",
-                "properties": {
-                  "classificationSystem": { "type": "string" },
-                  "classificationSystemCitation": { "type": "string" },
-                  "classificationSystemModifications": { "type": "string" },
-                  "identificationReference": { "type": "string" },
-                  "identifierName": { "type": "string" },
-                  "taxonomicCompleteness": { "type": "string" },
-                  "taxonomicProcedures": { "type": "string" },
-                  "vouchers": {
-                    "type": "object",
-                    "properties": {
-                      "repository": {
-                        "type": "object",
-                        "properties": { "originator": { "type": "string" } }
-                      },
-                      "specimen": { "type": "string" }
-                    }
-                  }
+                  "endDate": { "type": "string", "format": "date" }
                 }
               }
             }
           }
-        }
-      }
-    },
-    "spatialReference": {
-      "type": "object",
-      "properties": {
-        "geogCoordSys": { "type": "string" },
-        "projCoordSys": { "type": "string" }
-      }
-    },
-    "methods": {
-      "type": "array",
-      "description": "Information about the methods employed in collecting or generating a data set or other resource. Includes method steps, sampling details, and quality control.",
-      "items": {
-        "type": "object",
-        "properties": {
-          "methodStep": {
-            "type": "array",
-            "description": "The methodStep field allows for repeated sets of elements that document a series of procedures followed to produce a data object.",
-            "items": { "type": "string" }
-          },
-          "sampling": {
-            "type": "array",
-            "description": "Description of sampling procedures including geographic, temporal and taxonomic coverage of the study.",
-            "items": {
-              "type": "object",
-              "properties": {
-                "samplingDescription": {
-                  "type": "array",
-                  "description": "Text-based/human readable description of the sampling procedures used in the research project.",
-                  "items": { "type": "string" }
-                },
-                "spatialSamplingUnits": {
-                  "type": "array",
-                  "description": "Specific geographic areas sampled, described either by bounding box, location, or reference to GIS layer.",
-                  "items": {
-                    "type": "string",
-                    "examples": [
-                      "The bounding box of a specific 3-meter square plot.",
-                      "The location of a weather station."
-                    ]
-                  }
-                },
-                "studyExtent": {
-                  "type": "array",
-                  "description": "Description of the geographic area sampled (geographic coverage), sampling frequency (temporal coverage), and living organisms sampled (taxonomic coverage).",
-                  "items": { "type": "string" }
-                },
-                "citation": {
-                  "type": "array",
-                  "description": "Literature citation relating to the sampling procedures used.",
-                  "items": { "type": "string" }
-                }
-              },
-              "required": []
+        },
+        "translations": [
+          {
+            "t9nScheme": "saeon/datacite4",
+            "t9nTarget": "/dates",
+            "t9nArray": {
+              "t9nObject": {
+                "date": { "t9nConcat": ["0/temporalCoverage/rangeOfDates/beginDate", "0/temporalCoverage/rangeOfDates/endDate"], "t9nSep": "/" },
+                "dateType": { "t9nConst": "Collected" }
+              }
             }
-          },
-          "qualityControl": {
-            "type": "array",
-            "description": "Description of actions taken to control or assess the quality of data resulting from the associated method step.",
-            "items": { "type": "string" }
           }
-        },
-        "required": []
+        ]
       }
     },
-    "onlineUrl": {
-      "type": "array",
-      "items": { "type": "string", "format": "uri" }
-    },
-    "id": { "type": "string" },
-    "metadataLanguage": { "type": "string" },
-    "metadataProvider": {
-      "type": "array",
-      "items": { "type": "object" },
-      "minItems": 1
-    },
-    "dateStamp": { "type": "string", "format": "date-time" },
-    "purpose": {
-      "type": "object",
-      "properties": {
-        "para": {
-          "type": "array",
-          "items": { "type": "string" }
+    "schemaVersion": {
+      "type": "string",
+      "const": "http://datacite.org/schema/kernel-4",
+      "translations": [
+        {
+          "t9nScheme": "saeon/datacite4",
+          "t9nTarget": "/schemaVersion",
+          "t9nConst": "http://datacite.org/schema/kernel-4"
         }
-      },
-      "required": ["para"]
-    },
-    "keywordSet": {
-      "type": "array",
-      "description": "Keywords organized into sets, including thesaurus if available.",
-      "items": {
-        "type": "object",
-        "properties": {
-          "keyword": {
-            "type": "array",
-            "description": "Each keyword or key phrase that concisely describes the resource. Should not include delimiters like commas.",
-            "items": { "type": "string" },
-            "minItems": 1
-          },
-          "keywordThesaurus": {
-            "type": "string",
-            "description": "The name of the official keyword thesaurus or controlled vocabulary. Optional but recommended."
-          }
-        },
-        "required": ["keyword"]
-      },
-      "minItems": 1
-    },
-    "intellectualRights": {
-      "type": "object",
-      "description": "Information on intellectual property rights, including licensing and use restrictions.",
-      "properties": {
-        "licensed": {
-          "type": "string",
-          "description": "Information on how the resource is licensed and what rights may be available to users."
-        },
-        "licenseName": {
-          "type": "string",
-          "description": "The official name of a license that applies to the data and metadata."
-        }
-      }
+      ]
     }
   },
   "required": [
     "title",
+    "pubDate",
     "responsibleParty",
-    "geographicCoverage",
-    "characterEncoding",
     "abstract",
-    "coverage",
-    "methods",
-    "metadataProvider"
+    "keywordSet",
+    "intellectualRights",
+    "geographicCoverage"
   ]
 }
