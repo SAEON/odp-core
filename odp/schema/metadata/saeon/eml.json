@@ -2,16 +2,26 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://odp.saeon.ac.za/schema/metadata/saeon/eml.json",
   "type": "object",
-      "translations": [
-        {
-            "t9nScheme": "saeon/datacite4",
-            "t9nTarget": "",
-            "t9nConst": {
-                "schemaVersion": "http://datacite.org/schema/kernel-4"
-            }
-        }
-    ],
+  "translations": [
+    {
+      "t9nScheme": "saeon/datacite4",
+      "t9nTarget": "",
+      "t9nConst": {
+        "schemaVersion": "http://datacite.org/schema/kernel-4"
+      }
+    }
+  ],
   "properties": {
+     "doi": {
+            "type": "string",
+            "pattern": "^10\\.\\d{4,}(\\.\\d+)*/[-._;()/:a-zA-Z0-9]+$",
+            "translations": [
+                {
+                    "t9nScheme": "saeon/datacite4",
+                    "t9nTarget": "/doi"
+                }
+            ]
+        },
     "title": {
       "type": "array",
       "items": {
@@ -49,7 +59,7 @@
           "t9nTarget": "/dates",
           "t9nArray": {
             "t9nObject": {
-              "date": { "t9nSource": "0" },
+              "date": { "t9nSource": "." },
               "dateType": { "t9nConst": "Issued" }
             }
           }
@@ -113,6 +123,7 @@
           {
             "t9nScheme": "saeon/datacite4",
             "t9nTarget": "/publisher",
+            "t9nConst": "SAEON",
             "t9nCondition": {
               "properties": { "role": { "const": "publisher" } }
             },
@@ -282,7 +293,10 @@
             "t9nTarget": "/dates",
             "t9nArray": {
               "t9nObject": {
-                "date": { "t9nConcat": ["0/temporalCoverage/rangeOfDates/beginDate", "0/temporalCoverage/rangeOfDates/endDate"], "t9nSep": "/" },
+                "date": {
+                  "t9nConcat": ["0/temporalCoverage/rangeOfDates/beginDate", "0/temporalCoverage/rangeOfDates/endDate"],
+                  "t9nSep": "/"
+                },
                 "dateType": { "t9nConst": "Collected" }
               }
             }
@@ -302,6 +316,19 @@
       ]
     }
   },
+  "types": {
+   "resourceTypeGeneral": "Dataset",
+  "translations": [
+      {
+        "t9nScheme": "saeon/datacite4",
+        "t9nTarget": "/types",
+        "t9nConst": {
+          "resourceTypeGeneral": "Dataset"
+        }
+      }
+      ]
+
+},
   "required": [
     "title",
     "pubDate",
