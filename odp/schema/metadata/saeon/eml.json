@@ -165,27 +165,72 @@
         }
       ]
     },
-    "methods": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "methodStep": { "type": "array", "items": { "type": "string" } }
-        },
-        "translations": [
-          {
-            "t9nScheme": "saeon/datacite4",
-            "t9nTarget": "/descriptions",
-            "t9nArray": {
-              "t9nObject": {
-                "description": { "t9nSource": "0/methodStep/0" },
-                "descriptionType": { "t9nConst": "Methods" }
-              }
+"methods": {
+  "type": "array",
+  "description": "Information about the methods employed in collecting or generating a data set or other resource. Includes method steps, sampling details, and quality control.",
+  "items": {
+    "type": "object",
+    "properties": {
+      "methodStep": {
+        "type": "array",
+        "description": "Repeated descriptions of procedural steps used to produce the data.",
+        "items": { "type": "string" }
+      },
+      "sampling": {
+        "type": "array",
+        "description": "Description of sampling procedures including geographic, temporal and taxonomic coverage.",
+        "items": {
+          "type": "object",
+          "properties": {
+            "samplingDescription": {
+              "type": "array",
+              "items": { "type": "string" }
+            },
+            "spatialSamplingUnits": {
+              "type": "array",
+              "items": { "type": "string" }
+            },
+            "studyExtent": {
+              "type": "array",
+              "items": { "type": "string" }
+            },
+            "citation": {
+              "type": "array",
+              "items": { "type": "string" }
             }
           }
-        ]
+        }
+      },
+      "qualityControl": {
+        "type": "array",
+        "items": { "type": "string" }
       }
     },
+    "required": ["sampling"],
+    "translations": [
+      {
+        "t9nScheme": "saeon/datacite4",
+        "t9nTarget": "/descriptions",
+        "t9nArray": {
+          "t9nObject": {
+            "description": {
+              "t9nJoin": [
+                "0/methodStep/0",
+                "0/sampling/0/samplingDescription/0",
+                "0/sampling/0/spatialSamplingUnits/0",
+                "0/sampling/0/studyExtent/0",
+                "0/sampling/0/citation/0",
+                "0/qualityControl/0"
+              ],
+              "t9nDelimiter": "\n\n"
+            },
+            "descriptionType": { "t9nConst": "Methods" }
+          }
+        }
+      }
+    ]
+  }
+},
     "keywordSet": {
       "type": "array",
       "items": {

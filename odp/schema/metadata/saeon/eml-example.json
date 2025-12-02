@@ -1,147 +1,104 @@
 {
-  "title": [
-    {
-      "value": "Coastal Ocean Chemistry Monitoring - 2023 Survey",
-      "lang": "en"
-    }
-  ],
-  "pubDate": "2023-05-12",
-  "responsibleParty": [
-    {
-      "individualName": "Jane Doe",
-      "organizationName": "National Ocean Research Institute",
-      "positionName": "Lead Scientist",
-      "role": "originator",
-      "contact": {
-        "phone": "+27-21-555-1234",
-        "address": {
-          "deliveryPoint": "123 Marine Science Way",
-          "city": "Cape Town",
-          "administrativeArea": "Western Cape",
-          "postalCode": "8000",
-          "country": "South Africa",
-          "electronicMailAddress": ["jane.doe@nori.org"]
-        },
-        "onlineUrl": "https://nori.org/team/jane-doe"
-      }
-    }
-  ],
-  "geographicCoverage": {
-    "boundingCoordinates": {
-      "northBoundingCoordinate": -30.0,
-      "southBoundingCoordinate": -35.0,
-      "eastBoundingCoordinate": 20.0,
-      "westBoundingCoordinate": 15.0,
-      "boundingAltitudes": {
-        "altitudeMaximum": 10,
-        "altitudeMinimum": 0,
-        "altitudeUnits": "meter"
-      }
-    }
-  },
-  "language": "en",
-  "characterEncoding": "utf8",
-  "descriptor": "Chemical oceanography data set collected along the west coast of South Africa.",
-  "additionalMetadata": [
-    {
-      "project": "Southern Benguela Ecosystem Monitoring"
-    }
-  ],
-  "abstract": "This dataset contains Dissolved Inorganic Carbon (DIC) and Total Alkalinity (TA) measurements collected along the west coast of South Africa in May 2023 to study ocean acidification trends.",
-  "dataFormat": [
-    {
-      "formatName": "CSV",
-      "formatVersion": "1.0",
-      "dataTable": "station_measurements"
-    }
-  ],
-  "coverage": [
-    {
-      "temporalCoverage": {
-        "rangeOfDates": {
-          "beginDate": "2023-05-01",
-          "endDate": "2023-05-10"
-        }
-      },
-      "taxonomicCoverage": {
-        "generalTaxonomicCoverage": [
-          "Marine water samples"
-        ],
-        "taxonomicClassification": [
-          {
-            "taxonRankName": "Domain",
-            "taxonRankValue": "Bacteria",
-            "taxonId": "NCBI:2",
-            "commonName": "Marine bacteria"
-          }
-        ],
-        "taxonomicSystem": {
-          "classificationSystem": "NCBI Taxonomy",
-          "classificationSystemCitation": "https://www.ncbi.nlm.nih.gov/taxonomy"
-        }
-      }
-    }
-  ],
-  "spatialReference": {
-    "geogCoordSys": "WGS 84"
-  },
-  "methods": [
-    {
-      "methodStep": [
-        "Samples were collected using a rosette with 12 L Niskin bottles at each station.",
-        "DIC and TA were measured using an automated titration system following standard protocols."
-      ],
-      "sampling": [
+    "id": "10.5678/UCT.SOPH.2024",
+    "doi": "10.15493/SAEON.PUB.22903027",
+    "title": [
         {
-          "samplingDescription": [
-            "Water samples were collected from surface to bottom at selected stations."
-          ],
-          "spatialSamplingUnits": [
-            "Each station represents a 3 km square grid point."
-          ],
-          "studyExtent": [
-            "Stations along a transect from Cape Columbine to St Helena Bay."
-          ],
-          "citation": [
-            "Dickson, A. G. et al. 2007. Guide to Best Practices for Ocean CO₂ Measurements."
-          ]
+            "lang": "en",
+            "value": "Southern Ocean Surface pH and Temperature Observations – 2024"
         }
-      ],
-      "qualityControl": [
-        "All measurements were calibrated against Certified Reference Materials (CRMs)."
-      ]
+    ],
+    "methods": [
+        {
+            "sampling": [
+                {
+                    "citation": [
+                        "No external citations used for sampling methods."
+                    ],
+                    "studyExtent": [
+                        "Southern Ocean (lat: -40.0 to -60.0, lon: 10.0 to 30.0)"
+                    ],
+                    "samplingDescription": [
+                        "Water samples collected from a CTD rosette bottle cast."
+                    ],
+                    "spatialSamplingUnits": [
+                        "Discrete water bottles spaced at 10-meter intervals."
+                    ]
+                }
+            ],
+            "methodStep": [
+                "pH measured using spectrophotometric methods with m-cresol purple indicator."
+            ],
+            "qualityControl": [
+                "All equipment calibrated prior to cruise. Data verified against adjacent stations."
+            ]
+        }
+    ],
+    "pubDate": "2024-09-30",
+    "purpose": {
+        "para": [
+            "Track temporal changes in pH and sea surface temperature to evaluate Southern Ocean acidification rates."
+        ]
+    },
+    "abstract": "Surface pH, temperature, and salinity measurements collected during a research cruise in the Southern Ocean in 2024 to monitor ocean acidification.",
+    "coverage": [
+        {
+            "temporalCoverage": {
+                "rangeOfDates": {
+                    "endDate": "2024-07-20",
+                    "beginDate": "2024-07-01"
+                }
+            }
+        }
+    ],
+    "language": "en",
+    "dateStamp": "2024-09-30T00:00:00+00:00",
+    "onlineUrl": [
+        "https://data.uct.ac.za/southernocean_pH2024"
+    ],
+    "dataFormat": [
+        {
+            "formatName": "netCDF"
+        }
+    ],
+    "keywordSet": [
+        {
+            "keyword": [
+                "Southern Ocean",
+                "pH",
+                "temperature",
+                "salinity",
+                "ocean acidification"
+            ]
+        }
+    ],
+    "metadataLanguage": "en",
+    "metadataProvider": [
+        {
+            "organizationName": "University of Cape Town"
+        }
+    ],
+    "responsibleParty": [
+        {
+            "role": "processor",
+            "positionName": "Marine Technician",
+            "individualName": "Thabo Maseko",
+            "organizationName": "University of Cape Town"
+        }
+    ],
+    "spatialReference": {
+        "geogCoordSys": "WGS 84"
+    },
+    "characterEncoding": "utf8",
+    "geographicCoverage": {
+        "boundingCoordinates": {
+            "eastBoundingCoordinate": 30.0,
+            "westBoundingCoordinate": 10.0,
+            "northBoundingCoordinate": -40.0,
+            "southBoundingCoordinate": -60.0
+        }
+    },
+    "intellectualRights": {
+        "licensed": "CC BY-SA 4.0",
+        "licenseName": "Attribution-ShareAlike 4.0 International"
     }
-  ],
-  "onlineUrl": [
-    "https://data.nori.org/datasets/2023-coastal-ocean-chemistry"
-  ],
-  "id": "doi:10.12345/nori.ocean.2023",
-  "metadataLanguage": "en",
-  "metadataProvider": [
-    {
-      "organizationName": "National Ocean Research Institute"
-    }
-  ],
-  "dateStamp": "2023-05-15T12:00:00Z",
-  "purpose": {
-    "para": [
-      "Monitor long-term changes in carbon chemistry in the Benguela Current region and evaluate impacts on marine ecosystems."
-    ]
-  },
-  "keywordSet": [
-    {
-      "keyword": [
-        "Ocean acidification",
-        "DIC",
-        "Total Alkalinity",
-        "Benguela Current",
-        "Carbon chemistry"
-      ],
-      "keywordThesaurus": "GCMD Science Keywords"
-    }
-  ],
-  "intellectualRights": {
-    "licensed": "Creative Commons Attribution 4.0 International",
-    "licenseName": "CC BY 4.0"
-  }
 }
