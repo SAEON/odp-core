@@ -1,36 +1,63 @@
 {
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://odp.saeon.ac.za/schema/metadata/saeon/eml.json",
+  "$schema": "https://jschon.dev/meta/translation/schema",
+  "$id": "https://odp.saeon.ac.za/schema/metadata/saeon/eml",
   "type": "object",
   "translations": [
     {
       "t9nScheme": "saeon/datacite4",
-      "t9nTarget": "",
+      "t9nTarget": "/",
       "t9nConst": {
-        "schemaVersion": "http://datacite.org/schema/kernel-4"
+        "schemaVersion": "https://schema.datacite.org/meta/kernel-4.3/metadata.xsd"
       }
+    },
+    {
+      "t9nScheme": "saeon/datacite4",
+      "t9nTarget": "/types",
+      "t9nConst": {
+        "resourceTypeGeneral": "Dataset",
+        "resourceType": "Data"
+      }
+    },
+    {
+      "t9nScheme": "saeon/datacite4",
+      "t9nTarget": "/publisher",
+      "t9nConst": "SAEON"
     }
   ],
   "properties": {
-     "doi": {
-            "type": "string",
-            "pattern": "^10\\.\\d{4,}(\\.\\d+)*/[-._;()/:a-zA-Z0-9]+$",
-            "translations": [
-                {
-                    "t9nScheme": "saeon/datacite4",
-                    "t9nTarget": "/doi"
-                }
-            ]
-        },
+    "doi": {
+      "type": "string",
+      "pattern": "^10\\.\\d{4,}(\\.\\d+)*/[-._;()/:a-zA-Z0-9]+$",
+      "translations": [
+        {
+          "t9nScheme": "saeon/datacite4",
+          "t9nTarget": "/doi",
+          "t9nObject": {
+            "identifier": {
+              "t9nSource": "0"
+            },
+            "identifierType": {
+              "t9nConst": "DOI"
+            }
+          }
+        }
+      ]
+    },
     "title": {
       "type": "array",
       "items": {
         "type": "object",
         "properties": {
-          "value": { "type": "string" },
-          "lang": { "type": "string" }
+          "value": {
+            "type": "string"
+          },
+          "lang": {
+            "type": "string"
+          }
         },
-        "required": ["value"]
+        "required": [
+          "value"
+        ]
       },
       "translations": [
         {
@@ -38,8 +65,12 @@
           "t9nTarget": "/titles",
           "t9nArray": {
             "t9nObject": {
-              "title": { "t9nSource": "0/value" },
-              "lang": { "t9nSource": "0/lang" }
+              "title": {
+                "t9nSource": "0/value"
+              },
+              "lang": {
+                "t9nSource": "0/lang"
+              }
             }
           }
         }
@@ -52,6 +83,7 @@
         {
           "t9nScheme": "saeon/datacite4",
           "t9nTarget": "/publicationYear",
+          "t9nSource": "0",
           "t9nFilter": "date-to-year"
         },
         {
@@ -59,8 +91,12 @@
           "t9nTarget": "/dates",
           "t9nArray": {
             "t9nObject": {
-              "date": { "t9nSource": "." },
-              "dateType": { "t9nConst": "Issued" }
+              "date": {
+                "t9nSource": "0"
+              },
+              "dateType": {
+                "t9nConst": "Issued"
+              }
             }
           }
         }
@@ -68,27 +104,101 @@
     },
     "responsibleParty": {
       "type": "array",
+      "minContains": 1,
+      "description": "At least one party must have role author, principalInvestigator, or originator for DataCite Creator compliance.",
+      "contains": {
+        "type": "object",
+        "properties": {
+          "role": {
+            "enum": [
+              "author",
+              "principalInvestigator",
+              "originator"
+            ]
+          }
+        },
+        "required": [
+          "role"
+        ]
+      },
       "items": {
         "type": "object",
         "properties": {
-          "individualName": { "type": "string" },
-          "organizationName": { "type": "string" },
-          "positionName": { "type": "string" },
-          "role": { "type": "string" }
+          "individualName": {
+            "type": "object",
+            "properties": {
+              "givenName": {
+                "type": "string"
+              },
+              "surName": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "surName"
+            ]
+          },
+          "organizationName": {
+            "type": "string"
+          },
+          "positionName": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string"
+          }
         },
+        "required": [
+          "role"
+        ],
+        "anyOf": [
+          {
+            "required": [
+              "individualName"
+            ]
+          },
+          {
+            "required": [
+              "organizationName"
+            ]
+          },
+          {
+            "required": [
+              "positionName"
+            ]
+          }
+        ],
         "translations": [
           {
             "t9nScheme": "saeon/datacite4",
             "t9nTarget": "/creators",
             "t9nCondition": {
-              "properties": { "role": { "enum": ["originator", "principalInvestigator"] } }
+              "properties": {
+                "role": {
+                  "enum": [
+                    "author",
+                    "principalInvestigator",
+                    "originator"
+                  ]
+                }
+              }
             },
             "t9nArray": {
               "t9nObject": {
-                "name": { "t9nSource": "0/individualName" },
+                "name": {
+                  "t9nConcat": [
+                    "0/individualName/surName",
+                    "0/individualName/givenName"
+                  ],
+                  "t9nSep": ", "
+                },
                 "affiliation": {
                   "t9nArray": {
-                    "t9nObject": { "affiliation": { "t9nSource": "0/organizationName" } }
+                    "t9nObject": {
+                      "affiliation": {
+                        "t9nSource": "0/organizationName"
+                      }
+                    }
                   }
                 }
               }
@@ -98,36 +208,54 @@
             "t9nScheme": "saeon/datacite4",
             "t9nTarget": "/contributors",
             "t9nCondition": {
-              "properties": { "role": { "enum": ["processor", "custodian", "distributor", "pointOfContact"] } }
+              "properties": {
+                "role": {
+                  "enum": [
+                    "metadataProvider",
+                    "custodianSteward",
+                    "owner",
+                    "user",
+                    "distributor",
+                    "pointOfContact",
+                    "processor",
+                    "editor"
+                  ]
+                }
+              }
             },
             "t9nArray": {
               "t9nObject": {
-                "name": { "t9nSource": "0/individualName" },
+                "name": {
+                  "t9nConcat": [
+                    "0/individualName/surName",
+                    "0/individualName/givenName"
+                  ],
+                  "t9nSep": ", "
+                },
                 "affiliation": {
                   "t9nArray": {
-                    "t9nObject": { "affiliation": { "t9nSource": "0/organizationName" } }
+                    "t9nObject": {
+                      "affiliation": {
+                        "t9nSource": "0/organizationName"
+                      }
+                    }
                   }
                 },
                 "contributorType": {
                   "t9nSource": "0/role",
                   "t9nFilter": {
-                    "processor": "ProjectMember",
-                    "custodian": "DataManager",
+                    "metadataProvider": "HostingInstitution",
+                    "custodianSteward": "DataManager",
+                    "owner": "RightsHolder",
+                    "user": "Other",
                     "distributor": "Distributor",
-                    "pointOfContact": "ContactPerson"
+                    "pointOfContact": "ContactPerson",
+                    "processor": "ProjectMember",
+                    "editor": "Editor"
                   }
                 }
               }
             }
-          },
-          {
-            "t9nScheme": "saeon/datacite4",
-            "t9nTarget": "/publisher",
-            "t9nConst": "SAEON",
-            "t9nCondition": {
-              "properties": { "role": { "const": "publisher" } }
-            },
-            "t9nSource": "0/organizationName"
           }
         ]
       }
@@ -140,240 +268,205 @@
           "t9nTarget": "/descriptions",
           "t9nArray": {
             "t9nObject": {
-              "description": { "t9nSource": "." },
-              "descriptionType": { "t9nConst": "Abstract" }
+              "description": {
+                "t9nSource": "0"
+              },
+              "descriptionType": {
+                "t9nConst": "Abstract"
+              }
             }
           }
         }
       ]
     },
-    "purpose": {
-      "type": "object",
-      "properties": {
-        "para": { "type": "array", "items": { "type": "string" } }
-      },
-      "translations": [
-        {
-          "t9nScheme": "saeon/datacite4",
-          "t9nTarget": "/descriptions",
-          "t9nArray": {
-            "t9nObject": {
-              "description": { "t9nSource": "0/para/0" },
-              "descriptionType": { "t9nConst": "Other" }
-            }
-          }
-        }
-      ]
-    },
-"methods": {
-  "type": "array",
-  "description": "Information about the methods employed in collecting or generating a data set or other resource. Includes method steps, sampling details, and quality control.",
-  "items": {
-    "type": "object",
-    "properties": {
-      "methodStep": {
-        "type": "array",
-        "description": "Repeated descriptions of procedural steps used to produce the data.",
-        "items": { "type": "string" }
-      },
-      "sampling": {
-        "type": "array",
-        "description": "Description of sampling procedures including geographic, temporal and taxonomic coverage.",
-        "items": {
-          "type": "object",
-          "properties": {
-            "samplingDescription": {
-              "type": "array",
-              "items": { "type": "string" }
-            },
-            "spatialSamplingUnits": {
-              "type": "array",
-              "items": { "type": "string" }
-            },
-            "studyExtent": {
-              "type": "array",
-              "items": { "type": "string" }
-            },
-            "citation": {
-              "type": "array",
-              "items": { "type": "string" }
-            }
-          }
-        }
-      },
-      "qualityControl": {
-        "type": "array",
-        "items": { "type": "string" }
-      }
-    },
-    "required": ["sampling"],
-    "translations": [
-      {
-        "t9nScheme": "saeon/datacite4",
-        "t9nTarget": "/descriptions",
-        "t9nArray": {
-          "t9nObject": {
-            "description": {
-              "t9nJoin": [
-                "0/methodStep/0",
-                "0/sampling/0/samplingDescription/0",
-                "0/sampling/0/spatialSamplingUnits/0",
-                "0/sampling/0/studyExtent/0",
-                "0/sampling/0/citation/0",
-                "0/qualityControl/0"
-              ],
-              "t9nDelimiter": "\n\n"
-            },
-            "descriptionType": { "t9nConst": "Methods" }
-          }
-        }
-      }
-    ]
-  }
-},
     "keywordSet": {
       "type": "array",
       "items": {
         "type": "object",
         "properties": {
-          "keyword": { "type": "array", "items": { "type": "string" } }
-        },
-        "translations": [
-          {
-            "t9nScheme": "saeon/datacite4",
-            "t9nTarget": "/subjects",
-            "t9nArray": {
-              "t9nObject": { "subject": { "t9nSource": "0/keyword/0" } }
+          "keyword": {
+            "type": "array",
+            "items": {
+              "type": "string"
             }
-          }
-        ]
-      }
-    },
-    "intellectualRights": {
-      "type": "object",
-      "properties": {
-        "licensed": { "type": "string" },
-        "licenseName": { "type": "string" }
-      },
-      "translations": [
-        {
-          "t9nScheme": "saeon/datacite4",
-          "t9nTarget": "/rightsList",
-          "t9nArray": {
-            "t9nObject": {
-              "rights": { "t9nSource": "0/licenseName" },
-              "rightsURI": { "t9nFilter": { "CC BY-SA 4.0": "https://creativecommons.org/licenses/by-sa/4.0/" } }
-            }
-          }
-        }
-      ]
-    },
-    "dataFormat": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": { "formatName": { "type": "string" } },
-        "translations": [
-          {
-            "t9nScheme": "saeon/datacite4",
-            "t9nTarget": "/formats",
-            "t9nArray": { "t9nObject": { "format": { "t9nSource": "0/formatName" } } }
-          }
-        ]
-      }
-    },
-    "geographicCoverage": {
-      "type": "object",
-      "properties": {
-        "boundingCoordinates": {
-          "type": "object",
-          "properties": {
-            "northBoundingCoordinate": { "type": "number" },
-            "southBoundingCoordinate": { "type": "number" },
-            "eastBoundingCoordinate": { "type": "number" },
-            "westBoundingCoordinate": { "type": "number" }
           }
         }
       },
       "translations": [
         {
           "t9nScheme": "saeon/datacite4",
-          "t9nTarget": "/geoLocations",
+          "t9nTarget": "/subjects",
           "t9nArray": {
             "t9nObject": {
-              "geoLocationBox": {
-                "t9nObject": {
-                  "westBoundLongitude": { "t9nSource": "0/boundingCoordinates/westBoundingCoordinate" },
-                  "eastBoundLongitude": { "t9nSource": "0/boundingCoordinates/eastBoundingCoordinate" },
-                  "southBoundLatitude": { "t9nSource": "0/boundingCoordinates/southBoundingCoordinate" },
-                  "northBoundLatitude": { "t9nSource": "0/boundingCoordinates/northBoundingCoordinate" }
-                }
+              "subject": {
+                "t9nSource": "0"
               }
             }
           }
         }
       ]
     },
-    "coverage": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "temporalCoverage": {
+    "taxonomicCoverage": {
+      "type": "object",
+      "properties": {
+        "generalTaxonomicCoverage": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "translations": [
+            {
+              "t9nScheme": "saeon/datacite4",
+              "t9nTarget": "/subjects",
+              "t9nArray": {
+                "t9nObject": {
+                  "subject": {
+                    "t9nSource": "0"
+                  },
+                  "subjectScheme": {
+                    "t9nConst": "SAEON Taxonomic Scope"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "taxonomicClassification": {
+          "type": "array",
+          "items": {
             "type": "object",
             "properties": {
-              "rangeOfDates": {
-                "type": "object",
-                "properties": {
-                  "beginDate": { "type": "string", "format": "date" },
-                  "endDate": { "type": "string", "format": "date" }
+              "taxonRankName": {
+                "type": "string",
+                "translations": [
+                  {
+                    "t9nScheme": "saeon/datacite4",
+                    "t9nTarget": "/subjects",
+                    "t9nArray": {
+                      "t9nObject": {
+                        "subject": {
+                          "t9nSource": "0"
+                        },
+                        "subjectScheme": {
+                          "t9nConst": "SAEON Taxonomic Scope"
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              "taxonRankValue": {
+                "type": "string",
+                "translations": [
+                  {
+                    "t9nScheme": "saeon/datacite4",
+                    "t9nTarget": "/subjects",
+                    "t9nArray": {
+                      "t9nObject": {
+                        "subject": {
+                          "t9nSource": "0"
+                        },
+                        "subjectScheme": {
+                          "t9nConst": "SAEON Taxonomic Scope"
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              "taxonId": {
+                "type": "string",
+                "translations": [
+                  {
+                    "t9nScheme": "saeon/datacite4",
+                    "t9nTarget": "/relatedIdentifiers",
+                    "t9nArray": {
+                      "t9nObject": {
+                        "relatedIdentifier": {
+                          "t9nSource": "0"
+                        },
+                        "relationType": {
+                          "t9nConst": "IsIdentifiedBy"
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              "commonName": {
+                "type": "string",
+                "translations": [
+                  {
+                    "t9nScheme": "saeon/datacite4",
+                    "t9nTarget": "/subjects",
+                    "t9nArray": {
+                      "t9nObject": {
+                        "subject": {
+                          "t9nSource": "0"
+                        },
+                        "subjectScheme": {
+                          "t9nConst": "SAEON Taxonomic Scope"
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            "required": [
+              "taxonRankName"
+            ]
+          }
+        },
+        "taxonomicSystem": {
+          "type": "object",
+          "properties": {
+            "classificationSystem": {
+              "type": "string"
+            },
+            "classificationSystemCitation": {
+              "type": "string"
+            },
+            "classificationSystemModifications": {
+              "type": "string"
+            },
+            "identificationReference": {
+              "type": "string"
+            },
+            "identifierName": {
+              "type": "string"
+            },
+            "taxonomicCompleteness": {
+              "type": "string"
+            },
+            "taxonomicProcedures": {
+              "type": "string"
+            },
+            "vouchers": {
+              "type": "object",
+              "properties": {
+                "repository": {
+                  "type": "object",
+                  "properties": {
+                    "originator": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "specimen": {
+                  "type": "string"
                 }
               }
             }
           }
-        },
-        "translations": [
-          {
-            "t9nScheme": "saeon/datacite4",
-            "t9nTarget": "/dates",
-            "t9nArray": {
-              "t9nObject": {
-                "date": {
-                  "t9nConcat": ["0/temporalCoverage/rangeOfDates/beginDate", "0/temporalCoverage/rangeOfDates/endDate"],
-                  "t9nSep": "/"
-                },
-                "dateType": { "t9nConst": "Collected" }
-              }
-            }
-          }
-        ]
-      }
-    },
-    "schemaVersion": {
-      "type": "string",
-      "const": "http://datacite.org/schema/kernel-4",
-      "translations": [
-        {
-          "t9nScheme": "saeon/datacite4",
-          "t9nTarget": "/schemaVersion",
-          "t9nConst": "http://datacite.org/schema/kernel-4"
         }
+      },
+      "required": [
+        "generalTaxonomicCoverage",
+        "taxonomicClassification"
       ]
     }
   },
-  "types": {
-   "resourceTypeGeneral": "Dataset",
-  "translations": [
-      {
-        "t9nScheme": "saeon/datacite4",
-        "t9nTarget": "/types",
-        "t9nConst": {
-          "resourceTypeGeneral": "Dataset"
-        }
-      }
-      ]
-
-},
   "required": [
     "title",
     "pubDate",
@@ -381,6 +474,7 @@
     "abstract",
     "keywordSet",
     "intellectualRights",
-    "geographicCoverage"
+    "geographicCoverage",
+    "taxonomicCoverage"
   ]
 }
