@@ -1,0 +1,186 @@
+{
+    "$id": "https://odp.saeon.ac.za/schema/metadata/saeon/data-submission",
+    "$schema": "https://jschon.dev/meta/translation/schema",
+    "type": "object",
+    "translations": [
+        {
+            "t9nScheme": "saeon/datacite4",
+            "t9nTarget": "",
+            "t9nConst": {
+                "schemaVersion": "http://datacite.org/schema/kernel-4",
+                "publisher": "SAEON",
+                "publicationYear": 2026,
+                "types": {
+                    "resourceType": "Dataset",
+                    "resourceTypeGeneral": "Dataset"
+                }
+            }
+        }
+    ],
+    "properties": {
+        "title": {
+            "type": "string",
+            "translations": [
+                {
+                    "t9nScheme": "saeon/datacite4",
+                    "t9nTarget": "/titles",
+                    "t9nArray": {
+                        "t9nObject": {
+                            "title": {}
+                        }
+                    }
+                }
+            ]
+        },
+        "abstract": {
+            "type": "string",
+            "translations": [
+                {
+                    "t9nScheme": "saeon/datacite4",
+                    "t9nTarget": "/descriptions",
+                    "t9nArray": {
+                        "t9nObject": {
+                            "description": {},
+                            "descriptionType": { "t9nConst": "Abstract" }
+                        }
+                    }
+                }
+            ]
+        },
+        "methods": {
+            "type": "string",
+            "translations": [
+                {
+                    "t9nScheme": "saeon/datacite4",
+                    "t9nTarget": "/descriptions",
+                    "t9nArray": {
+                        "t9nObject": {
+                            "description": {},
+                            "descriptionType": { "t9nConst": "Methods" }
+                        }
+                    }
+                }
+            ]
+        },
+        "creators": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "translations": [
+                    {
+                        "t9nScheme": "saeon/datacite4",
+                        "t9nTarget": "/creators",
+                        "t9nArray": {
+                            "t9nObject": {
+                                "name": { "t9nConcat": ["0/surname", "0/name"], "t9nSep": ", " },
+                                "familyName": { "t9nSource": "0/surname" },
+                                "givenName": { "t9nSource": "0/name" },
+                                "nameIdentifiers": {
+                                    "t9nArray": {
+                                        "t9nObject": {
+                                            "nameIdentifier": { "t9nSource": "0/orcid" },
+                                            "nameIdentifierScheme": { "t9nConst": "ORCID" },
+                                            "schemeURI": { "t9nConst": "https://orcid.org" }
+                                        }
+                                    }
+                                },
+                                "affiliation": {
+                                    "t9nArray": {
+                                        "t9nObject": {
+                                            "affiliation": { "t9nSource": "0/affiliation" }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        "keywords": {
+            "type": "array",
+            "items": { "type": "string" },
+            "translations": [
+                {
+                    "t9nScheme": "saeon/datacite4",
+                    "t9nTarget": "/subjects",
+                    "t9nArray": {
+                        "t9nObject": {
+                            "subject": {}
+                        }
+                    }
+                }
+            ]
+        },
+        "date_range": {
+            "type": "object",
+            "translations": [
+                {
+                    "t9nScheme": "saeon/datacite4",
+                    "t9nTarget": "/dates",
+                    "t9nArray": {
+                        "t9nObject": {
+                            "date": { "t9nConcat": ["0/start_date", "0/end_date"], "t9nSep": "/" },
+                            "dateType": { "t9nConst": "Valid" }
+                        }
+                    }
+                }
+            ]
+        },
+        "bounding_box": {
+            "type": "object",
+            "translations": [
+                {
+                    "t9nScheme": "saeon/datacite4",
+                    "t9nTarget": "/geoLocations",
+                    "t9nArray": {
+                        "t9nObject": {
+                            "geoLocationBox": {
+                                "t9nObject": {
+                                    "westBoundLongitude": { "t9nSource": "0/west_bound_longitude" },
+                                    "eastBoundLongitude": { "t9nSource": "0/east_bound_longitude" },
+                                    "southBoundLatitude": { "t9nSource": "0/south_bound_latitude" },
+                                    "northBoundLatitude": { "t9nSource": "0/north_bound_latitude" }
+                                }
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "licence": {
+            "type": "object",
+            "translations": [
+                {
+                    "t9nScheme": "saeon/datacite4",
+                    "t9nTarget": "/rightsList",
+                    "t9nArray": {
+                        "t9nObject": {
+                            "rights": { "t9nSource": "0/license" },
+                            "rightsURI": { "t9nConst": "https://creativecommons.org/licenses/by-sa/4.0/" }
+                        }
+                    }
+                }
+            ]
+        },
+        "related_identifiers": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "translations": [
+                    {
+                        "t9nScheme": "saeon/datacite4",
+                        "t9nTarget": "/relatedIdentifiers",
+                        "t9nArray": {
+                            "t9nObject": {
+                                "relatedIdentifier": { "t9nSource": "0/related_identifier" },
+                                "relatedIdentifierType": { "t9nConst": "URL" },
+                                "relationType": { "t9nSource": "0/relationship_type" }
+                            }
+                        }
+                    }
+                ]
+            }
+        }
+    }
+}
