@@ -374,7 +374,7 @@
                     "minimum": -180,
                     "maximum": 180
                   },
-                  "eastBoundCoordinate": {
+                  "eastBoundingCoordinate": {
                     "type": "number",
                     "minimum": -180,
                     "maximum": 180
@@ -947,7 +947,7 @@
       },
       "additionalProperties": false
     },
-    "languages": {
+    "language": {
       "type": "array",
       "items": {
         "type": "string"
@@ -1504,16 +1504,19 @@
               }
             ]
           },
-          "rightsURI": {
+          "url": {
             "type": "string"
           },
-          "rights": {
+          "licenseName": {
+            "type": "string"
+          },
+          "identifier": {
             "type": "string"
           }
         },
         "required": [
-          "rightsURI",
-          "rights"
+          "url",
+          "licenseName"
         ],
         "additionalProperties": false
       },
@@ -1526,10 +1529,10 @@
           "t9nArray": {
             "t9nObject": {
               "rights": {
-                "t9nSource": "0/rights"
+                "t9nSource": "0/licenseName"
               },
               "rightsURI": {
-                "t9nSource": "0/rightsURI"
+                "t9nSource": "0/url"
               }
             }
           }
@@ -1586,7 +1589,7 @@
     "pubDate",
     "responsibleParties",
     "coverage",
-    "languages",
+    "language",
     "characterSet",
     "topicCategories",
     "spatialResolution",

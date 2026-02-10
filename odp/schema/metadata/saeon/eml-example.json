@@ -11,7 +11,7 @@
         }
     ],
     "methods": "Water samples were collected monthly and analysed in accredited laboratories following SAEON protocols.",
-    "pubDate": "2026-02-07",
+    "pubDate": "2026-02-09",
     "purpose": "To support freshwater ecosystem monitoring and long-term environmental change detection.",
     "abstract": "This dataset contains surface water quality measurements collected from monitoring stations in the Olifants River Catchment.",
     "coverage": {
@@ -57,24 +57,25 @@
         },
         "geographicCoverage": [
             {
-                "boundingBox": {
-                    "eastBoundLongitude": 31.5,
-                    "northBoundLatitude": -23.0,
-                    "southBoundLatitude": -25.5,
-                    "westBoundLongitude": 29.0
+                "boundingCoordinates": {
+                    "eastBoundingCoordinate": 31.5,
+                    "westBoundingCoordinate": 29.0,
+                    "northBoundingCoordinate": -23.0,
+                    "southBoundingCoordinate": -25.5
                 },
-                "geographicIdentifier": "Olifants River Catchment, South Africa"
+                "geographicDescription": "Olifants River Catchment, South Africa"
             }
         ]
     },
-    "languages": [
+    "language": [
         "en"
     ],
     "packageId": "10.15493/DEA.MIMS.94556210",
     "constraints": [
         {
-            "rights": "Creative Commons Attribution 4.0 International",
-            "rightsURI": "https://creativecommons.org/licenses/by/4.0/",
+            "url": "https://creativecommons.org/licenses/by/4.0/",
+            "identifier": "CC-BY-4.0",
+            "licenseName": "Creative Commons Attribution 4.0 International",
             "useConstraints": [
                 "license"
             ]
