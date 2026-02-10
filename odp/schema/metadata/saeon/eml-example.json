@@ -1,104 +1,143 @@
 {
-    "id": "10.5678/UCT.SOPH.2024",
-    "doi": "10.15493/SAEON.PUB.22903027",
-    "title": [
+    "doi": "10.15493/DEA.MIMS.94556210",
+    "scope": "dataset",
+    "status": [
+        "completed"
+    ],
+    "titles": [
         {
             "lang": "en",
-            "value": "Southern Ocean Surface pH and Temperature Observations – 2024"
+            "value": "Second sea Water Quality Measurements for the Olifants River Catchment"
         }
     ],
-    "methods": [
-        {
-            "sampling": [
+    "methods": "Water samples were collected monthly and analysed in accredited laboratories following SAEON protocols.",
+    "pubDate": "2026-02-07",
+    "purpose": "To support freshwater ecosystem monitoring and long-term environmental change detection.",
+    "abstract": "This dataset contains surface water quality measurements collected from monitoring stations in the Olifants River Catchment.",
+    "coverage": {
+        "temporalCoverage": {
+            "rangeOfDates": {
+                "endDate": "2024-12-31T17:00:00+02:00",
+                "beginDate": "2023-01-15T08:00:00+02:00"
+            }
+        },
+        "verticalCoverage": {
+            "maximumValue": 1200,
+            "minimumValue": 0,
+            "unitOfMeasure": "m",
+            "verticalDatum": "MSL"
+        },
+        "taxonomicCoverage": {
+            "taxonomicSystem": {
+                "vouchers": {
+                    "specimen": "VoucherSpecimen123",
+                    "repository": {
+                        "originator": "SAEON National Zoological Collection"
+                    }
+                },
+                "identifierName": "WoRMS AphiaID",
+                "taxonomicProcedures": "Morphological identification using regional keys",
+                "classificationSystem": "WoRMS",
+                "taxonomicCompleteness": "Complete for sampled taxa",
+                "identificationReference": "https://www.marinespecies.org",
+                "classificationSystemCitation": "World Register of Marine Species",
+                "classificationSystemModifications": "None"
+            },
+            "taxonomicClassification": [
                 {
-                    "citation": [
-                        "No external citations used for sampling methods."
-                    ],
-                    "studyExtent": [
-                        "Southern Ocean (lat: -40.0 to -60.0, lon: 10.0 to 30.0)"
-                    ],
-                    "samplingDescription": [
-                        "Water samples collected from a CTD rosette bottle cast."
-                    ],
-                    "spatialSamplingUnits": [
-                        "Discrete water bottles spaced at 10-meter intervals."
-                    ]
+                    "taxonId": "urn:lsid:marinespecies.org:taxname:1263",
+                    "commonName": "Mayflies",
+                    "taxonRankName": "Family",
+                    "taxonRankValue": "Baetidae"
                 }
             ],
-            "methodStep": [
-                "pH measured using spectrophotometric methods with m-cresol purple indicator."
-            ],
-            "qualityControl": [
-                "All equipment calibrated prior to cruise. Data verified against adjacent stations."
+            "generalTaxonomicCoverage": [
+                "Freshwater macroinvertebrates"
             ]
-        }
-    ],
-    "pubDate": "2024-09-30",
-    "purpose": {
-        "para": [
-            "Track temporal changes in pH and sea surface temperature to evaluate Southern Ocean acidification rates."
+        },
+        "geographicCoverage": [
+            {
+                "boundingBox": {
+                    "eastBoundLongitude": 31.5,
+                    "northBoundLatitude": -23.0,
+                    "southBoundLatitude": -25.5,
+                    "westBoundLongitude": 29.0
+                },
+                "geographicIdentifier": "Olifants River Catchment, South Africa"
+            }
         ]
     },
-    "abstract": "Surface pH, temperature, and salinity measurements collected during a research cruise in the Southern Ocean in 2024 to monitor ocean acidification.",
-    "coverage": [
-        {
-            "temporalCoverage": {
-                "rangeOfDates": {
-                    "endDate": "2024-07-20",
-                    "beginDate": "2024-07-01"
-                }
-            }
-        }
+    "languages": [
+        "en"
     ],
-    "language": "en",
-    "dateStamp": "2024-09-30T00:00:00+00:00",
-    "onlineUrl": [
-        "https://data.uct.ac.za/southernocean_pH2024"
-    ],
-    "dataFormat": [
+    "packageId": "10.15493/DEA.MIMS.94556210",
+    "constraints": [
         {
-            "formatName": "netCDF"
-        }
-    ],
-    "keywordSet": [
-        {
-            "keyword": [
-                "Southern Ocean",
-                "pH",
-                "temperature",
-                "salinity",
-                "ocean acidification"
+            "rights": "Creative Commons Attribution 4.0 International",
+            "rightsURI": "https://creativecommons.org/licenses/by/4.0/",
+            "useConstraints": [
+                "license"
             ]
         }
     ],
+    "characterSet": "utf8",
+    "onlineResources": [
+        {
+            "name": "Dataset download",
+            "linkage": "https://odp.saeon.ac.za/dataset/001/download",
+            "description": "download",
+            "applicationProfile": "CSV"
+        },
+        {
+            "name": "Dataset information",
+            "linkage": "https://odp.saeon.ac.za/dataset/001",
+            "description": "information"
+        }
+    ],
+    "topicCategories": [
+        "environment",
+        "inlandWaters"
+    ],
     "metadataLanguage": "en",
-    "metadataProvider": [
+    "metadataTimestamp": "2026-01-23T10:00:00Z",
+    "spatialResolution": "30 m",
+    "responsibleParties": [
         {
-            "organizationName": "University of Cape Town"
+            "role": "originator",
+            "contactInfo": "jane.smith@saeon.ac.za",
+            "positionName": "Research Scientist",
+            "individualName": "Jane Smith",
+            "onlineResource": {
+                "linkage": "https://orcid.org/0000-0002-1825-0097"
+            },
+            "organizationName": "SAEON"
+        },
+        {
+            "role": "pointOfContact",
+            "contactInfo": "david.mokoena@saeon.ac.za",
+            "positionName": "Data Manager",
+            "individualName": "David Mokoena",
+            "organizationName": "SAEON"
+        },
+        {
+            "role": "publisher",
+            "organizationName": "South African Environmental Observation Network"
         }
     ],
-    "responsibleParty": [
+    "distributionFormats": [
         {
-            "role": "processor",
-            "positionName": "Marine Technician",
-            "individualName": "Thabo Maseko",
-            "organizationName": "University of Cape Town"
+            "formatName": "CSV",
+            "formatVersion": "1.0"
         }
     ],
-    "spatialReference": {
-        "geogCoordSys": "WGS 84"
+    "referenceSystemName": {
+        "version": "8.9",
+        "codeSpace": "EPSG:4326"
     },
-    "characterEncoding": "utf8",
-    "geographicCoverage": {
-        "boundingCoordinates": {
-            "eastBoundingCoordinate": 30.0,
-            "westBoundingCoordinate": 10.0,
-            "northBoundingCoordinate": -40.0,
-            "southBoundingCoordinate": -60.0
-        }
-    },
-    "intellectualRights": {
-        "licensed": "CC BY-SA 4.0",
-        "licenseName": "Attribution-ShareAlike 4.0 International"
-    }
+    "metadataCharacterSet": "utf8",
+    "metadataStandardName": "EML",
+    "metadataStandardVersion": "EML 2026 - SAEON Profile",
+    "spatialRepresentationTypes": [
+        "vector"
+    ]
 }

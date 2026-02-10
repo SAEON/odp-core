@@ -60,7 +60,7 @@
         }
       ]
     },
-    "date": {
+    "pubDate": {
       "type": "string",
       "format": "date",
       "translations": [
@@ -284,14 +284,15 @@
         ]
       }
     },
-    "extent": {
+    "coverage": {
       "type": "object",
       "required": [
-        "geographicElements",
-        "temporalElement"
+        "geographicCoverage",
+        "temporalCoverage",
+        "taxonomicCoverage"
       ],
       "properties": {
-        "geographicElements": {
+        "geographicCoverage": {
           "$comment": "Array of geographic elements",
           "type": "array",
           "minItems": 1,
@@ -302,12 +303,12 @@
             "anyOf": [
               {
                 "required": [
-                  "geographicIdentifier"
+                  "geographicDescription"
                 ]
               },
               {
                 "required": [
-                  "boundingBox"
+                  "boundingCoordinates"
                 ]
               }
             ],
@@ -358,32 +359,32 @@
                   "additionalProperties": false
                 }
               },
-              "boundingBox": {
+              "boundingCoordinates": {
                 "$comment": "Bounding box: approximate geographic position of dataset",
                 "type": "object",
                 "required": [
-                  "westBoundLongitude",
-                  "eastBoundLongitude",
-                  "southBoundLatitude",
-                  "northBoundLatitude"
+                  "westBoundingCoordinate",
+                  "eastBoundingCoordinate",
+                  "southBoundingCoordinate",
+                  "northBoundingCoordinate"
                 ],
                 "properties": {
-                  "westBoundLongitude": {
+                  "westBoundingCoordinate": {
                     "type": "number",
                     "minimum": -180,
                     "maximum": 180
                   },
-                  "eastBoundLongitude": {
+                  "eastBoundCoordinate": {
                     "type": "number",
                     "minimum": -180,
                     "maximum": 180
                   },
-                  "southBoundLatitude": {
+                  "southBoundingCoordinate": {
                     "type": "number",
                     "minimum": -90,
                     "maximum": 90
                   },
-                  "northBoundLatitude": {
+                  "northBoundingCoordinate": {
                     "type": "number",
                     "minimum": -90,
                     "maximum": 90
@@ -391,7 +392,7 @@
                 },
                 "additionalProperties": false
               },
-              "geographicIdentifier": {
+              "geographicDescription": {
                 "type": "string"
               }
             },
@@ -404,21 +405,21 @@
               "t9nArray": {
                 "t9nObject": {
                   "geoLocationPlace": {
-                    "t9nSource": "0/geographicIdentifier"
+                    "t9nSource": "0/geographicDescription"
                   },
                   "geoLocationBox": {
                     "t9nObject": {
-                      "westBoundLongitude": {
-                        "t9nSource": "0/boundingBox/westBoundLongitude"
+                      "westBoundingCoordinate": {
+                        "t9nSource": "0/boundingCoordinates/westBoundingCoordinate"
                       },
-                      "eastBoundLongitude": {
-                        "t9nSource": "0/boundingBox/eastBoundLongitude"
+                      "eastBoundingCoordinate": {
+                        "t9nSource": "0/boundingCoordinates/eastBoundingCoordinate"
                       },
-                      "southBoundLatitude": {
-                        "t9nSource": "0/boundingBox/southBoundLatitude"
+                      "southBoundingCoordinate": {
+                        "t9nSource": "0/boundingCoordinates/southBoundingCoordinate"
                       },
-                      "northBoundLatitude": {
-                        "t9nSource": "0/boundingBox/northBoundLatitude"
+                      "northBoundingCoordinate": {
+                        "t9nSource": "0/boundingCoordinates/northBoundingCoordinate"
                       }
                     }
                   },
@@ -447,7 +448,7 @@
             }
           ]
         },
-        "verticalElement": {
+        "verticalCoverage": {
           "type": "object",
           "required": [
             "minimumValue",
@@ -531,33 +532,84 @@
           },
           "additionalProperties": false
         },
-        "temporalElement": {
+        "temporalCoverage": {
           "type": "object",
-          "required": [
-            "startTime",
-            "endTime"
-          ],
           "properties": {
-            "startTime": {
-              "type": "string",
-              "format": "datetime"
+            "rangeOfDates": {
+              "type": "object",
+              "properties": {
+                "beginDate": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    {
+                      "type": "string",
+                      "format": "date"
+                    }
+                  ]
+                },
+                "endDate": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    {
+                      "type": "string",
+                      "format": "date"
+                    }
+                  ]
+                }
+              },
+              "required": [
+                "beginDate",
+                "endDate"
+              ],
+              "additionalProperties": false
             },
-            "endTime": {
-              "type": "string",
-              "format": "datetime"
+            "singleDate": {
+              "oneOf": [
+                {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                {
+                  "type": "string",
+                  "format": "date"
+                }
+              ]
             }
           },
+          "anyOf": [
+            {
+              "required": [
+                "rangeOfDates"
+              ]
+            },
+            {
+              "required": [
+                "singleDate"
+              ]
+            }
+          ],
           "additionalProperties": false,
           "translations": [
             {
               "t9nScheme": "saeon/datacite4",
               "t9nTarget": "/dates",
+              "t9nCondition": {
+                "required": [
+                  "rangeOfDates"
+                ]
+              },
               "t9nArray": {
                 "t9nObject": {
                   "date": {
                     "t9nConcat": [
-                      "0/startTime",
-                      "0/endTime"
+                      "0/rangeOfDates/beginDate",
+                      "0/rangeOfDates/endDate"
                     ],
                     "t9nSep": "/"
                   },
@@ -566,7 +618,330 @@
                   }
                 }
               }
+            },
+            {
+              "t9nScheme": "saeon/datacite4",
+              "t9nTarget": "/dates",
+              "t9nCondition": {
+                "required": [
+                  "singleDate"
+                ]
+              },
+              "t9nArray": {
+                "t9nObject": {
+                  "date": {
+                    "t9nSource": "0/singleDate"
+                  },
+                  "dateType": {
+                    "t9nConst": "Collected"
+                  }
+                }
+              }
             }
+          ]
+        },
+        "taxonomicCoverage": {
+          "type": "object",
+          "properties": {
+            "generalTaxonomicCoverage": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "translations": [
+                {
+                  "t9nScheme": "saeon/datacite4",
+                  "t9nTarget": "/subjects",
+                  "t9nArray": {
+                    "t9nObject": {
+                      "subject": {
+                        "t9nSource": "0"
+                      },
+                      "subjectScheme": {
+                        "t9nConst": "SAEON Taxonomic Scope"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            "taxonomicClassification": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "taxonRankName": {
+                    "type": "string",
+                    "translations": [
+                      {
+                        "t9nScheme": "saeon/datacite4",
+                        "t9nTarget": "/subjects",
+                        "t9nArray": {
+                          "t9nObject": {
+                            "subject": {
+                              "t9nSource": "0"
+                            },
+                            "subjectScheme": {
+                              "t9nConst": "SAEON Taxonomic Scope"
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "taxonRankValue": {
+                    "type": "string",
+                    "translations": [
+                      {
+                        "t9nScheme": "saeon/datacite4",
+                        "t9nTarget": "/subjects",
+                        "t9nArray": {
+                          "t9nObject": {
+                            "subject": {
+                              "t9nSource": "0"
+                            },
+                            "subjectScheme": {
+                              "t9nConst": "SAEON Taxonomic Scope"
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "taxonId": {
+                    "type": "string",
+                    "translations": [
+                      {
+                        "t9nScheme": "saeon/datacite4",
+                        "t9nTarget": "/subjects",
+                        "t9nArray": {
+                          "t9nObject": {
+                            "subject": {
+                              "t9nSource": "0"
+                            },
+                            "subjectScheme": {
+                              "t9nConst": "SAEON Taxonomic Scope"
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "commonName": {
+                    "type": "string",
+                    "translations": [
+                      {
+                        "t9nScheme": "saeon/datacite4",
+                        "t9nTarget": "/subjects",
+                        "t9nArray": {
+                          "t9nObject": {
+                            "subject": {
+                              "t9nSource": "0"
+                            },
+                            "subjectScheme": {
+                              "t9nConst": "SAEON Taxonomic Scope"
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                "required": [
+                  "taxonRankName"
+                ]
+              }
+            },
+            "taxonomicSystem": {
+              "type": "object",
+              "properties": {
+                "classificationSystem": {
+                  "type": "string",
+                  "translations": [
+                    {
+                      "t9nScheme": "saeon/datacite4",
+                      "t9nTarget": "/subjects",
+                      "t9nArray": {
+                        "t9nObject": {
+                          "subject": {
+                            "t9nSource": "0"
+                          },
+                          "subjectScheme": {
+                            "t9nConst": "SAEON Taxonomic Scope"
+                          }
+                        }
+                      }
+                    }
+                  ]
+                },
+                "classificationSystemCitation": {
+                  "type": "string",
+                  "translations": [
+                    {
+                      "t9nScheme": "saeon/datacite4",
+                      "t9nTarget": "/subjects",
+                      "t9nArray": {
+                        "t9nObject": {
+                          "subject": {
+                            "t9nSource": "0"
+                          },
+                          "subjectScheme": {
+                            "t9nConst": "SAEON Taxonomic Scope"
+                          }
+                        }
+                      }
+                    }
+                  ]
+                },
+                "classificationSystemModifications": {
+                  "type": "string",
+                  "translations": [
+                    {
+                      "t9nScheme": "saeon/datacite4",
+                      "t9nTarget": "/subjects",
+                      "t9nArray": {
+                        "t9nObject": {
+                          "subject": {
+                            "t9nSource": "0"
+                          },
+                          "subjectScheme": {
+                            "t9nConst": "SAEON Taxonomic Scope"
+                          }
+                        }
+                      }
+                    }
+                  ]
+                },
+                "identificationReference": {
+                  "type": "string",
+                  "translations": [
+                    {
+                      "t9nScheme": "saeon/datacite4",
+                      "t9nTarget": "/subjects",
+                      "t9nArray": {
+                        "t9nObject": {
+                          "subject": {
+                            "t9nSource": "0"
+                          },
+                          "subjectScheme": {
+                            "t9nConst": "SAEON Taxonomic Scope"
+                          }
+                        }
+                      }
+                    }
+                  ]
+                },
+                "identifierName": {
+                  "type": "string",
+                  "translations": [
+                    {
+                      "t9nScheme": "saeon/datacite4",
+                      "t9nTarget": "/subjects",
+                      "t9nArray": {
+                        "t9nObject": {
+                          "subject": {
+                            "t9nSource": "0"
+                          },
+                          "subjectScheme": {
+                            "t9nConst": "SAEON Taxonomic Scope"
+                          }
+                        }
+                      }
+                    }
+                  ]
+                },
+                "taxonomicCompleteness": {
+                  "type": "string",
+                  "translations": [
+                    {
+                      "t9nScheme": "saeon/datacite4",
+                      "t9nTarget": "/subjects",
+                      "t9nArray": {
+                        "t9nObject": {
+                          "subject": {
+                            "t9nSource": "0"
+                          },
+                          "subjectScheme": {
+                            "t9nConst": "SAEON Taxonomic Scope"
+                          }
+                        }
+                      }
+                    }
+                  ]
+                },
+                "taxonomicProcedures": {
+                  "type": "string",
+                  "translations": [
+                    {
+                      "t9nScheme": "saeon/datacite4",
+                      "t9nTarget": "/subjects",
+                      "t9nArray": {
+                        "t9nObject": {
+                          "subject": {
+                            "t9nSource": "0"
+                          },
+                          "subjectScheme": {
+                            "t9nConst": "SAEON Taxonomic Scope"
+                          }
+                        }
+                      }
+                    }
+                  ]
+                },
+                "vouchers": {
+                  "type": "object",
+                  "properties": {
+                    "repository": {
+                      "type": "object",
+                      "properties": {
+                        "originator": {
+                          "type": "string",
+                          "translations": [
+                            {
+                              "t9nScheme": "saeon/datacite4",
+                              "t9nTarget": "/subjects",
+                              "t9nArray": {
+                                "t9nObject": {
+                                  "subject": {
+                                    "t9nSource": "0"
+                                  },
+                                  "subjectScheme": {
+                                    "t9nConst": "SAEON Taxonomic Scope"
+                                  }
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    "specimen": {
+                      "type": "string",
+                      "translations": [
+                        {
+                          "t9nScheme": "saeon/datacite4",
+                          "t9nTarget": "/subjects",
+                          "t9nArray": {
+                            "t9nObject": {
+                              "subject": {
+                                "t9nSource": "0"
+                              },
+                              "subjectScheme": {
+                                "t9nConst": "SAEON Taxonomic Scope"
+                              }
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "required": [
+            "generalTaxonomicCoverage",
+            "taxonomicClassification"
           ]
         }
       },
@@ -715,7 +1090,7 @@
         }
       ]
     },
-    "lineageStatement": {
+    "methods": {
       "type": "string",
       "translations": [
         {
@@ -881,7 +1256,7 @@
       "minItems": 1,
       "uniqueItems": true
     },
-    "fileIdentifier": {
+    "packageId": {
       "type": "string",
       "translations": [
         {
@@ -891,7 +1266,7 @@
             "t9nObject": {
               "identifier": {},
               "identifierType": {
-                "t9nConst": "AccessionID"
+                "t9nConst": "DOI"
               }
             }
           }
@@ -1208,9 +1583,9 @@
   "additionalProperties": false,
   "required": [
     "titles",
-    "date",
+    "pubDate",
     "responsibleParties",
-    "extent",
+    "coverage",
     "languages",
     "characterSet",
     "topicCategories",
@@ -1219,9 +1594,9 @@
     "distributionFormats",
     "spatialRepresentationTypes",
     "referenceSystemName",
-    "lineageStatement",
+    "methods",
     "onlineResources",
-    "fileIdentifier",
+    "packageId",
     "metadataStandardName",
     "metadataStandardVersion",
     "metadataLanguage",
@@ -1233,6 +1608,33 @@
     "constraints"
   ],
   "$defs": {
+    "dateChoice": {
+      "type": "object",
+      "oneOf": [
+        {
+          "required": [
+            "calendarDate"
+          ],
+          "properties": {
+            "calendarDate": {
+              "type": "string",
+              "format": "date"
+            }
+          }
+        },
+        {
+          "required": [
+            "dateTime"
+          ],
+          "properties": {
+            "dateTime": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        }
+      ]
+    },
     "responsiblePartyRole": {
       "type": "string",
       "enum": [
