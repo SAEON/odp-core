@@ -49,6 +49,6 @@ class IdentityCommand(DBEnum):
 
 
 class SubmissionStatus(DBEnum):
-    editing = 'editing'
+    in_progress = 'in_progress'
     submitted = 'submitted'
     accepted = 'accepted'

@@ -82,6 +82,7 @@ class ODPRecordTag(str, Enum):
 class ODPMetadataSchema(str, Enum):
     SAEON_DATACITE4 = 'SAEON.DataCite4'
     SAEON_ISO19115 = 'SAEON.ISO19115'
+    SAEON_DATA_SUBMISSION = 'SAEON.DataSubmission'
     DATACITE_4_3 = 'DataCite.4.3'
     SCHEMAORG_DATASET = 'SchemaOrg.Dataset'
     RIS_CITATION = 'RIS.Citation'
