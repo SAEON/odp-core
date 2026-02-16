@@ -7,13 +7,7 @@
             "t9nScheme": "saeon/datacite4",
             "t9nTarget": "",
             "t9nConst": {
-                "schemaVersion": "http://datacite.org/schema/kernel-4",
-                "publisher": "SAEON",
-                "publicationYear": 2026,
-                "types": {
-                    "resourceType": "Dataset",
-                    "resourceTypeGeneral": "Dataset"
-                }
+                "schemaVersion": "http://datacite.org/schema/kernel-4"
             }
         }
     ],
@@ -24,10 +18,38 @@
                 {
                     "t9nScheme": "saeon/datacite4",
                     "t9nTarget": "/titles",
-                    "t9nArray": {
-                        "t9nObject": {
-                            "title": {}
-                        }
+                    "t9nArray": { "t9nObject": { "title": {} } }
+                }
+            ]
+        },
+        "publisher": {
+            "type": "string",
+            "translations": [
+                {
+                    "t9nScheme": "saeon/datacite4",
+                    "t9nTarget": "/publisher"
+                }
+            ]
+        },
+        "publication_year": {
+            "type": "string",
+            "translations": [
+                {
+                    "t9nScheme": "saeon/datacite4",
+                    "t9nTarget": "/publicationYear",
+                    "t9nCast": "integer"
+                }
+            ]
+        },
+        "resource_type": {
+            "type": "string",
+            "translations": [
+                {
+                    "t9nScheme": "saeon/datacite4",
+                    "t9nTarget": "/types",
+                    "t9nObject": {
+                        "resourceType": {},
+                        "resourceTypeGeneral": { "t9nConst": "Dataset" }
                     }
                 }
             ]
@@ -72,10 +94,11 @@
                         "t9nTarget": "/creators",
                         "t9nArray": {
                             "t9nObject": {
-                                "name": { "t9nConcat": ["0/surname", "0/name"], "t9nSep": ", " },
-                                "familyName": { "t9nSource": "0/surname" },
-                                "givenName": { "t9nSource": "0/name" },
+                                "name": { "t9nConcat": ["0/last_name", "0/first_name"], "t9nSep": ", " },
+                                "familyName": { "t9nSource": "0/last_name" },
+                                "givenName": { "t9nSource": "0/first_name" },
                                 "nameIdentifiers": {
+                                    "t9nCondition": { "required": ["orcid"] },
                                     "t9nArray": {
                                         "t9nObject": {
                                             "nameIdentifier": { "t9nSource": "0/orcid" },
@@ -87,7 +110,10 @@
                                 "affiliation": {
                                     "t9nArray": {
                                         "t9nObject": {
-                                            "affiliation": { "t9nSource": "0/affiliation" }
+                                            "affiliation": { "t9nSource": "0/affiliation" },
+                                            "affiliationIdentifier": { "t9nSource": "0/ror" },
+                                            "affiliationIdentifierScheme": { "t9nConst": "ROR" },
+                                            "schemeURI": { "t9nConst": "https://ror.org" }
                                         }
                                     }
                                 }
@@ -97,7 +123,47 @@
                 ]
             }
         },
-        "keywords": {
+        "contributors": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "translations": [
+                    {
+                        "t9nScheme": "saeon/datacite4",
+                        "t9nTarget": "/contributors",
+                        "t9nArray": {
+                            "t9nObject": {
+                                "name": { "t9nConcat": ["0/last_name", "0/first_name"], "t9nSep": ", " },
+                                "contributorType": { "t9nSource": "0/contributor_type" },
+                                "familyName": { "t9nSource": "0/last_name" },
+                                "givenName": { "t9nSource": "0/first_name" },
+                                "affiliation": {
+                                    "t9nArray": {
+                                        "t9nObject": { "affiliation": { "t9nSource": "0/affiliation" } }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        "earth_science_theme_keyword": {
+            "type": "string",
+            "translations": [
+                {
+                    "t9nScheme": "saeon/datacite4",
+                    "t9nTarget": "/subjects",
+                    "t9nArray": {
+                        "t9nObject": {
+                            "subject": {},
+                            "subjectScheme": { "t9nConst": "GCMD Earth Science Theme" }
+                        }
+                    }
+                }
+            ]
+        },
+        "ecv_keywords": {
             "type": "array",
             "items": { "type": "string" },
             "translations": [
@@ -106,9 +172,37 @@
                     "t9nTarget": "/subjects",
                     "t9nArray": {
                         "t9nObject": {
-                            "subject": {}
+                            "subject": {},
+                            "subjectScheme": { "t9nConst": "Essential Climate Variable (ECV)" }
                         }
                     }
+                }
+            ]
+        },
+        "eov_keywords": {
+            "type": "array",
+            "items": { "type": "string" },
+            "translations": [
+                {
+                    "t9nScheme": "saeon/datacite4",
+                    "t9nTarget": "/subjects",
+                    "t9nArray": {
+                        "t9nObject": {
+                            "subject": {},
+                            "subjectScheme": { "t9nConst": "Essential Ocean Variable (EOV)" }
+                        }
+                    }
+                }
+            ]
+        },
+        "keywords": {
+            "type": "array",
+            "items": { "type": "string" },
+            "translations": [
+                {
+                    "t9nScheme": "saeon/datacite4",
+                    "t9nTarget": "/subjects",
+                    "t9nArray": { "t9nObject": { "subject": {} } }
                 }
             ]
         },
@@ -157,7 +251,12 @@
                     "t9nArray": {
                         "t9nObject": {
                             "rights": { "t9nSource": "0/license" },
-                            "rightsURI": { "t9nConst": "https://creativecommons.org/licenses/by-sa/4.0/" }
+                            "rightsURI": {
+                                "t9nSource": "0/license",
+                                "t9nFilter": {
+                                    "Attribution - ShareAlike 4.0 International(CC BY - SA 4.0)": "https://creativecommons.org/licenses/by-sa/4.0/"
+                                }
+                            }
                         }
                     }
                 }
