@@ -394,6 +394,176 @@
               },
               "geographicDescription": {
                 "type": "string"
+              },
+              "boundingAltitudes": {
+                "type": "object",
+                "required": [
+                  "altitudeMinimum",
+                  "altitudeMaximum",
+                  "altitudeUnits"
+                ],
+                "properties": {
+                  "altitudeMinimum": {
+                    "type": "number",
+                    "translations": [
+                      {
+                        "t9nScheme": "saeon/datacite4",
+                        "t9nTarget": "/subjects",
+                        "t9nArray": {
+                          "t9nObject": {
+                            "subject": {
+                              "t9nCast": "string"
+                            },
+                            "subjectScheme": {
+                              "t9nConst": "SANS1878 Vertical Extent: altitudeMinimum"
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "altitudeMaximum": {
+                    "type": "number",
+                    "translations": [
+                      {
+                        "t9nScheme": "saeon/datacite4",
+                        "t9nTarget": "/subjects",
+                        "t9nArray": {
+                          "t9nObject": {
+                            "subject": {
+                              "t9nCast": "string"
+                            },
+                            "subjectScheme": {
+                              "t9nConst": "SANS1878 Vertical Extent: altitudeMaximum"
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "altitudeUnits": {
+                    "type": "string",
+                    "translations": [
+                      {
+                        "t9nScheme": "saeon/datacite4",
+                        "t9nTarget": "/subjects",
+                        "t9nArray": {
+                          "t9nObject": {
+                            "subject": {},
+                            "subjectScheme": {
+                              "t9nConst": "SANS1878 Vertical Extent: altitudeUnits"
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "spatialReference": {
+            "type": "object",
+            "properties": {
+              "horizCoordSysName": {
+                "type": "string",
+                "translations": [
+                  {
+                    "t9nScheme": "saeon/datacite4",
+                    "t9nTarget": "/subjects",
+                    "t9nArray": {
+                      "t9nObject": {
+                        "subject": {},
+                        "subjectScheme": {
+                          "t9nConst": "SANS1878 Spatial Reference: horizCoordSysName"
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              "vertCoordSys": {
+                "type": "object",
+                "properties": {
+                  "altitudeSystemDefinition": {
+                    "type": "object",
+                    "properties": {
+                      "altitudeDatumName": {
+                        "type": "string",
+                        "translations": [
+                          {
+                            "t9nScheme": "saeon/datacite4",
+                            "t9nTarget": "/subjects",
+                            "t9nArray": {
+                              "t9nObject": {
+                                "subject": {},
+                                "subjectScheme": {
+                                  "t9nConst": "SANS1878 Vertical Extent: altitudeDatum"
+                                }
+                              }
+                            }
+                          }
+                        ]
+                      },
+                      "altitudeDistanceUnits": {
+                        "type": "string",
+                        "translations": [
+                          {
+                            "t9nScheme": "saeon/datacite4",
+                            "t9nTarget": "/subjects",
+                            "t9nArray": {
+                              "t9nObject": {
+                                "subject": {},
+                                "subjectScheme": {
+                                  "t9nConst": "SANS1878 Vertical Extent: altitudeDistanceUnits"
+                                }
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  "depthSystemDefinition": {
+                    "type": "object",
+                    "properties": {
+                      "depthDatumName": {
+                        "type": "string",
+                        "translations": [
+                          {
+                            "t9nScheme": "saeon/datacite4",
+                            "t9nTarget": "/subjects",
+                            "t9nArray": {
+                              "t9nObject": {
+                                "subject": {},
+                                "subjectScheme": {
+                                  "t9nConst": "SANS1878 Vertical Extent: depthDatum"
+                                }
+                              }
+                            }
+                          }
+                        ]
+                      },
+                      "depthDistanceUnits": {
+                        "type": "string",
+                        "translations": [
+                          {
+                            "t9nScheme": "saeon/datacite4",
+                            "t9nTarget": "/subjects",
+                            "t9nArray": {
+                              "t9nObject": {
+                                "subject": {},
+                                "subjectScheme": {
+                                  "t9nConst": "SANS1878 Vertical Extent: depthDistanceUnits"
+                                }
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
               }
             },
             "additionalProperties": false
@@ -447,90 +617,6 @@
               }
             }
           ]
-        },
-        "verticalCoverage": {
-          "type": "object",
-          "required": [
-            "minimumValue",
-            "maximumValue",
-            "unitOfMeasure",
-            "verticalDatum"
-          ],
-          "properties": {
-            "minimumValue": {
-              "type": "number",
-              "translations": [
-                {
-                  "t9nScheme": "saeon/datacite4",
-                  "t9nTarget": "/subjects",
-                  "t9nArray": {
-                    "t9nObject": {
-                      "subject": {
-                        "t9nCast": "string"
-                      },
-                      "subjectScheme": {
-                        "t9nConst": "SANS1878 Vertical Extent: minimumValue"
-                      }
-                    }
-                  }
-                }
-              ]
-            },
-            "maximumValue": {
-              "type": "number",
-              "translations": [
-                {
-                  "t9nScheme": "saeon/datacite4",
-                  "t9nTarget": "/subjects",
-                  "t9nArray": {
-                    "t9nObject": {
-                      "subject": {
-                        "t9nCast": "string"
-                      },
-                      "subjectScheme": {
-                        "t9nConst": "SANS1878 Vertical Extent: maximumValue"
-                      }
-                    }
-                  }
-                }
-              ]
-            },
-            "unitOfMeasure": {
-              "type": "string",
-              "translations": [
-                {
-                  "t9nScheme": "saeon/datacite4",
-                  "t9nTarget": "/subjects",
-                  "t9nArray": {
-                    "t9nObject": {
-                      "subject": {},
-                      "subjectScheme": {
-                        "t9nConst": "SANS1878 Vertical Extent: unitOfMeasure"
-                      }
-                    }
-                  }
-                }
-              ]
-            },
-            "verticalDatum": {
-              "type": "string",
-              "translations": [
-                {
-                  "t9nScheme": "saeon/datacite4",
-                  "t9nTarget": "/subjects",
-                  "t9nArray": {
-                    "t9nObject": {
-                      "subject": {},
-                      "subjectScheme": {
-                        "t9nConst": "SANS1878 Vertical Extent: verticalDatum"
-                      }
-                    }
-                  }
-                }
-              ]
-            }
-          },
-          "additionalProperties": false
         },
         "temporalCoverage": {
           "type": "object",
