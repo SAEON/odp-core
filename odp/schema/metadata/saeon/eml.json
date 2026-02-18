@@ -955,7 +955,7 @@
       "minItems": 1,
       "uniqueItems": true
     },
-    "characterSet": {
+    "characterEncoding": {
       "$ref": "#/$defs/characterSetCode"
     },
     "topicCategories": {
@@ -1256,6 +1256,23 @@
       "minItems": 1,
       "uniqueItems": true
     },
+    "fileIdentifier": {
+      "type": "string",
+      "translations": [
+        {
+          "t9nScheme": "saeon/datacite4",
+          "t9nTarget": "/identifiers",
+          "t9nArray": {
+            "t9nObject": {
+              "identifier": {},
+              "identifierType": {
+                "t9nConst": "alternateIdentifier"
+              }
+            }
+          }
+        }
+      ]
+    },
     "packageId": {
       "type": "string",
       "translations": [
@@ -1322,59 +1339,6 @@
         }
       ]
     },
-    "scope": {
-      "$ref": "#/$defs/scopeCode",
-      "translations": [
-        {
-          "t9nScheme": "saeon/datacite4",
-          "t9nTarget": "/types",
-          "t9nObject": {
-            "resourceType": {},
-            "resourceTypeGeneral": {
-              "t9nFilter": {
-                "attribute": "Other",
-                "attributeType": "Other",
-                "collectionHardware": "Other",
-                "collectionSession": "Other",
-                "dataset": "Dataset",
-                "series": "Other",
-                "nonGeographicDataset": "Other",
-                "dimensionGroup": "Other",
-                "feature": "Other",
-                "featureType": "Other",
-                "propertyType": "Other",
-                "fieldSession": "Other",
-                "software": "Software",
-                "service": "Service",
-                "model": "Model"
-              }
-            }
-          }
-        }
-      ]
-    },
-    "status": {
-      "type": "array",
-      "items": {
-        "$ref": "#/$defs/progressCode"
-      },
-      "minItems": 1,
-      "uniqueItems": true,
-      "translations": [
-        {
-          "t9nScheme": "saeon/datacite4",
-          "t9nTarget": "/subjects",
-          "t9nArray": {
-            "t9nObject": {
-              "subject": {},
-              "subjectScheme": {
-                "t9nConst": "SANS1878 Status"
-              }
-            }
-          }
-        }
-      ]
-    },
     "descriptiveKeywords": {
       "type": "array",
       "items": {
@@ -1419,7 +1383,7 @@
         }
       ]
     },
-    "constraints": {
+    "licensed": {
       "type": "array",
       "items": {
         "type": "object",
@@ -1466,7 +1430,7 @@
               }
             ]
           },
-          "useConstraints": {
+          "identifier": {
             "type": "array",
             "items": {
               "$ref": "#/$defs/restrictionCode"
@@ -1583,6 +1547,192 @@
       ]
     }
   },
+  "additionalMetadata": {
+    "type": "object",
+    "properties": {
+      "scope": {
+        "$ref": "#/$defs/scopeCode",
+        "translations": [
+          {
+            "t9nScheme": "saeon/datacite4",
+            "t9nTarget": "/types",
+            "t9nObject": {
+              "resourceType": {},
+              "resourceTypeGeneral": {
+                "t9nFilter": {
+                  "attribute": "Other",
+                  "attributeType": "Other",
+                  "collectionHardware": "Other",
+                  "collectionSession": "Other",
+                  "dataset": "Dataset",
+                  "series": "Other",
+                  "nonGeographicDataset": "Other",
+                  "dimensionGroup": "Other",
+                  "feature": "Other",
+                  "featureType": "Other",
+                  "propertyType": "Other",
+                  "fieldSession": "Other",
+                  "software": "Software",
+                  "service": "Service",
+                  "model": "Model"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "scope": {
+        "type": "string",
+        "const": "dataset",
+        "translations": [
+          {
+            "t9nScheme": "saeon/datacite4",
+            "t9nTarget": "/descriptions",
+            "t9nArray": {
+              "t9nObject": {
+                "description": {
+                  "t9nFormat": "Scope: {}"
+                },
+                "descriptionType": {
+                  "t9nConst": "Other"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "status": {
+        "type": "array",
+        "description": "Reflects the ISO status element within the additionalMetadata block.",
+        "items": {
+          "$ref": "#/$defs/progressCode"
+        },
+        "minItems": 1,
+        "uniqueItems": true,
+        "translations": [
+          {
+            "t9nScheme": "saeon/datacite4",
+            "t9nTarget": "/subjects",
+            "t9nArray": {
+              "t9nObject": {
+                "subject": {},
+                "subjectScheme": {
+                  "t9nConst": "SANS1878 Status"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "metadataStandardName": {
+        "type": "string",
+        "const": "Ecological Metadata Language or EML 2026 - SAEON Profile",
+        "translations": [
+          {
+            "t9nScheme": "saeon/datacite4",
+            "t9nTarget": "/descriptions",
+            "t9nArray": {
+              "t9nObject": {
+                "description": {},
+                "descriptionType": {
+                  "t9nConst": "Other"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "metadataStandardVersion": {
+        "type": "string",
+        "const": "2.2.0",
+        "translations": [
+          {
+            "t9nScheme": "saeon/datacite4",
+            "t9nTarget": "/descriptions",
+            "t9nArray": {
+              "t9nObject": {
+                "description": {},
+                "descriptionType": {
+                  "t9nConst": "Other"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "metadataLanguage": {
+        "type": "string",
+        "const": "en",
+        "translations": [
+          {
+            "t9nScheme": "saeon/datacite4",
+            "t9nTarget": "/language"
+          }
+        ]
+      },
+      "metadataCharacterSet": {
+        "type": "string",
+        "const": "UTF-8",
+        "translations": [
+          {
+            "t9nScheme": "saeon/datacite4",
+            "t9nTarget": "/descriptions",
+            "t9nArray": {
+              "t9nObject": {
+                "description": {},
+                "descriptionType": {
+                  "t9nConst": "TechnicalInfo"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "metadataTimestamp": {
+        "type": "string",
+        "format": "date-time",
+        "translations": [
+          {
+            "t9nScheme": "saeon/datacite4",
+            "t9nTarget": "/dates",
+            "t9nArray": {
+              "t9nObject": {
+                "date": {},
+                "dateType": {
+                  "t9nConst": "Updated"
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    "spatialRepresentationTypes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "const": [
+        "vector"
+      ],
+      "translations": [
+        {
+          "t9nScheme": "saeon/datacite4",
+          "t9nTarget": "/descriptions",
+          "t9nArray": {
+            "t9nObject": {
+              "description": {
+                "t9nFormat": "Spatial Representation Type: {}"
+              },
+              "descriptionType": {
+                "t9nConst": "TechnicalInfo"
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
   "additionalProperties": false,
   "required": [
     "titles",
@@ -1590,7 +1740,7 @@
     "responsibleParties",
     "coverage",
     "language",
-    "characterSet",
+    "characterEncoding",
     "topicCategories",
     "spatialResolution",
     "abstract",
@@ -1600,15 +1750,10 @@
     "methods",
     "onlineResources",
     "packageId",
-    "metadataStandardName",
-    "metadataStandardVersion",
-    "metadataLanguage",
-    "metadataCharacterSet",
-    "metadataTimestamp",
+    "fileIdentifier",
+    "additionalMetadata",
     "purpose",
-    "scope",
-    "status",
-    "constraints"
+    "licensed"
   ],
   "$defs": {
     "dateChoice": {
