@@ -1,285 +1,435 @@
 {
-    "$id": "https://odp.saeon.ac.za/schema/metadata/saeon/data-submission",
-    "$schema": "https://jschon.dev/meta/translation/schema",
-    "type": "object",
-    "translations": [
-        {
-            "t9nScheme": "saeon/datacite4",
-            "t9nTarget": "",
-            "t9nConst": {
-                "schemaVersion": "http://datacite.org/schema/kernel-4"
-            }
-        }
-    ],
-    "properties": {
-        "title": {
-            "type": "string",
-            "translations": [
-                {
-                    "t9nScheme": "saeon/datacite4",
-                    "t9nTarget": "/titles",
-                    "t9nArray": { "t9nObject": { "title": {} } }
-                }
-            ]
-        },
-        "publisher": {
-            "type": "string",
-            "translations": [
-                {
-                    "t9nScheme": "saeon/datacite4",
-                    "t9nTarget": "/publisher"
-                }
-            ]
-        },
-        "publication_year": {
-            "type": "string",
-            "translations": [
-                {
-                    "t9nScheme": "saeon/datacite4",
-                    "t9nTarget": "/publicationYear",
-                    "t9nCast": "integer"
-                }
-            ]
-        },
-        "resource_type": {
-            "type": "string",
-            "translations": [
-                {
-                    "t9nScheme": "saeon/datacite4",
-                    "t9nTarget": "/types",
-                    "t9nObject": {
-                        "resourceType": {},
-                        "resourceTypeGeneral": { "t9nConst": "Dataset" }
-                    }
-                }
-            ]
-        },
-        "abstract": {
-            "type": "string",
-            "translations": [
-                {
-                    "t9nScheme": "saeon/datacite4",
-                    "t9nTarget": "/descriptions",
-                    "t9nArray": {
-                        "t9nObject": {
-                            "description": {},
-                            "descriptionType": { "t9nConst": "Abstract" }
-                        }
-                    }
-                }
-            ]
-        },
-        "methods": {
-            "type": "string",
-            "translations": [
-                {
-                    "t9nScheme": "saeon/datacite4",
-                    "t9nTarget": "/descriptions",
-                    "t9nArray": {
-                        "t9nObject": {
-                            "description": {},
-                            "descriptionType": { "t9nConst": "Methods" }
-                        }
-                    }
-                }
-            ]
-        },
-        "creators": {
-            "type": "array",
-            "items": {
-                "type": "object",
-                "translations": [
-                    {
-                        "t9nScheme": "saeon/datacite4",
-                        "t9nTarget": "/creators",
-                        "t9nArray": {
-                            "t9nObject": {
-                                "name": { "t9nConcat": ["0/last_name", "0/first_name"], "t9nSep": ", " },
-                                "familyName": { "t9nSource": "0/last_name" },
-                                "givenName": { "t9nSource": "0/first_name" },
-                                "nameIdentifiers": {
-                                    "t9nCondition": { "required": ["orcid"] },
-                                    "t9nArray": {
-                                        "t9nObject": {
-                                            "nameIdentifier": { "t9nSource": "0/orcid" },
-                                            "nameIdentifierScheme": { "t9nConst": "ORCID" },
-                                            "schemeURI": { "t9nConst": "https://orcid.org" }
-                                        }
-                                    }
-                                },
-                                "affiliation": {
-                                    "t9nArray": {
-                                        "t9nObject": {
-                                            "affiliation": { "t9nSource": "0/affiliation" },
-                                            "affiliationIdentifier": { "t9nSource": "0/ror" },
-                                            "affiliationIdentifierScheme": { "t9nConst": "ROR" },
-                                            "schemeURI": { "t9nConst": "https://ror.org" }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                ]
-            }
-        },
-        "contributors": {
-            "type": "array",
-            "items": {
-                "type": "object",
-                "translations": [
-                    {
-                        "t9nScheme": "saeon/datacite4",
-                        "t9nTarget": "/contributors",
-                        "t9nArray": {
-                            "t9nObject": {
-                                "name": { "t9nConcat": ["0/last_name", "0/first_name"], "t9nSep": ", " },
-                                "contributorType": { "t9nSource": "0/contributor_type" },
-                                "familyName": { "t9nSource": "0/last_name" },
-                                "givenName": { "t9nSource": "0/first_name" },
-                                "affiliation": {
-                                    "t9nArray": {
-                                        "t9nObject": { "affiliation": { "t9nSource": "0/affiliation" } }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                ]
-            }
-        },
-        "earth_science_theme_keyword": {
-            "type": "string",
-            "translations": [
-                {
-                    "t9nScheme": "saeon/datacite4",
-                    "t9nTarget": "/subjects",
-                    "t9nArray": {
-                        "t9nObject": {
-                            "subject": {},
-                            "subjectScheme": { "t9nConst": "GCMD Earth Science Theme" }
-                        }
-                    }
-                }
-            ]
-        },
-        "ecv_keywords": {
-            "type": "array",
-            "items": { "type": "string" },
-            "translations": [
-                {
-                    "t9nScheme": "saeon/datacite4",
-                    "t9nTarget": "/subjects",
-                    "t9nArray": {
-                        "t9nObject": {
-                            "subject": {},
-                            "subjectScheme": { "t9nConst": "Essential Climate Variable (ECV)" }
-                        }
-                    }
-                }
-            ]
-        },
-        "eov_keywords": {
-            "type": "array",
-            "items": { "type": "string" },
-            "translations": [
-                {
-                    "t9nScheme": "saeon/datacite4",
-                    "t9nTarget": "/subjects",
-                    "t9nArray": {
-                        "t9nObject": {
-                            "subject": {},
-                            "subjectScheme": { "t9nConst": "Essential Ocean Variable (EOV)" }
-                        }
-                    }
-                }
-            ]
-        },
-        "keywords": {
-            "type": "array",
-            "items": { "type": "string" },
-            "translations": [
-                {
-                    "t9nScheme": "saeon/datacite4",
-                    "t9nTarget": "/subjects",
-                    "t9nArray": { "t9nObject": { "subject": {} } }
-                }
-            ]
-        },
-        "date_range": {
-            "type": "object",
-            "translations": [
-                {
-                    "t9nScheme": "saeon/datacite4",
-                    "t9nTarget": "/dates",
-                    "t9nArray": {
-                        "t9nObject": {
-                            "date": { "t9nConcat": ["0/start_date", "0/end_date"], "t9nSep": "/" },
-                            "dateType": { "t9nConst": "Valid" }
-                        }
-                    }
-                }
-            ]
-        },
-        "bounding_box": {
-            "type": "object",
-            "translations": [
-                {
-                    "t9nScheme": "saeon/datacite4",
-                    "t9nTarget": "/geoLocations",
-                    "t9nArray": {
-                        "t9nObject": {
-                            "geoLocationBox": {
-                                "t9nObject": {
-                                    "westBoundLongitude": { "t9nSource": "0/west_bound_longitude" },
-                                    "eastBoundLongitude": { "t9nSource": "0/east_bound_longitude" },
-                                    "southBoundLatitude": { "t9nSource": "0/south_bound_latitude" },
-                                    "northBoundLatitude": { "t9nSource": "0/north_bound_latitude" }
-                                }
-                            }
-                        }
-                    }
-                }
-            ]
-        },
-        "licence": {
-            "type": "object",
-            "translations": [
-                {
-                    "t9nScheme": "saeon/datacite4",
-                    "t9nTarget": "/rightsList",
-                    "t9nArray": {
-                        "t9nObject": {
-                            "rights": { "t9nSource": "0/license" },
-                            "rightsURI": {
-                                "t9nSource": "0/license",
-                                "t9nFilter": {
-                                    "Attribution - ShareAlike 4.0 International(CC BY - SA 4.0)": "https://creativecommons.org/licenses/by-sa/4.0/"
-                                }
-                            }
-                        }
-                    }
-                }
-            ]
-        },
-        "related_identifiers": {
-            "type": "array",
-            "items": {
-                "type": "object",
-                "translations": [
-                    {
-                        "t9nScheme": "saeon/datacite4",
-                        "t9nTarget": "/relatedIdentifiers",
-                        "t9nArray": {
-                            "t9nObject": {
-                                "relatedIdentifier": { "t9nSource": "0/related_identifier" },
-                                "relatedIdentifierType": { "t9nConst": "URL" },
-                                "relationType": { "t9nSource": "0/relationship_type" }
-                            }
-                        }
-                    }
-                ]
-            }
-        }
+  "$id": "https://odp.saeon.ac.za/schema/metadata/saeon/data-submission",
+  "$schema": "https://jschon.dev/meta/translation/schema",
+  "type": "object",
+  "translations": [
+    {
+      "t9nScheme": "saeon/datacite4",
+      "t9nTarget": "",
+      "t9nConst": {
+        "schemaVersion": "http://datacite.org/schema/kernel-4"
+      }
     }
+  ],
+  "properties": {
+    "title": {
+      "type": "string",
+      "translations": [
+        {
+          "t9nScheme": "saeon/datacite4",
+          "t9nTarget": "/titles",
+          "t9nArray": {
+            "t9nObject": {
+              "title": {}
+            }
+          }
+        }
+      ]
+    },
+    "publisher": {
+      "type": "string",
+      "translations": [
+        {
+          "t9nScheme": "saeon/datacite4",
+          "t9nTarget": "/publisher"
+        }
+      ]
+    },
+    "publication_year": {
+      "type": "string",
+      "translations": [
+        {
+          "t9nScheme": "saeon/datacite4",
+          "t9nTarget": "/publicationYear",
+          "t9nCast": "integer"
+        }
+      ]
+    },
+    "resource_type": {
+      "type": "string",
+      "translations": [
+        {
+          "t9nScheme": "saeon/datacite4",
+          "t9nTarget": "/types",
+          "t9nObject": {
+            "resourceType": {},
+            "resourceTypeGeneral": {
+              "t9nConst": "Dataset"
+            }
+          }
+        }
+      ]
+    },
+    "abstract": {
+      "type": "string",
+      "translations": [
+        {
+          "t9nScheme": "saeon/datacite4",
+          "t9nTarget": "/descriptions",
+          "t9nArray": {
+            "t9nObject": {
+              "description": {},
+              "descriptionType": {
+                "t9nConst": "Abstract"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "methods": {
+      "type": "string",
+      "translations": [
+        {
+          "t9nScheme": "saeon/datacite4",
+          "t9nTarget": "/descriptions",
+          "t9nArray": {
+            "t9nObject": {
+              "description": {},
+              "descriptionType": {
+                "t9nConst": "Methods"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "creators": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "translations": [
+          {
+            "t9nScheme": "saeon/datacite4",
+            "t9nTarget": "/creators",
+            "t9nArray": {
+              "t9nObject": {
+                "name": {
+                  "t9nConcat": [
+                    "0/last_name",
+                    "0/first_name"
+                  ],
+                  "t9nSep": ", "
+                },
+                "familyName": {
+                  "t9nSource": "0/last_name"
+                },
+                "givenName": {
+                  "t9nSource": "0/first_name"
+                },
+                "nameIdentifiers": {
+                  "t9nCondition": {
+                    "required": [
+                      "orcid"
+                    ]
+                  },
+                  "t9nArray": {
+                    "t9nObject": {
+                      "nameIdentifier": {
+                        "t9nSource": "0/orcid"
+                      },
+                      "nameIdentifierScheme": {
+                        "t9nConst": "ORCID"
+                      },
+                      "schemeURI": {
+                        "t9nConst": "https://orcid.org"
+                      }
+                    }
+                  }
+                },
+                "affiliation": {
+                  "t9nArray": {
+                    "t9nObject": {
+                      "affiliation": {
+                        "t9nSource": "0/affiliation"
+                      },
+                      "affiliationIdentifier": {
+                        "t9nSource": "0/ror"
+                      },
+                      "affiliationIdentifierScheme": {
+                        "t9nConst": "ROR"
+                      },
+                      "schemeURI": {
+                        "t9nConst": "https://ror.org"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    "contributors": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "translations": [
+          {
+            "t9nScheme": "saeon/datacite4",
+            "t9nTarget": "/contributors",
+            "t9nArray": {
+              "t9nObject": {
+                "name": {
+                  "t9nConcat": [
+                    "0/last_name",
+                    "0/first_name"
+                  ],
+                  "t9nSep": ", "
+                },
+                "contributorType": {
+                  "t9nSource": "0/contributor_type"
+                },
+                "familyName": {
+                  "t9nSource": "0/last_name"
+                },
+                "givenName": {
+                  "t9nSource": "0/first_name"
+                },
+                "affiliation": {
+                  "t9nArray": {
+                    "t9nObject": {
+                      "affiliation": {
+                        "t9nSource": "0/affiliation"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    "earth_science_theme_keyword": {
+      "type": "string",
+      "translations": [
+        {
+          "t9nScheme": "saeon/datacite4",
+          "t9nTarget": "/subjects",
+          "t9nArray": {
+            "t9nObject": {
+              "subject": {},
+              "subjectScheme": {
+                "t9nConst": "GCMD Earth Science Theme"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "ecv_keywords": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "translations": [
+        {
+          "t9nScheme": "saeon/datacite4",
+          "t9nTarget": "/subjects",
+          "t9nArray": {
+            "t9nObject": {
+              "subject": {},
+              "subjectScheme": {
+                "t9nConst": "Essential Climate Variable (ECV)"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "eov_keywords": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "translations": [
+        {
+          "t9nScheme": "saeon/datacite4",
+          "t9nTarget": "/subjects",
+          "t9nArray": {
+            "t9nObject": {
+              "subject": {},
+              "subjectScheme": {
+                "t9nConst": "Essential Ocean Variable (EOV)"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "keywords": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "translations": [
+        {
+          "t9nScheme": "saeon/datacite4",
+          "t9nTarget": "/subjects",
+          "t9nArray": {
+            "t9nObject": {
+              "subject": {}
+            }
+          }
+        }
+      ]
+    },
+    "date_range": {
+      "type": "object",
+      "translations": [
+        {
+          "t9nScheme": "saeon/datacite4",
+          "t9nTarget": "/dates",
+          "t9nArray": {
+            "t9nObject": {
+              "date": {
+                "t9nConcat": [
+                  "0/start_date",
+                  "0/end_date"
+                ],
+                "t9nSep": "/"
+              },
+              "dateType": {
+                "t9nConst": "Valid"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "bounding_box": {
+      "type": "object",
+      "translations": [
+        {
+          "t9nScheme": "saeon/datacite4",
+          "t9nTarget": "/geoLocations",
+          "t9nArray": {
+            "t9nObject": {
+              "geoLocationBox": {
+                "t9nObject": {
+                  "westBoundLongitude": {
+                    "t9nSource": "0/west_bound_longitude"
+                  },
+                  "eastBoundLongitude": {
+                    "t9nSource": "0/east_bound_longitude"
+                  },
+                  "southBoundLatitude": {
+                    "t9nSource": "0/south_bound_latitude"
+                  },
+                  "northBoundLatitude": {
+                    "t9nSource": "0/north_bound_latitude"
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "licence": {
+      "type": "object",
+      "translations": [
+        {
+          "t9nScheme": "saeon/datacite4",
+          "t9nTarget": "/rightsList",
+          "t9nArray": {
+            "t9nObject": {
+              "rights": {
+                "t9nSource": "0/license"
+              },
+              "rightsURI": {
+                "t9nSource": "0/license",
+                "t9nFilter": {
+                  "Attribution - ShareAlike 4.0 International(CC BY - SA 4.0)": "https://creativecommons.org/licenses/by-sa/4.0/"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "related_identifiers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "translations": [
+          {
+            "t9nScheme": "saeon/datacite4",
+            "t9nTarget": "/relatedIdentifiers",
+            "t9nArray": {
+              "t9nObject": {
+                "relatedIdentifier": {
+                  "t9nSource": "0/related_identifier"
+                },
+                "relatedIdentifierType": {
+                  "t9nConst": "URL"
+                },
+                "relationType": {
+                  "t9nSource": "0/relationship_type"
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    "immutable_resource": {
+      "type": "object",
+      "translations": [
+        {
+          "t9nScheme": "saeon/datacite4",
+          "t9nTarget": "/immutableResource",
+          "t9nObject": {
+            "resourceName": {
+              "t9nSource": "0/resource_name"
+            },
+            "resourceDescription": {
+              "t9nSource": "0/resource_description"
+            },
+            "resourceDownload": {
+              "t9nObject": {
+                "downloadURL": {
+                  "t9nSource": "0/download_url"
+                },
+                "fileFormat": {
+                  "t9nSource": "0/file_format"
+                },
+                "fileName": {
+                  "t9nSource": "0/file_name"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "timestamp": {
+      "type": "string",
+      "translations": [
+        {
+          "t9nScheme": "saeon/datacite4",
+          "t9nTarget": "/dates",
+          "t9nArray": {
+            "t9nObject": {
+              "date": {},
+              "dateType": {
+                "t9nConst": "Issued"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "language": {
+      "type": "string",
+      "translations": [
+        {
+          "t9nScheme": "saeon/datacite4",
+          "t9nTarget": "/language"
+        }
+      ]
+    }
+  }
 }
