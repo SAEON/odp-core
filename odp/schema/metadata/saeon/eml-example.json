@@ -1,144 +1,140 @@
 {
-    "doi": "10.15493/DEA.MIMS.94556210",
-    "scope": "dataset",
-    "status": [
-        "completed"
-    ],
+    "doi": "10.15493/DEA.MIMS.03832791",
     "titles": [
         {
             "lang": "en",
-            "value": "Second sea Water Quality Measurements for the Olifants River Catchment"
+            "value": "Long-term Monitoring of Coastal Biodiversity in False Bay"
         }
     ],
-    "methods": "Water samples were collected monthly and analysed in accredited laboratories following SAEON protocols.",
-    "pubDate": "2026-02-09",
-    "purpose": "To support freshwater ecosystem monitoring and long-term environmental change detection.",
-    "abstract": "This dataset contains surface water quality measurements collected from monitoring stations in the Olifants River Catchment.",
+    "methods": "Standardized belt transect surveys conducted during spring low tides.",
+    "pubDate": "2026-02-24",
+    "purpose": "To assess the impact of rising sea temperatures on coastal biodiversity over a 10-year period.",
+    "abstract": "This dataset contains long-term monitoring data regarding macroalgae and invertebrate populations collected along the rocky shores of False Bay, South Africa.",
     "coverage": {
         "temporalCoverage": {
             "rangeOfDates": {
-                "endDate": "2024-12-31T17:00:00+02:00",
-                "beginDate": "2023-01-15T08:00:00+02:00"
+                "endDate": "2026-01-01",
+                "beginDate": "2016-01-01"
             }
         },
-        "verticalCoverage": {
-            "maximumValue": 1200,
-            "minimumValue": 0,
-            "unitOfMeasure": "m",
-            "verticalDatum": "MSL"
-        },
         "taxonomicCoverage": {
-            "taxonomicSystem": {
-                "vouchers": {
-                    "specimen": "VoucherSpecimen123",
-                    "repository": {
-                        "originator": "SAEON National Zoological Collection"
-                    }
-                },
-                "identifierName": "WoRMS AphiaID",
-                "taxonomicProcedures": "Morphological identification using regional keys",
-                "classificationSystem": "WoRMS",
-                "taxonomicCompleteness": "Complete for sampled taxa",
-                "identificationReference": "https://www.marinespecies.org",
-                "classificationSystemCitation": "World Register of Marine Species",
-                "classificationSystemModifications": "None"
-            },
             "taxonomicClassification": [
                 {
-                    "taxonId": "urn:lsid:marinespecies.org:taxname:1263",
-                    "commonName": "Mayflies",
-                    "taxonRankName": "Family",
-                    "taxonRankValue": "Baetidae"
+                    "taxonRankName": "Kingdom",
+                    "taxonRankValue": "Animalia"
                 }
             ],
             "generalTaxonomicCoverage": [
-                "Freshwater macroinvertebrates"
+                "Marine macroalgae and coastal invertebrates"
             ]
         },
         "geographicCoverage": [
             {
-                "boundingCoordinates": {
-                    "eastBoundingCoordinate": 31.5,
-                    "westBoundingCoordinate": 29.0,
-                    "northBoundingCoordinate": -23.0,
-                    "southBoundingCoordinate": -25.5
+                "spatialReference": {
+                    "vertCoordSys": {
+                        "altitudeSystemDefinition": {
+                            "altitudeDatumName": "Mean Sea Level",
+                            "altitudeDistanceUnits": "meter"
+                        }
+                    },
+                    "horizCoordSysName": "EPSG:4326/WGS 84"
                 },
-                "geographicDescription": "Olifants River Catchment, South Africa"
+                "boundingAltitudes": {
+                    "altitudeUnits": "meter",
+                    "altitudeMaximum": 5,
+                    "altitudeMinimum": -20
+                },
+                "boundingCoordinates": {
+                    "eastBoundingCoordinate": 18.9,
+                    "westBoundingCoordinate": 18.3,
+                    "northBoundingCoordinate": -34.0,
+                    "southBoundingCoordinate": -34.4
+                },
+                "geographicDescription": "False Bay Coastline, South Africa"
             }
         ]
     },
     "language": [
         "en"
     ],
-    "packageId": "10.15493/DEA.MIMS.94556210",
-    "constraints": [
+    "licensed": [
         {
             "url": "https://creativecommons.org/licenses/by/4.0/",
-            "identifier": "CC-BY-4.0",
+            "identifier": "license",
             "licenseName": "Creative Commons Attribution 4.0 International",
-            "useConstraints": [
-                "license"
+            "accessConstraints": [
+                "copyright"
             ]
         }
     ],
-    "characterSet": "utf8",
-    "onlineResources": [
-        {
-            "name": "Dataset download",
-            "linkage": "https://odp.saeon.ac.za/dataset/001/download",
-            "description": "download",
-            "applicationProfile": "CSV"
-        },
-        {
-            "name": "Dataset information",
-            "linkage": "https://odp.saeon.ac.za/dataset/001",
-            "description": "information"
-        }
-    ],
-    "topicCategories": [
-        "environment",
-        "inlandWaters"
-    ],
-    "metadataLanguage": "en",
-    "metadataTimestamp": "2026-01-23T10:00:00Z",
-    "spatialResolution": "30 m",
-    "responsibleParties": [
-        {
-            "role": "originator",
-            "contactInfo": "jane.smith@saeon.ac.za",
-            "positionName": "Research Scientist",
-            "individualName": "Jane Smith",
-            "onlineResource": {
-                "linkage": "https://orcid.org/0000-0002-1825-0097"
-            },
-            "organizationName": "SAEON"
-        },
-        {
-            "role": "pointOfContact",
-            "contactInfo": "david.mokoena@saeon.ac.za",
-            "positionName": "Data Manager",
-            "individualName": "David Mokoena",
-            "organizationName": "SAEON"
-        },
-        {
-            "role": "publisher",
-            "organizationName": "South African Environmental Observation Network"
-        }
-    ],
-    "distributionFormats": [
-        {
+    "packageId": "10.15493/DEA.MIMS.03832791",
+    "dataFormat": {
+        "textFormat": {
             "formatName": "CSV",
             "formatVersion": "1.0"
         }
+    },
+    "fileIdentifier": "10.15493/DEA.MIMS.03832791",
+    "onlineResources": [
+        {
+            "name": "Full Dataset Download",
+            "linkage": "https://data.saeon.ac.za/download/dataset_01.zip",
+            "description": "download",
+            "applicationProfile": "[csv, json]"
+        }
+    ],
+    "topicCategories": [
+        "biota",
+        "oceans",
+        "environment"
+    ],
+    "characterEncoding": "utf8",
+    "metadataTimestamp": "2026-02-19T14:30:00Z",
+    "spatialResolution": "10 meters",
+    "additionalMetadata": {
+        "scope": "dataset",
+        "status": [
+            "completed"
+        ],
+        "metadataLanguage": "en",
+        "metadataTimestamp": "2026-02-19T14:30:00Z",
+        "metadataCharacterSet": "UTF-8",
+        "metadataStandardName": "Ecological Metadata Language",
+        "metadataStandardVersion": "2.2.0",
+        "spatialRepresentationTypes": [
+            "vector"
+        ]
+    },
+    "responsibleParties": [
+        {
+            "role": "originator",
+            "contactInfo": "jane@example.ac.za",
+            "positionName": "Lead Scientist",
+            "individualName": "Dr. Jane Smith",
+            "onlineResource": {
+                "linkage": "https://orcid.org/0000-0000-0000-0000"
+            },
+            "organizationName": "SAEON Egagasini Node"
+        },
+        {
+            "role": "publisher",
+            "organizationName": "SAEON Data Repository"
+        },
+        {
+            "role": "pointOfContact",
+            "contactInfo": "it@saeon.ac.za",
+            "individualName": "Data Manager",
+            "organizationName": "SAEON"
+        }
+    ],
+    "descriptiveKeywords": [
+        {
+            "keyword": "Marine Biology",
+            "keywordType": "theme"
+        }
     ],
     "referenceSystemName": {
-        "version": "8.9",
-        "codeSpace": "EPSG:4326"
-    },
-    "metadataCharacterSet": "utf8",
-    "metadataStandardName": "EML",
-    "metadataStandardVersion": "EML 2026 - SAEON Profile",
-    "spatialRepresentationTypes": [
-        "vector"
-    ]
+        "version": "4326",
+        "codeSpace": "EPSG"
+    }
 }

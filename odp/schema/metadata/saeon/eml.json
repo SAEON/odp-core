@@ -744,7 +744,7 @@
                         "t9nSource": "0"
                       },
                       "subjectScheme": {
-                        "t9nConst": "SAEON Taxonomic Scope"
+                        "t9nConst": "Taxonomic Scope"
                       }
                     }
                   }
@@ -768,7 +768,7 @@
                               "t9nSource": "0"
                             },
                             "subjectScheme": {
-                              "t9nConst": "SAEON Taxonomic Scope"
+                              "t9nConst": "Taxonomic Scope"
                             }
                           }
                         }
@@ -787,7 +787,7 @@
                               "t9nSource": "0"
                             },
                             "subjectScheme": {
-                              "t9nConst": "SAEON Taxonomic Scope"
+                              "t9nConst": "Taxonomic Scope"
                             }
                           }
                         }
@@ -806,7 +806,7 @@
                               "t9nSource": "0"
                             },
                             "subjectScheme": {
-                              "t9nConst": "SAEON Taxonomic Scope"
+                              "t9nConst": "Taxonomic Scope"
                             }
                           }
                         }
@@ -825,7 +825,7 @@
                               "t9nSource": "0"
                             },
                             "subjectScheme": {
-                              "t9nConst": "SAEON Taxonomic Scope"
+                              "t9nConst": "Taxonomic Scope"
                             }
                           }
                         }
@@ -853,7 +853,7 @@
                             "t9nSource": "0"
                           },
                           "subjectScheme": {
-                            "t9nConst": "SAEON Taxonomic Scope"
+                            "t9nConst": "Taxonomic Scope"
                           }
                         }
                       }
@@ -872,7 +872,7 @@
                             "t9nSource": "0"
                           },
                           "subjectScheme": {
-                            "t9nConst": "SAEON Taxonomic Scope"
+                            "t9nConst": "Taxonomic Scope"
                           }
                         }
                       }
@@ -891,7 +891,7 @@
                             "t9nSource": "0"
                           },
                           "subjectScheme": {
-                            "t9nConst": "SAEON Taxonomic Scope"
+                            "t9nConst": "Taxonomic Scope"
                           }
                         }
                       }
@@ -910,7 +910,7 @@
                             "t9nSource": "0"
                           },
                           "subjectScheme": {
-                            "t9nConst": "SAEON Taxonomic Scope"
+                            "t9nConst": "Taxonomic Scope"
                           }
                         }
                       }
@@ -929,7 +929,7 @@
                             "t9nSource": "0"
                           },
                           "subjectScheme": {
-                            "t9nConst": "SAEON Taxonomic Scope"
+                            "t9nConst": "Taxonomic Scope"
                           }
                         }
                       }
@@ -948,7 +948,7 @@
                             "t9nSource": "0"
                           },
                           "subjectScheme": {
-                            "t9nConst": "SAEON Taxonomic Scope"
+                            "t9nConst": "Taxonomic Scope"
                           }
                         }
                       }
@@ -967,7 +967,7 @@
                             "t9nSource": "0"
                           },
                           "subjectScheme": {
-                            "t9nConst": "SAEON Taxonomic Scope"
+                            "t9nConst": "Taxonomic Scope"
                           }
                         }
                       }
@@ -992,7 +992,7 @@
                                     "t9nSource": "0"
                                   },
                                   "subjectScheme": {
-                                    "t9nConst": "SAEON Taxonomic Scope"
+                                    "t9nConst": "Taxonomic Scope"
                                   }
                                 }
                               }
@@ -1013,7 +1013,7 @@
                                 "t9nSource": "0"
                               },
                               "subjectScheme": {
-                                "t9nConst": "SAEON Taxonomic Scope"
+                                "t9nConst": "Taxonomic Scope"
                               }
                             }
                           }
@@ -1086,58 +1086,52 @@
         }
       ]
     },
-    "distributionFormats": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "formatName": {
-            "type": "string"
+    "dataFormat": {
+      "type": "object",
+      "oneOf": [
+        {
+          "required": [
+            "binaryRasterFormat"
+          ],
+          "properties": {
+            "binaryRasterFormat": {
+              "$ref": "#/$defs/formatBase"
+            }
           },
-          "formatVersion": {
-            "type": "string"
-          }
+          "additionalProperties": false
         },
-        "required": [
-          "formatName"
-        ],
-        "additionalProperties": false
-      },
-      "minItems": 1,
-      "uniqueItems": true,
+        {
+          "required": [
+            "externallyDefinedFormat"
+          ],
+          "properties": {
+            "externallyDefinedFormat": {
+              "$ref": "#/$defs/formatBase"
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "required": [
+            "textFormat"
+          ],
+          "properties": {
+            "textFormat": {
+              "$ref": "#/$defs/formatBase"
+            }
+          },
+          "additionalProperties": false
+        }
+      ],
       "translations": [
         {
           "t9nScheme": "saeon/datacite4",
           "t9nTarget": "/formats",
-          "t9nArray": {
-            "t9nConcat": [
-              "0/formatName",
-              "0/formatVersion"
-            ],
-            "t9nSep": " "
-          }
-        }
-      ]
-    },
-    "spatialRepresentationTypes": {
-      "type": "array",
-      "items": {
-        "$ref": "#/$defs/spatialRepresentationTypeCode"
-      },
-      "minItems": 1,
-      "uniqueItems": true,
-      "translations": [
-        {
-          "t9nScheme": "saeon/datacite4",
-          "t9nTarget": "/subjects",
-          "t9nArray": {
-            "t9nObject": {
-              "subject": {},
-              "subjectScheme": {
-                "t9nConst": "SANS1878 Spatial Representation Type"
-              }
-            }
-          }
+          "t9nConcat": [
+            "0/*/formatName",
+            "0/*/formatVersion"
+          ],
+          "t9nSep": " "
         }
       ]
     },
@@ -1375,17 +1369,6 @@
           }
         }
       ]
-    },
-    "metadataStandardName": {
-      "type": "string",
-      "const": "EML"
-    },
-    "metadataStandardVersion": {
-      "type": "string",
-      "const": "EML 2026 - SAEON Profile"
-    },
-    "metadataLanguage": {
-      "type": "string"
     },
     "metadataCharacterSet": {
       "$ref": "#/$defs/characterSetCode"
@@ -1631,67 +1614,171 @@
           }
         }
       ]
-    }
-  },
-  "additionalMetadata": {
-    "type": "object",
-    "properties": {
-      "scope": {
-        "$ref": "#/$defs/scopeCode",
-        "translations": [
-          {
-            "t9nScheme": "saeon/datacite4",
-            "t9nTarget": "/types",
-            "t9nObject": {
-              "resourceType": {},
-              "resourceTypeGeneral": {
-                "t9nFilter": {
-                  "attribute": "Other",
-                  "attributeType": "Other",
-                  "collectionHardware": "Other",
-                  "collectionSession": "Other",
-                  "dataset": "Dataset",
-                  "series": "Other",
-                  "nonGeographicDataset": "Other",
-                  "dimensionGroup": "Other",
-                  "feature": "Other",
-                  "featureType": "Other",
-                  "propertyType": "Other",
-                  "fieldSession": "Other",
-                  "software": "Software",
-                  "service": "Service",
-                  "model": "Model"
-                }
-              }
-            }
-          }
-        ]
-      },
-      "scope": {
-        "type": "string",
-        "const": "dataset",
-        "translations": [
-          {
-            "t9nScheme": "saeon/datacite4",
-            "t9nTarget": "/descriptions",
-            "t9nArray": {
+    },
+    "additionalMetadata": {
+      "type": "object",
+      "properties": {
+        "scope": {
+          "$ref": "#/$defs/scopeCode",
+          "translations": [
+            {
+              "t9nScheme": "saeon/datacite4",
+              "t9nTarget": "/types",
               "t9nObject": {
-                "description": {
-                  "t9nFormat": "Scope: {}"
-                },
-                "descriptionType": {
-                  "t9nConst": "Other"
+                "resourceType": {},
+                "resourceTypeGeneral": {
+                  "t9nFilter": {
+                    "attribute": "Other",
+                    "attributeType": "Other",
+                    "collectionHardware": "Other",
+                    "collectionSession": "Other",
+                    "dataset": "Dataset",
+                    "series": "Other",
+                    "nonGeographicDataset": "Other",
+                    "dimensionGroup": "Other",
+                    "feature": "Other",
+                    "featureType": "Other",
+                    "propertyType": "Other",
+                    "fieldSession": "Other",
+                    "software": "Software",
+                    "service": "Service",
+                    "model": "Model"
+                  }
                 }
               }
             }
-          }
-        ]
+          ]
+        },
+        "scope": {
+          "type": "string",
+          "const": "dataset",
+          "translations": [
+            {
+              "t9nScheme": "saeon/datacite4",
+              "t9nTarget": "/descriptions",
+              "t9nArray": {
+                "t9nObject": {
+                  "description": {
+                    "t9nFormat": "Scope: {}"
+                  },
+                  "descriptionType": {
+                    "t9nConst": "Other"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "status": {
+          "type": "array",
+          "description": "Reflects the ISO status element within the additionalMetadata block.",
+          "items": {
+            "$ref": "#/$defs/progressCode"
+          },
+          "minItems": 1,
+          "uniqueItems": true,
+          "translations": [
+            {
+              "t9nScheme": "saeon/datacite4",
+              "t9nTarget": "/subjects",
+              "t9nArray": {
+                "t9nObject": {
+                  "subject": {},
+                  "subjectScheme": {
+                    "t9nConst": "EML Status"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "metadataStandardName": {
+          "type": "string",
+          "const": "Ecological Metadata Language",
+          "translations": [
+            {
+              "t9nScheme": "saeon/datacite4",
+              "t9nTarget": "/descriptions",
+              "t9nArray": {
+                "t9nObject": {
+                  "description": {},
+                  "descriptionType": {
+                    "t9nConst": "Other"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "metadataStandardVersion": {
+          "type": "string",
+          "const": "2.2.0",
+          "translations": [
+            {
+              "t9nScheme": "saeon/datacite4",
+              "t9nTarget": "/descriptions",
+              "t9nArray": {
+                "t9nObject": {
+                  "description": {},
+                  "descriptionType": {
+                    "t9nConst": "Other"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "metadataLanguage": {
+          "type": "string",
+          "const": "en",
+          "translations": [
+            {
+              "t9nScheme": "saeon/datacite4",
+              "t9nTarget": "/language"
+            }
+          ]
+        },
+        "metadataCharacterSet": {
+          "type": "string",
+          "const": "UTF-8",
+          "translations": [
+            {
+              "t9nScheme": "saeon/datacite4",
+              "t9nTarget": "/descriptions",
+              "t9nArray": {
+                "t9nObject": {
+                  "description": {},
+                  "descriptionType": {
+                    "t9nConst": "TechnicalInfo"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "metadataTimestamp": {
+          "type": "string",
+          "format": "date-time",
+          "translations": [
+            {
+              "t9nScheme": "saeon/datacite4",
+              "t9nTarget": "/dates",
+              "t9nArray": {
+                "t9nObject": {
+                  "date": {},
+                  "dateType": {
+                    "t9nConst": "Updated"
+                  }
+                }
+              }
+            }
+          ]
+        }
       },
-      "status": {
+      "spatialRepresentationTypes": {
         "type": "array",
-        "description": "Reflects the ISO status element within the additionalMetadata block.",
         "items": {
-          "$ref": "#/$defs/progressCode"
+          "$ref": "#/$defs/spatialRepresentationTypeCode"
         },
         "minItems": 1,
         "uniqueItems": true,
@@ -1703,120 +1790,13 @@
               "t9nObject": {
                 "subject": {},
                 "subjectScheme": {
-                  "t9nConst": "SANS1878 Status"
-                }
-              }
-            }
-          }
-        ]
-      },
-      "metadataStandardName": {
-        "type": "string",
-        "const": "Ecological Metadata Language or EML 2026 - SAEON Profile",
-        "translations": [
-          {
-            "t9nScheme": "saeon/datacite4",
-            "t9nTarget": "/descriptions",
-            "t9nArray": {
-              "t9nObject": {
-                "description": {},
-                "descriptionType": {
-                  "t9nConst": "Other"
-                }
-              }
-            }
-          }
-        ]
-      },
-      "metadataStandardVersion": {
-        "type": "string",
-        "const": "2.2.0",
-        "translations": [
-          {
-            "t9nScheme": "saeon/datacite4",
-            "t9nTarget": "/descriptions",
-            "t9nArray": {
-              "t9nObject": {
-                "description": {},
-                "descriptionType": {
-                  "t9nConst": "Other"
-                }
-              }
-            }
-          }
-        ]
-      },
-      "metadataLanguage": {
-        "type": "string",
-        "const": "en",
-        "translations": [
-          {
-            "t9nScheme": "saeon/datacite4",
-            "t9nTarget": "/language"
-          }
-        ]
-      },
-      "metadataCharacterSet": {
-        "type": "string",
-        "const": "UTF-8",
-        "translations": [
-          {
-            "t9nScheme": "saeon/datacite4",
-            "t9nTarget": "/descriptions",
-            "t9nArray": {
-              "t9nObject": {
-                "description": {},
-                "descriptionType": {
-                  "t9nConst": "TechnicalInfo"
-                }
-              }
-            }
-          }
-        ]
-      },
-      "metadataTimestamp": {
-        "type": "string",
-        "format": "date-time",
-        "translations": [
-          {
-            "t9nScheme": "saeon/datacite4",
-            "t9nTarget": "/dates",
-            "t9nArray": {
-              "t9nObject": {
-                "date": {},
-                "dateType": {
-                  "t9nConst": "Updated"
+                  "t9nConst": "?EML Spatial Representation Type"
                 }
               }
             }
           }
         ]
       }
-    },
-    "spatialRepresentationTypes": {
-      "type": "array",
-      "items": {
-        "type": "string"
-      },
-      "const": [
-        "vector"
-      ],
-      "translations": [
-        {
-          "t9nScheme": "saeon/datacite4",
-          "t9nTarget": "/descriptions",
-          "t9nArray": {
-            "t9nObject": {
-              "description": {
-                "t9nFormat": "Spatial Representation Type: {}"
-              },
-              "descriptionType": {
-                "t9nConst": "TechnicalInfo"
-              }
-            }
-          }
-        }
-      ]
     }
   },
   "additionalProperties": false,
@@ -1830,8 +1810,7 @@
     "topicCategories",
     "spatialResolution",
     "abstract",
-    "distributionFormats",
-    "spatialRepresentationTypes",
+    "dataFormat",
     "referenceSystemName",
     "methods",
     "onlineResources",
@@ -1842,6 +1821,23 @@
     "licensed"
   ],
   "$defs": {
+    "formatBase": {
+      "type": "object",
+      "properties": {
+        "formatName": {
+          "type": "string",
+          "description": "The name of the data format (e.g., CSV, GeoTIFF, NetCDF)."
+        },
+        "formatVersion": {
+          "type": "string",
+          "description": "The version of the format (e.g., 1.0, 4.0)."
+        }
+      },
+      "required": [
+        "formatName"
+      ],
+      "additionalProperties": false
+    },
     "dateChoice": {
       "type": "object",
       "oneOf": [
