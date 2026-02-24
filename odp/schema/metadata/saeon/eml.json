@@ -1,5 +1,5 @@
 {
-  "$id": "https://odp.saeon.ac.za/schema/metadata/saeon/eml",
+  "$id": "https://odp.saeon.ac.za/schema/metadata/saeon/iso",
   "$schema": "https://jschon.dev/meta/translation/schema",
   "type": "object",
   "translations": [
@@ -415,7 +415,7 @@
                               "t9nCast": "string"
                             },
                             "subjectScheme": {
-                              "t9nConst": "SANS1878 Vertical Extent: altitudeMinimum"
+                              "t9nConst": "EML altitudeMinimum"
                             }
                           }
                         }
@@ -434,7 +434,7 @@
                               "t9nCast": "string"
                             },
                             "subjectScheme": {
-                              "t9nConst": "SANS1878 Vertical Extent: altitudeMaximum"
+                              "t9nConst": "EML altitudeMaximum"
                             }
                           }
                         }
@@ -451,7 +451,25 @@
                           "t9nObject": {
                             "subject": {},
                             "subjectScheme": {
-                              "t9nConst": "SANS1878 Vertical Extent: altitudeUnits"
+                              "t9nConst": "EML altitudeUnits"
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "altitudeDatumName": {
+                    "type": "string",
+                    "description": "The identification of the surface used as a reference for altitude measurements.",
+                    "translations": [
+                      {
+                        "t9nScheme": "saeon/datacite4",
+                        "t9nTarget": "/subjects",
+                        "t9nArray": {
+                          "t9nObject": {
+                            "subject": {},
+                            "subjectScheme": {
+                              "t9nConst": "EML altitudeDatumName"
                             }
                           }
                         }
@@ -459,114 +477,114 @@
                     ]
                   }
                 }
-              }
-            }
-          },
-          "spatialReference": {
-            "type": "object",
-            "properties": {
-              "horizCoordSysName": {
-                "type": "string",
-                "translations": [
-                  {
-                    "t9nScheme": "saeon/datacite4",
-                    "t9nTarget": "/subjects",
-                    "t9nArray": {
-                      "t9nObject": {
-                        "subject": {},
-                        "subjectScheme": {
-                          "t9nConst": "SANS1878 Spatial Reference: horizCoordSysName"
+              },
+              "spatialReference": {
+                "type": "object",
+                "properties": {
+                  "horizCoordSysName": {
+                    "type": "string",
+                    "translations": [
+                      {
+                        "t9nScheme": "saeon/datacite4",
+                        "t9nTarget": "/subjects",
+                        "t9nArray": {
+                          "t9nObject": {
+                            "subject": {},
+                            "subjectScheme": {
+                              "t9nConst": "EML Spatial Reference: horizCoordSysName"
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "vertCoordSys": {
+                    "type": "object",
+                    "properties": {
+                      "altitudeSystemDefinition": {
+                        "type": "object",
+                        "properties": {
+                          "altitudeDatumName": {
+                            "type": "string",
+                            "translations": [
+                              {
+                                "t9nScheme": "saeon/datacite4",
+                                "t9nTarget": "/subjects",
+                                "t9nArray": {
+                                  "t9nObject": {
+                                    "subject": {},
+                                    "subjectScheme": {
+                                      "t9nConst": "EML Spatial Reference: altitudeDatumName"
+                                    }
+                                  }
+                                }
+                              }
+                            ]
+                          },
+                          "altitudeDistanceUnits": {
+                            "type": "string",
+                            "translations": [
+                              {
+                                "t9nScheme": "saeon/datacite4",
+                                "t9nTarget": "/subjects",
+                                "t9nArray": {
+                                  "t9nObject": {
+                                    "subject": {},
+                                    "subjectScheme": {
+                                      "t9nConst": "EML Spatial Reference: altitudeDistanceUnits"
+                                    }
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      },
+                      "depthSystemDefinition": {
+                        "type": "object",
+                        "properties": {
+                          "depthDatumName": {
+                            "type": "string",
+                            "translations": [
+                              {
+                                "t9nScheme": "saeon/datacite4",
+                                "t9nTarget": "/subjects",
+                                "t9nArray": {
+                                  "t9nObject": {
+                                    "subject": {},
+                                    "subjectScheme": {
+                                      "t9nConst": "EML Spatial Reference: depthDatumName"
+                                    }
+                                  }
+                                }
+                              }
+                            ]
+                          },
+                          "depthDistanceUnits": {
+                            "type": "string",
+                            "translations": [
+                              {
+                                "t9nScheme": "saeon/datacite4",
+                                "t9nTarget": "/subjects",
+                                "t9nArray": {
+                                  "t9nObject": {
+                                    "subject": {},
+                                    "subjectScheme": {
+                                      "t9nConst": "SANS1878 Vertical Extent: depthDistanceUnits"
+                                    }
+                                  }
+                                }
+                              }
+                            ]
+                          }
                         }
                       }
                     }
                   }
-                ]
-              },
-              "vertCoordSys": {
-                "type": "object",
-                "properties": {
-                  "altitudeSystemDefinition": {
-                    "type": "object",
-                    "properties": {
-                      "altitudeDatumName": {
-                        "type": "string",
-                        "translations": [
-                          {
-                            "t9nScheme": "saeon/datacite4",
-                            "t9nTarget": "/subjects",
-                            "t9nArray": {
-                              "t9nObject": {
-                                "subject": {},
-                                "subjectScheme": {
-                                  "t9nConst": "SANS1878 Vertical Extent: altitudeDatum"
-                                }
-                              }
-                            }
-                          }
-                        ]
-                      },
-                      "altitudeDistanceUnits": {
-                        "type": "string",
-                        "translations": [
-                          {
-                            "t9nScheme": "saeon/datacite4",
-                            "t9nTarget": "/subjects",
-                            "t9nArray": {
-                              "t9nObject": {
-                                "subject": {},
-                                "subjectScheme": {
-                                  "t9nConst": "SANS1878 Vertical Extent: altitudeDistanceUnits"
-                                }
-                              }
-                            }
-                          }
-                        ]
-                      }
-                    }
-                  },
-                  "depthSystemDefinition": {
-                    "type": "object",
-                    "properties": {
-                      "depthDatumName": {
-                        "type": "string",
-                        "translations": [
-                          {
-                            "t9nScheme": "saeon/datacite4",
-                            "t9nTarget": "/subjects",
-                            "t9nArray": {
-                              "t9nObject": {
-                                "subject": {},
-                                "subjectScheme": {
-                                  "t9nConst": "SANS1878 Vertical Extent: depthDatum"
-                                }
-                              }
-                            }
-                          }
-                        ]
-                      },
-                      "depthDistanceUnits": {
-                        "type": "string",
-                        "translations": [
-                          {
-                            "t9nScheme": "saeon/datacite4",
-                            "t9nTarget": "/subjects",
-                            "t9nArray": {
-                              "t9nObject": {
-                                "subject": {},
-                                "subjectScheme": {
-                                  "t9nConst": "SANS1878 Vertical Extent: depthDistanceUnits"
-                                }
-                              }
-                            }
-                          }
-                        ]
-                      }
-                    }
-                  }
-                }
+                },
+                "additionalProperties": false
               }
-            },
-            "additionalProperties": false
+            }
           },
           "translations": [
             {
@@ -579,16 +597,16 @@
                   },
                   "geoLocationBox": {
                     "t9nObject": {
-                      "westBoundingCoordinate": {
+                      "westBoundLongitude": {
                         "t9nSource": "0/boundingCoordinates/westBoundingCoordinate"
                       },
-                      "eastBoundingCoordinate": {
+                      "eastBoundLongitude": {
                         "t9nSource": "0/boundingCoordinates/eastBoundingCoordinate"
                       },
-                      "southBoundingCoordinate": {
+                      "southBoundLatitude": {
                         "t9nSource": "0/boundingCoordinates/southBoundingCoordinate"
                       },
-                      "northBoundingCoordinate": {
+                      "northBoundLatitude": {
                         "t9nSource": "0/boundingCoordinates/northBoundingCoordinate"
                       }
                     }
@@ -744,7 +762,7 @@
                         "t9nSource": "0"
                       },
                       "subjectScheme": {
-                        "t9nConst": "Taxonomic Scope"
+                        "t9nConst": "Taxonomic coverage_General taxonomic coverage"
                       }
                     }
                   }
@@ -768,7 +786,7 @@
                               "t9nSource": "0"
                             },
                             "subjectScheme": {
-                              "t9nConst": "Taxonomic Scope"
+                              "t9nConst": "Taxonomic coverage_Taxonomic classification"
                             }
                           }
                         }
@@ -787,7 +805,7 @@
                               "t9nSource": "0"
                             },
                             "subjectScheme": {
-                              "t9nConst": "Taxonomic Scope"
+                              "t9nConst": "?Taxonomic coverage_Taxon rank value"
                             }
                           }
                         }
@@ -806,7 +824,7 @@
                               "t9nSource": "0"
                             },
                             "subjectScheme": {
-                              "t9nConst": "Taxonomic Scope"
+                              "t9nConst": "Taxonomic coverage_TaxonId"
                             }
                           }
                         }
@@ -825,7 +843,7 @@
                               "t9nSource": "0"
                             },
                             "subjectScheme": {
-                              "t9nConst": "Taxonomic Scope"
+                              "t9nConst": "Taxonomic coverage_common name"
                             }
                           }
                         }
@@ -899,80 +917,16 @@
                   ]
                 },
                 "identificationReference": {
-                  "type": "string",
-                  "translations": [
-                    {
-                      "t9nScheme": "saeon/datacite4",
-                      "t9nTarget": "/subjects",
-                      "t9nArray": {
-                        "t9nObject": {
-                          "subject": {
-                            "t9nSource": "0"
-                          },
-                          "subjectScheme": {
-                            "t9nConst": "Taxonomic Scope"
-                          }
-                        }
-                      }
-                    }
-                  ]
+                  "type": "string"
                 },
                 "identifierName": {
-                  "type": "string",
-                  "translations": [
-                    {
-                      "t9nScheme": "saeon/datacite4",
-                      "t9nTarget": "/subjects",
-                      "t9nArray": {
-                        "t9nObject": {
-                          "subject": {
-                            "t9nSource": "0"
-                          },
-                          "subjectScheme": {
-                            "t9nConst": "Taxonomic Scope"
-                          }
-                        }
-                      }
-                    }
-                  ]
+                  "type": "string"
                 },
                 "taxonomicCompleteness": {
-                  "type": "string",
-                  "translations": [
-                    {
-                      "t9nScheme": "saeon/datacite4",
-                      "t9nTarget": "/subjects",
-                      "t9nArray": {
-                        "t9nObject": {
-                          "subject": {
-                            "t9nSource": "0"
-                          },
-                          "subjectScheme": {
-                            "t9nConst": "Taxonomic Scope"
-                          }
-                        }
-                      }
-                    }
-                  ]
+                  "type": "string"
                 },
                 "taxonomicProcedures": {
-                  "type": "string",
-                  "translations": [
-                    {
-                      "t9nScheme": "saeon/datacite4",
-                      "t9nTarget": "/subjects",
-                      "t9nArray": {
-                        "t9nObject": {
-                          "subject": {
-                            "t9nSource": "0"
-                          },
-                          "subjectScheme": {
-                            "t9nConst": "Taxonomic Scope"
-                          }
-                        }
-                      }
-                    }
-                  ]
+                  "type": "string"
                 },
                 "vouchers": {
                   "type": "object",
@@ -1044,28 +998,6 @@
     "characterEncoding": {
       "$ref": "#/$defs/characterSetCode"
     },
-    "topicCategories": {
-      "type": "array",
-      "items": {
-        "$ref": "#/$defs/topicCategoryCode"
-      },
-      "minItems": 1,
-      "uniqueItems": true,
-      "translations": [
-        {
-          "t9nScheme": "saeon/datacite4",
-          "t9nTarget": "/subjects",
-          "t9nArray": {
-            "t9nObject": {
-              "subject": {},
-              "subjectScheme": {
-                "t9nConst": "SANS1878 Dataset Topic Category"
-              }
-            }
-          }
-        }
-      ]
-    },
     "spatialResolution": {
       "type": "string"
     },
@@ -1135,47 +1067,17 @@
         }
       ]
     },
-    "referenceSystemName": {
-      "type": "object",
-      "properties": {
-        "codeSpace": {
-          "type": "string"
-        },
-        "version": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "codeSpace"
-      ],
-      "additionalProperties": false,
-      "translations": [
-        {
-          "t9nScheme": "saeon/datacite4",
-          "t9nTarget": "/subjects",
-          "t9nArray": {
-            "t9nObject": {
-              "subject": {
-                "t9nConcat": [
-                  "0/codeSpace",
-                  "0/version"
-                ],
-                "t9nSep": " "
-              },
-              "subjectScheme": {
-                "t9nConst": "SANS1878 Reference System"
-              }
-            }
-          }
-        }
-      ]
-    },
     "methods": {
-      "type": "string",
+      "type": "object",
+      "required": [
+        "methodStep",
+        "sampling"
+      ],
       "translations": [
         {
           "t9nScheme": "saeon/datacite4",
           "t9nTarget": "/descriptions",
+          "t9nSep": "\n\n",
           "t9nArray": {
             "t9nObject": {
               "description": {},
@@ -1185,7 +1087,46 @@
             }
           }
         }
-      ]
+      ],
+      "properties": {
+        "methodStep": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sampling": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": [
+              "samplingDescription"
+            ],
+            "properties": {
+              "samplingDescription": {
+                "type": "string",
+                "minLength": 1
+              },
+              "spatialSamplingUnits": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "studyExtent": {
+                "type": "string"
+              },
+              "citation": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "qualityControl": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
     },
     "onlineResources": {
       "type": "array",
@@ -1408,7 +1349,7 @@
         }
       ]
     },
-    "descriptiveKeywords": {
+    "keywordSet": {
       "type": "array",
       "items": {
         "type": "object",
@@ -1416,13 +1357,13 @@
           "keyword": {
             "type": "string"
           },
-          "keywordType": {
+          "keywordThesaurus": {
             "$ref": "#/$defs/keywordType"
           }
         },
         "required": [
           "keyword",
-          "keywordType"
+          "keywordThesaurus"
         ],
         "additionalProperties": false
       },
@@ -1452,53 +1393,14 @@
         }
       ]
     },
+    "intellectualRights": {
+      "type": "string"
+    },
     "licensed": {
       "type": "array",
       "items": {
         "type": "object",
         "properties": {
-          "useLimitations": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "uniqueItems": true,
-            "translations": [
-              {
-                "t9nScheme": "saeon/datacite4",
-                "t9nTarget": "/subjects",
-                "t9nArray": {
-                  "t9nObject": {
-                    "subject": {},
-                    "subjectScheme": {
-                      "t9nConst": "SANS1878 Use Limitation"
-                    }
-                  }
-                }
-              }
-            ]
-          },
-          "accessConstraints": {
-            "type": "array",
-            "items": {
-              "$ref": "#/$defs/restrictionCode"
-            },
-            "uniqueItems": true,
-            "translations": [
-              {
-                "t9nScheme": "saeon/datacite4",
-                "t9nTarget": "/subjects",
-                "t9nArray": {
-                  "t9nObject": {
-                    "subject": {},
-                    "subjectScheme": {
-                      "t9nConst": "SANS1878 Constraint"
-                    }
-                  }
-                }
-              }
-            ]
-          },
           "identifier": {
             "type": "array",
             "items": {
@@ -1514,23 +1416,6 @@
                     "subject": {},
                     "subjectScheme": {
                       "t9nConst": "SANS1878 Constraint"
-                    }
-                  }
-                }
-              }
-            ]
-          },
-          "classification": {
-            "$ref": "#/$defs/classificationCode",
-            "translations": [
-              {
-                "t9nScheme": "saeon/datacite4",
-                "t9nTarget": "/subjects",
-                "t9nArray": {
-                  "t9nObject": {
-                    "subject": {},
-                    "subjectScheme": {
-                      "t9nConst": "SANS1878 Security Classification"
                     }
                   }
                 }
@@ -1643,26 +1528,6 @@
                     "software": "Software",
                     "service": "Service",
                     "model": "Model"
-                  }
-                }
-              }
-            }
-          ]
-        },
-        "scope": {
-          "type": "string",
-          "const": "dataset",
-          "translations": [
-            {
-              "t9nScheme": "saeon/datacite4",
-              "t9nTarget": "/descriptions",
-              "t9nArray": {
-                "t9nObject": {
-                  "description": {
-                    "t9nFormat": "Scope: {}"
-                  },
-                  "descriptionType": {
-                    "t9nConst": "Other"
                   }
                 }
               }
@@ -1807,18 +1672,17 @@
     "coverage",
     "language",
     "characterEncoding",
-    "topicCategories",
     "spatialResolution",
     "abstract",
     "dataFormat",
-    "referenceSystemName",
     "methods",
     "onlineResources",
     "packageId",
     "fileIdentifier",
     "additionalMetadata",
     "purpose",
-    "licensed"
+    "licensed",
+    "keywordSet"
   ],
   "$defs": {
     "formatBase": {
@@ -1997,6 +1861,12 @@
         "temporal",
         "theme",
         "general"
+      ]
+    },
+    "licenseIdentifier": {
+      "type": "string",
+      "enum": [
+        "CC BY 4.0"
       ]
     },
     "restrictionCode": {

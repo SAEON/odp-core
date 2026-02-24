@@ -1,140 +1,147 @@
 {
-    "doi": "10.15493/DEA.MIMS.03832791",
-    "titles": [
-        {
-            "lang": "en",
-            "value": "Long-term Monitoring of Coastal Biodiversity in False Bay"
-        }
-    ],
-    "methods": "Standardized belt transect surveys conducted during spring low tides.",
-    "pubDate": "2026-02-24",
-    "purpose": "To assess the impact of rising sea temperatures on coastal biodiversity over a 10-year period.",
-    "abstract": "This dataset contains long-term monitoring data regarding macroalgae and invertebrate populations collected along the rocky shores of False Bay, South Africa.",
-    "coverage": {
-        "temporalCoverage": {
-            "rangeOfDates": {
-                "endDate": "2026-01-01",
-                "beginDate": "2016-01-01"
-            }
-        },
-        "taxonomicCoverage": {
-            "taxonomicClassification": [
-                {
-                    "taxonRankName": "Kingdom",
-                    "taxonRankValue": "Animalia"
-                }
-            ],
-            "generalTaxonomicCoverage": [
-                "Marine macroalgae and coastal invertebrates"
-            ]
-        },
-        "geographicCoverage": [
-            {
-                "spatialReference": {
-                    "vertCoordSys": {
-                        "altitudeSystemDefinition": {
-                            "altitudeDatumName": "Mean Sea Level",
-                            "altitudeDistanceUnits": "meter"
-                        }
-                    },
-                    "horizCoordSysName": "EPSG:4326/WGS 84"
-                },
-                "boundingAltitudes": {
-                    "altitudeUnits": "meter",
-                    "altitudeMaximum": 5,
-                    "altitudeMinimum": -20
-                },
-                "boundingCoordinates": {
-                    "eastBoundingCoordinate": 18.9,
-                    "westBoundingCoordinate": 18.3,
-                    "northBoundingCoordinate": -34.0,
-                    "southBoundingCoordinate": -34.4
-                },
-                "geographicDescription": "False Bay Coastline, South Africa"
-            }
-        ]
-    },
-    "language": [
-        "en"
-    ],
-    "licensed": [
-        {
-            "url": "https://creativecommons.org/licenses/by/4.0/",
-            "identifier": "license",
-            "licenseName": "Creative Commons Attribution 4.0 International",
-            "accessConstraints": [
-                "copyright"
-            ]
-        }
-    ],
-    "packageId": "10.15493/DEA.MIMS.03832791",
-    "dataFormat": {
-        "textFormat": {
-            "formatName": "CSV",
-            "formatVersion": "1.0"
-        }
-    },
-    "fileIdentifier": "10.15493/DEA.MIMS.03832791",
-    "onlineResources": [
-        {
-            "name": "Full Dataset Download",
-            "linkage": "https://data.saeon.ac.za/download/dataset_01.zip",
-            "description": "download",
-            "applicationProfile": "[csv, json]"
-        }
-    ],
-    "topicCategories": [
-        "biota",
-        "oceans",
-        "environment"
-    ],
-    "characterEncoding": "utf8",
-    "metadataTimestamp": "2026-02-19T14:30:00Z",
-    "spatialResolution": "10 meters",
-    "additionalMetadata": {
-        "scope": "dataset",
-        "status": [
-            "completed"
-        ],
-        "metadataLanguage": "en",
-        "metadataTimestamp": "2026-02-19T14:30:00Z",
-        "metadataCharacterSet": "UTF-8",
-        "metadataStandardName": "Ecological Metadata Language",
-        "metadataStandardVersion": "2.2.0",
-        "spatialRepresentationTypes": [
-            "vector"
-        ]
-    },
-    "responsibleParties": [
-        {
-            "role": "originator",
-            "contactInfo": "jane@example.ac.za",
-            "positionName": "Lead Scientist",
-            "individualName": "Dr. Jane Smith",
-            "onlineResource": {
-                "linkage": "https://orcid.org/0000-0000-0000-0000"
-            },
-            "organizationName": "SAEON Egagasini Node"
-        },
-        {
-            "role": "publisher",
-            "organizationName": "SAEON Data Repository"
-        },
-        {
-            "role": "pointOfContact",
-            "contactInfo": "it@saeon.ac.za",
-            "individualName": "Data Manager",
-            "organizationName": "SAEON"
-        }
-    ],
-    "descriptiveKeywords": [
-        {
-            "keyword": "Marine Biology",
-            "keywordType": "theme"
-        }
-    ],
-    "referenceSystemName": {
-        "version": "4326",
-        "codeSpace": "EPSG"
+  "doi": "10.15493/DEA.MIMS.03832791",
+  "titles": [
+    {
+      "lang": "en",
+      "value": "Long-term Monitoring of Coastal Biodiversity in False Bay"
     }
+  ],
+  "methods": {
+    "sampling": [
+      {
+        "citation": "Filander Z, et al. (2025). Quality control and validation procedures for benthic bycatch observer data. SAEON Technical Report.",
+        "studyExtent": "Sampling occurred annually between 2009 and 2023 during fishing seasons. The geographic extent covered waters surrounding the Prince Edward and Marion Islands. The study focused on benthic invertebrate bycatch associated with longline fisheries.",
+        "samplingDescription": "Observers divided each longline into segments of either 1,200 meters or 1,000 hooks in accordance with Conservation Measure 22-07. Prior to hauling, 50% of the segments were randomly selected for sampling. All benthic bycatch within selected segments was identified, counted and weighed.",
+        "spatialSamplingUnits": [
+          "Prince Edward Islands Exclusive Economic Zone",
+          "Longline fishing grounds surrounding Marion Island"
+        ]
+      }
+    ],
+    "methodStep": "Data were collected using onboard fisheries observers who monitored longline fishing operations targeting Patagonian toothfish around the Prince Edward and Marion Islands between 2009 and 2023. Observers recorded benthic bycatch by identifying, counting and weighing taxa from selected longline segments. Data were captured using standardized field sheets and later digitised into a central database.",
+    "qualityControl": "All records were validated through double data entry checks, taxonomic verification against WoRMS, and automated range checks for spatial coordinates and species occurrence. Outliers were flagged and reviewed by a senior marine ecologist prior to publication."
+  },
+  "pubDate": "2026-02-25",
+  "purpose": "To assess the impact of rising sea temperatures on coastal biodiversity over a 10-year period.",
+  "abstract": "This dataset contains long-term monitoring data regarding macroalgae and invertebrate populations collected along the rocky shores of False Bay, South Africa.",
+  "coverage": {
+    "temporalCoverage": {
+      "rangeOfDates": {
+        "endDate": "2026-01-04",
+        "beginDate": "2016-01-01"
+      }
+    },
+    "taxonomicCoverage": {
+      "taxonomicClassification": [
+        {
+          "taxonRankName": "Kingdom",
+          "taxonRankValue": "Animalia"
+        }
+      ],
+      "generalTaxonomicCoverage": [
+        "Marine macroalgae and coastal invertebrates"
+      ]
+    },
+    "geographicCoverage": [
+      {
+        "spatialReference": {
+          "vertCoordSys": {
+            "altitudeSystemDefinition": {
+              "altitudeDatumName": "Mean Sea Level",
+              "altitudeDistanceUnits": "meter"
+            }
+          },
+          "horizCoordSysName": "EPSG:4326/WGS 84"
+        },
+        "boundingAltitudes": {
+          "altitudeUnits": "meter",
+          "altitudeMaximum": 5,
+          "altitudeMinimum": -20
+        },
+        "boundingCoordinates": {
+          "eastBoundingCoordinate": 18.9,
+          "westBoundingCoordinate": 18.3,
+          "northBoundingCoordinate": -34.0,
+          "southBoundingCoordinate": -34.4
+        },
+        "geographicDescription": "False Bay Coastline, South Africa"
+      }
+    ]
+  },
+  "language": [
+    "en"
+  ],
+  "licensed": [
+    {
+      "url": "https://creativecommons.org/licenses/by/4.0/",
+      "identifier": "license",
+      "licenseName": "Creative Commons Attribution 4.0 International"
+    }
+  ],
+  "packageId": "P10.15493/DEA.MIMS.03832791",
+  "dataFormat": {
+    "textFormat": {
+      "formatName": "CSV",
+      "formatVersion": "1.0"
+    }
+  },
+  "keywordSet": [
+    {
+      "keyword": "Marine Biology",
+      "keywordThesaurus": "discipline"
+    }
+  ],
+  "fileIdentifier": "A10.15493/DEA.MIMS.03832791",
+  "onlineResources": [
+    {
+      "name": "Full Dataset Download",
+      "linkage": "https://data.saeon.ac.za/download/dataset_01.zip",
+      "description": "download",
+      "applicationProfile": "[csv, json]"
+    }
+  ],
+  "topicCategories": [
+    "biota",
+    "oceans",
+    "environment"
+  ],
+  "characterEncoding": "utf8",
+  "metadataTimestamp": "2026-02-19T14:30:00Z",
+  "spatialResolution": "10 meters",
+  "additionalMetadata": {
+    "scope": "dataset",
+    "status": [
+      "completed"
+    ],
+    "metadataLanguage": "en",
+    "metadataTimestamp": "2026-02-19T14:30:00Z",
+    "metadataCharacterSet": "UTF-8",
+    "metadataStandardName": "Ecological Metadata Language",
+    "metadataStandardVersion": "2.2.0",
+    "spatialRepresentationTypes": [
+      "vector"
+    ]
+  },
+  "responsibleParties": [
+    {
+      "role": "originator",
+      "contactInfo": "jane@example.ac.za",
+      "positionName": "Lead Scientist",
+      "individualName": "Dr. Jane Smith",
+      "onlineResource": {
+        "linkage": "https://orcid.org/0000-0000-0000-0000"
+      },
+      "organizationName": "SAEON Egagasini Node"
+    },
+    {
+      "role": "publisher",
+      "organizationName": "SAEON Data Repository"
+    },
+    {
+      "role": "pointOfContact",
+      "contactInfo": "it@saeon.ac.za",
+      "individualName": "Data Manager",
+      "organizationName": "SAEON"
+    }
+  ]
 }
