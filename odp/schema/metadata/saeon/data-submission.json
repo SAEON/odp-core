@@ -45,16 +45,18 @@
         }
       ]
     },
-    "resource_type": {
-      "type": "string",
+    "resource_types": {
+      "type": "object",
       "translations": [
         {
           "t9nScheme": "saeon/datacite4",
           "t9nTarget": "/types",
           "t9nObject": {
-            "resourceType": {},
+            "resourceType": {
+              "t9nSource": "0/resource_type"
+            },
             "resourceTypeGeneral": {
-              "t9nConst": "Dataset"
+              "t9nSource": "0/resource_type_general"
             }
           }
         }
@@ -187,11 +189,71 @@
                 "givenName": {
                   "t9nSource": "0/first_name"
                 },
+                "nameIdentifiers": {
+                  "t9nCondition": {
+                    "not": {
+                      "properties": {
+                        "orcid": {
+                          "const": ""
+                        }
+                      }
+                    }
+                  },
+                  "t9nArray": {
+                    "t9nObject": {
+                      "nameIdentifier": {
+                        "t9nSource": "0/orcid"
+                      },
+                      "nameIdentifierScheme": {
+                        "t9nConst": "ORCID"
+                      },
+                      "schemeURI": {
+                        "t9nConst": "https://orcid.org"
+                      }
+                    }
+                  }
+                },
                 "affiliation": {
                   "t9nArray": {
                     "t9nObject": {
                       "affiliation": {
                         "t9nSource": "0/affiliation"
+                      },
+                      "affiliationIdentifier": {
+                        "t9nCondition": {
+                          "not": {
+                            "properties": {
+                              "ror": {
+                                "const": ""
+                              }
+                            }
+                          }
+                        },
+                        "t9nSource": "0/ror"
+                      },
+                      "affiliationIdentifierScheme": {
+                        "t9nCondition": {
+                          "not": {
+                            "properties": {
+                              "ror": {
+                                "const": ""
+                              }
+                            }
+                          }
+                        },
+                        "t9nConst": "ROR"
+                      },
+                      "schemeURI": {
+                        "t9nCondition": {
+                          "not": {
+                            "properties": {
+                              "ror": {
+                                "const": ""
+                              }
+                            }
+                          }
+                        },
+                        "t9nConst": "https://ror.org"
                       }
                     }
                   }
@@ -212,7 +274,7 @@
             "t9nObject": {
               "subject": {},
               "subjectScheme": {
-                "t9nConst": "GCMD Earth Science Theme"
+                "t9nConst": "GCMD Earth Science"
               }
             }
           }
@@ -232,7 +294,10 @@
             "t9nObject": {
               "subject": {},
               "subjectScheme": {
-                "t9nConst": "Essential Climate Variable (ECV)"
+                "t9nConst": "Essential Climate Variables"
+              },
+              "schemeURI": {
+                "t9nConst": "https://library.wmo.int/idurl/4/58111"
               }
             }
           }
@@ -252,7 +317,67 @@
             "t9nObject": {
               "subject": {},
               "subjectScheme": {
-                "t9nConst": "Essential Ocean Variable (EOV)"
+                "t9nConst": "Essential Ocean Variables"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "ebv_keywords": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "translations": [
+        {
+          "t9nScheme": "saeon/datacite4",
+          "t9nTarget": "/subjects",
+          "t9nArray": {
+            "t9nObject": {
+              "subject": {},
+              "subjectScheme": {
+                "t9nConst": "Essential Biodiversity Variables"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "eav_keywords": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "translations": [
+        {
+          "t9nScheme": "saeon/datacite4",
+          "t9nTarget": "/subjects",
+          "t9nArray": {
+            "t9nObject": {
+              "subject": {},
+              "subjectScheme": {
+                "t9nConst": "Essential Agricultural Variables"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "instruments": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "translations": [
+        {
+          "t9nScheme": "saeon/datacite4",
+          "t9nTarget": "/subjects",
+          "t9nArray": {
+            "t9nObject": {
+              "subject": {},
+              "subjectScheme": {
+                "t9nConst": "GCMD Instruments"
               }
             }
           }
@@ -270,7 +395,47 @@
           "t9nTarget": "/subjects",
           "t9nArray": {
             "t9nObject": {
-              "subject": {}
+              "subject": {},
+              "subjectScheme": {
+                "t9nConst": "GCMD Science Keywords"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "place_keywords": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "translations": [
+        {
+          "t9nScheme": "saeon/datacite4",
+          "t9nTarget": "/subjects",
+          "t9nArray": {
+            "t9nObject": {
+              "subject": {},
+              "subjectScheme": {
+                "t9nConst": "GCMD Locations"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "status": {
+      "type": "string",
+      "translations": [
+        {
+          "t9nScheme": "saeon/datacite4",
+          "t9nTarget": "/subjects",
+          "t9nArray": {
+            "t9nObject": {
+              "subject": {},
+              "subjectScheme": {
+                "t9nConst": "ISO 19115-1 status"
+              }
             }
           }
         }
@@ -299,7 +464,7 @@
         }
       ]
     },
-    "bounding_box": {
+    "geographic_extent": {
       "type": "object",
       "translations": [
         {
@@ -307,6 +472,9 @@
           "t9nTarget": "/geoLocations",
           "t9nArray": {
             "t9nObject": {
+              "geoLocationPlace": {
+                "t9nSource": "0/location_name"
+              },
               "geoLocationBox": {
                 "t9nObject": {
                   "westBoundLongitude": {
@@ -322,13 +490,23 @@
                     "t9nSource": "0/north_bound_latitude"
                   }
                 }
+              },
+              "geoLocationPoint": {
+                "t9nObject": {
+                  "pointLongitude": {
+                    "t9nSource": "0/point_longitude"
+                  },
+                  "pointLatitude": {
+                    "t9nSource": "0/point_latitude"
+                  }
+                }
               }
             }
           }
         }
       ]
     },
-    "licence": {
+    "license": {
       "type": "object",
       "translations": [
         {
@@ -340,10 +518,7 @@
                 "t9nSource": "0/license"
               },
               "rightsURI": {
-                "t9nSource": "0/license",
-                "t9nFilter": {
-                  "Attribution - ShareAlike 4.0 International(CC BY - SA 4.0)": "https://creativecommons.org/licenses/by-sa/4.0/"
-                }
+                "t9nSource": "0/license"
               }
             }
           }
@@ -368,6 +543,15 @@
                 },
                 "relationType": {
                   "t9nSource": "0/relationship_type"
+                },
+                "relatedMetadataScheme": {
+                  "t9nSource": "0/related_metadata_scheme"
+                },
+                "schemeURI": {
+                  "t9nSource": "0/scheme_uri"
+                },
+                "schemeType": {
+                  "t9nSource": "0/scheme_type"
                 }
               }
             }
@@ -428,6 +612,174 @@
         {
           "t9nScheme": "saeon/datacite4",
           "t9nTarget": "/language"
+        }
+      ]
+    },
+    "doi": {
+      "type": "string",
+      "translations": [
+        {
+          "t9nScheme": "saeon/datacite4",
+          "t9nTarget": "/doi"
+        }
+      ]
+    },
+    "format": {
+      "type": "string",
+      "translations": [
+        {
+          "t9nScheme": "saeon/datacite4",
+          "t9nTarget": "/formats",
+          "t9nArray": {}
+        }
+      ]
+    },
+    "project": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "translations": [
+        {
+          "t9nScheme": "saeon/datacite4",
+          "t9nTarget": "/subjects",
+          "t9nArray": {
+            "t9nObject": {
+              "subject": {},
+              "subjectScheme": {
+                "t9nConst": "Projects"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "vertical_extent": {
+      "type": "object",
+      "translations": [
+        {
+          "t9nScheme": "saeon/datacite4",
+          "t9nTarget": "/subjects",
+          "t9nArray": {
+            "t9nObject": {
+              "subject": {
+                "t9nSource": "0/height"
+              },
+              "subjectScheme": {
+                "t9nConst": "ISO 19115-1 minimumValue"
+              }
+            }
+          }
+        },
+        {
+          "t9nScheme": "saeon/datacite4",
+          "t9nTarget": "/subjects",
+          "t9nArray": {
+            "t9nObject": {
+              "subject": {
+                "t9nSource": "0/depth"
+              },
+              "subjectScheme": {
+                "t9nConst": "ISO 19115-1 maximumValue"
+              }
+            }
+          }
+        },
+        {
+          "t9nScheme": "saeon/datacite4",
+          "t9nTarget": "/subjects",
+          "t9nArray": {
+            "t9nObject": {
+              "subject": {
+                "t9nSource": "0/measurement"
+              },
+              "subjectScheme": {
+                "t9nConst": "ISO 19115-1 verticalDatum"
+              }
+            }
+          }
+        },
+        {
+          "t9nScheme": "saeon/datacite4",
+          "t9nTarget": "/subjects",
+          "t9nArray": {
+            "t9nObject": {
+              "subject": {
+                "t9nConst": "m"
+              },
+              "subjectScheme": {
+                "t9nConst": "ISO 19115-1 unitOfMeasure"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "spatial_resolution": {
+      "type": "string",
+      "translations": [
+        {
+          "t9nScheme": "saeon/datacite4",
+          "t9nTarget": "/subjects",
+          "t9nArray": {
+            "t9nObject": {
+              "subject": {},
+              "subjectScheme": {
+                "t9nConst": "ISO 19115-1 spatialResolution"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "reference_system": {
+      "type": "string",
+      "translations": [
+        {
+          "t9nScheme": "saeon/datacite4",
+          "t9nTarget": "/subjects",
+          "t9nArray": {
+            "t9nObject": {
+              "subject": {},
+              "subjectScheme": {
+                "t9nConst": "ISO 19115-1 referenceSystemName"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "topic_categories": {
+      "type": "string",
+      "translations": [
+        {
+          "t9nScheme": "saeon/datacite4",
+          "t9nTarget": "/subjects",
+          "t9nArray": {
+            "t9nObject": {
+              "subject": {},
+              "subjectScheme": {
+                "t9nConst": "ISO 19115-1 topicCategory"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "spatial_representation_types": {
+      "type": "string",
+      "translations": [
+        {
+          "t9nScheme": "saeon/datacite4",
+          "t9nTarget": "/subjects",
+          "t9nArray": {
+            "t9nObject": {
+              "subject": {},
+              "subjectScheme": {
+                "t9nConst": "ISO 19115-1 spatialRepresentationType"
+              }
+            }
+          }
         }
       ]
     }
