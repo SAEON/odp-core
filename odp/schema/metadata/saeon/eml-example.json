@@ -21,13 +21,13 @@
     "methodStep": "Data were collected using onboard fisheries observers who monitored longline fishing operations targeting Patagonian toothfish around the Prince Edward and Marion Islands between 2009 and 2023. Observers recorded benthic bycatch by identifying, counting and weighing taxa from selected longline segments. Data were captured using standardized field sheets and later digitised into a central database.",
     "qualityControl": "All records were validated through double data entry checks, taxonomic verification against WoRMS, and automated range checks for spatial coordinates and species occurrence. Outliers were flagged and reviewed by a senior marine ecologist prior to publication."
   },
-  "pubDate": "2026-02-25",
+  "pubDate": "2026-02-27",
   "purpose": "To assess the impact of rising sea temperatures on coastal biodiversity over a 10-year period.",
   "abstract": "This dataset contains long-term monitoring data regarding macroalgae and invertebrate populations collected along the rocky shores of False Bay, South Africa.",
   "coverage": {
     "temporalCoverage": {
       "rangeOfDates": {
-        "endDate": "2026-01-04",
+        "endDate": "2026-01-03",
         "beginDate": "2016-01-01"
       }
     },
@@ -44,15 +44,6 @@
     },
     "geographicCoverage": [
       {
-        "spatialReference": {
-          "vertCoordSys": {
-            "altitudeSystemDefinition": {
-              "altitudeDatumName": "Mean Sea Level",
-              "altitudeDistanceUnits": "meter"
-            }
-          },
-          "horizCoordSysName": "EPSG:4326/WGS 84"
-        },
         "boundingAltitudes": {
           "altitudeUnits": "meter",
           "altitudeMaximum": 5,
@@ -74,10 +65,13 @@
   "licensed": [
     {
       "url": "https://creativecommons.org/licenses/by/4.0/",
-      "identifier": "license",
+      "identifier": [
+        "CC-BY-SA 4.0"
+      ],
       "licenseName": "Creative Commons Attribution 4.0 International"
     }
   ],
+  "dateStamp": "2026-02-19T14:30:00Z",
   "packageId": "P10.15493/DEA.MIMS.03832791",
   "dataFormat": {
     "textFormat": {
@@ -100,14 +94,20 @@
       "applicationProfile": "[csv, json]"
     }
   ],
-  "topicCategories": [
-    "biota",
-    "oceans",
-    "environment"
-  ],
+  "spatialReference": {
+    "vertCoordSys": {
+      "depthSystemDefinition": {
+        "depthDatumName": "Lowest Astronomical Tide",
+        "depthDistanceUnits": "meter"
+      },
+      "altitudeSystemDefinition": {
+        "altitudeDatumName": "Mean Sea Level",
+        "altitudeDistanceUnits": "meter"
+      }
+    },
+    "horizCoordSysName": "EPSG:4326/WGS 84"
+  },
   "characterEncoding": "utf8",
-  "metadataTimestamp": "2026-02-19T14:30:00Z",
-  "spatialResolution": "10 meters",
   "additionalMetadata": {
     "scope": "dataset",
     "status": [
@@ -115,6 +115,7 @@
     ],
     "metadataLanguage": "en",
     "metadataTimestamp": "2026-02-19T14:30:00Z",
+    "spatialResolution": "10 meters",
     "metadataCharacterSet": "UTF-8",
     "metadataStandardName": "Ecological Metadata Language",
     "metadataStandardVersion": "2.2.0",
@@ -122,6 +123,7 @@
       "vector"
     ]
   },
+  "intellectualRights": "This work is licensed under a Creative Commons Attribution 4.0 International License (CC-BY 4.0).",
   "responsibleParties": [
     {
       "role": "originator",
