@@ -1,5 +1,5 @@
 {
-  "$id": "https://odp.saeon.ac.za/schema/metadata/saeon/iso",
+  "$id": "https://odp.saeon.ac.za/schema/metadata/saeon/eml",
   "$schema": "https://jschon.dev/meta/translation/schema",
   "type": "object",
   "translations": [
@@ -30,19 +30,16 @@
         "properties": {
           "value": {
             "type": "string",
-            "minLength": 1,
-            "description": "Title text in a particular language"
+            "minLength": 1
           },
           "lang": {
-            "type": "string",
-            "description": "Language code, e.g., 'en'"
+            "type": "string"
           }
         },
         "required": [
           "value"
         ]
       },
-      "description": "Multiple titles to support multiple languages",
       "translations": [
         {
           "t9nScheme": "saeon/datacite4",
@@ -71,220 +68,6 @@
         }
       ]
     },
-    "responsibleParties": {
-      "type": "array",
-      "allOf": [
-        {
-          "contains": {
-            "properties": {
-              "role": {
-                "enum": [
-                  "originator",
-                  "principalInvestigator",
-                  "author"
-                ]
-              }
-            }
-          }
-        },
-        {
-          "contains": {
-            "properties": {
-              "role": {
-                "const": "publisher"
-              }
-            }
-          }
-        },
-        {
-          "contains": {
-            "properties": {
-              "role": {
-                "const": "pointOfContact"
-              }
-            },
-            "required": [
-              "contactInfo"
-            ]
-          }
-        }
-      ],
-      "uniqueItems": true,
-      "items": {
-        "type": "object",
-        "properties": {
-          "individualName": {
-            "type": "string"
-          },
-          "organizationName": {
-            "type": "string"
-          },
-          "positionName": {
-            "type": "string"
-          },
-          "contactInfo": {
-            "type": "string"
-          },
-          "role": {
-            "$ref": "#/$defs/responsiblePartyRole"
-          },
-          "onlineResource": {
-            "$ref": "#/$defs/onlineResource"
-          }
-        },
-        "additionalProperties": false,
-        "required": [
-          "organizationName",
-          "role"
-        ],
-        "if": {
-          "properties": {
-            "role": {
-              "const": "publisher"
-            }
-          }
-        },
-        "else": {
-          "$comment": "individualName is required only for a non-publisher role",
-          "required": [
-            "individualName"
-          ]
-        },
-        "translations": [
-          {
-            "t9nScheme": "saeon/datacite4",
-            "t9nTarget": "/publisher",
-            "t9nCondition": {
-              "properties": {
-                "role": {
-                  "const": "publisher"
-                }
-              }
-            },
-            "t9nSource": "0/organizationName"
-          },
-          {
-            "t9nScheme": "saeon/datacite4",
-            "t9nTarget": "/creators",
-            "t9nCondition": {
-              "properties": {
-                "role": {
-                  "enum": [
-                    "originator",
-                    "principalInvestigator"
-                  ]
-                }
-              }
-            },
-            "t9nArray": {
-              "t9nObject": {
-                "name": {
-                  "t9nSource": "0/individualName"
-                },
-                "nameIdentifiers": {
-                  "t9nArray": {
-                    "t9nObject": {
-                      "nameIdentifier": {
-                        "t9nSource": "0/onlineResource/linkage"
-                      },
-                      "nameIdentifierScheme": {
-                        "t9nSource": "0/onlineResource/linkage",
-                        "t9nFilter": "base-url"
-                      },
-                      "schemeURI": {
-                        "t9nSource": "0/onlineResource/linkage",
-                        "t9nFilter": "base-url"
-                      }
-                    }
-                  }
-                },
-                "affiliation": {
-                  "t9nArray": {
-                    "t9nObject": {
-                      "affiliation": {
-                        "t9nConcat": [
-                          "0/organizationName",
-                          "0/positionName",
-                          "0/contactInfo"
-                        ],
-                        "t9nSep": "\n"
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          {
-            "t9nScheme": "saeon/datacite4",
-            "t9nTarget": "/contributors",
-            "t9nCondition": {
-              "properties": {
-                "role": {
-                  "enum": [
-                    "resourceProvider",
-                    "custodian",
-                    "owner",
-                    "distributor",
-                    "pointOfContact",
-                    "processor"
-                  ]
-                }
-              }
-            },
-            "t9nArray": {
-              "t9nObject": {
-                "name": {
-                  "t9nSource": "0/individualName"
-                },
-                "nameIdentifiers": {
-                  "t9nArray": {
-                    "t9nObject": {
-                      "nameIdentifier": {
-                        "t9nSource": "0/onlineResource/linkage"
-                      },
-                      "nameIdentifierScheme": {
-                        "t9nSource": "0/onlineResource/linkage",
-                        "t9nFilter": "base-url"
-                      },
-                      "schemeURI": {
-                        "t9nSource": "0/onlineResource/linkage",
-                        "t9nFilter": "base-url"
-                      }
-                    }
-                  }
-                },
-                "affiliation": {
-                  "t9nArray": {
-                    "t9nObject": {
-                      "affiliation": {
-                        "t9nConcat": [
-                          "0/organizationName",
-                          "0/positionName",
-                          "0/contactInfo"
-                        ],
-                        "t9nSep": "\n"
-                      }
-                    }
-                  }
-                },
-                "contributorType": {
-                  "t9nSource": "0/role",
-                  "t9nFilter": {
-                    "resourceProvider": "HostingInstitution",
-                    "custodian": "DataManager",
-                    "owner": "RightsHolder",
-                    "distributor": "Distributor",
-                    "pointOfContact": "ContactPerson",
-                    "processor": "ProjectMember"
-                  }
-                }
-              }
-            }
-          }
-        ]
-      }
-    },
     "coverage": {
       "type": "object",
       "required": [
@@ -294,12 +77,10 @@
       ],
       "properties": {
         "geographicCoverage": {
-          "$comment": "Array of geographic elements",
           "type": "array",
           "minItems": 1,
           "uniqueItems": true,
           "items": {
-            "$comment": "A geographic element",
             "type": "object",
             "anyOf": [
               {
@@ -315,27 +96,22 @@
             ],
             "properties": {
               "extentTypeCode": {
-                "$comment": "Indicates whether bounding polygon includes or excludes data: true = inclusion (the default if not specified); false = exclusion",
                 "type": "boolean"
               },
               "boundingPolygon": {
-                "$comment": "Bounding polygon: an array of one or more polygons",
                 "type": "array",
                 "minItems": 1,
                 "uniqueItems": true,
                 "items": {
-                  "$comment": "A polygon",
                   "type": "object",
                   "required": [
                     "polygon"
                   ],
                   "properties": {
                     "polygon": {
-                      "$comment": "An array of at least 4 non-aligned points, with the first and last point coinciding",
                       "type": "array",
                       "minItems": 4,
                       "items": {
-                        "$comment": "A geographic point",
                         "type": "object",
                         "required": [
                           "longitude",
@@ -361,7 +137,6 @@
                 }
               },
               "boundingCoordinates": {
-                "$comment": "Bounding box: approximate geographic position of dataset",
                 "type": "object",
                 "required": [
                   "westBoundingCoordinate",
@@ -461,7 +236,6 @@
                   },
                   "altitudeDatumName": {
                     "type": "string",
-                    "description": "The identification of the surface used as a reference for altitude measurements.",
                     "translations": [
                       {
                         "t9nScheme": "saeon/datacite4",
@@ -911,25 +685,24 @@
         "methodStep",
         "sampling"
       ],
-      "translations": [
-        {
-          "t9nScheme": "saeon/datacite4",
-          "t9nTarget": "/descriptions",
-          "t9nSep": "\n\n",
-          "t9nArray": {
-            "t9nObject": {
-              "description": {},
-              "descriptionType": {
-                "t9nConst": "Methods"
-              }
-            }
-          }
-        }
-      ],
       "properties": {
         "methodStep": {
           "type": "string",
-          "minLength": 1
+          "minLength": 1,
+          "translations": [
+            {
+              "t9nScheme": "saeon/datacite4",
+              "t9nTarget": "/descriptions",
+              "t9nArray": {
+                "t9nObject": {
+                  "description": {},
+                  "descriptionType": {
+                    "t9nConst": "Methods"
+                  }
+                }
+              }
+            }
+          ]
         },
         "sampling": {
           "type": "array",
@@ -972,7 +745,7 @@
         ],
         "translations": [
           {
-            "$comment": "case 1: Download link with an (optional) application profile specifying a single file type",
+            "$comment": "case 1: single file type download",
             "t9nScheme": "saeon/datacite4",
             "t9nTarget": "/immutableResource",
             "t9nCondition": {
@@ -1002,7 +775,7 @@
             }
           },
           {
-            "$comment": "case 2: Download link with an application profile that specifies a list of file types, implying an archive",
+            "$comment": "case 2: archive download",
             "t9nScheme": "saeon/datacite4",
             "t9nTarget": "/immutableResource",
             "t9nCondition": {
@@ -1039,7 +812,7 @@
             }
           },
           {
-            "$comment": "case 3: Query link with an (optional) application profile constrained to the serverType vocabulary",
+            "$comment": "case 3: query link",
             "t9nScheme": "saeon/datacite4",
             "t9nTarget": "/linkedResources",
             "t9nCondition": {
@@ -1074,7 +847,7 @@
             }
           },
           {
-            "$comment": "case 4: Other supported types of linked resource",
+            "$comment": "case 4: other linked resources",
             "t9nScheme": "saeon/datacite4",
             "t9nTarget": "/linkedResources",
             "t9nCondition": {
@@ -1146,9 +919,6 @@
         }
       ]
     },
-    "metadataCharacterSet": {
-      "$ref": "#/$defs/characterSetCode"
-    },
     "dateStamp": {
       "type": "string",
       "format": "datetime",
@@ -1213,9 +983,9 @@
                 "t9nSource": "0/keyword"
               },
               "subjectScheme": {
-                "t9nSource": "0/keywordType",
+                "t9nSource": "0/keywordThesaurus",
                 "t9nFilter": {
-                  "discipline": "SANS1878 keywordType discipline",
+                  "Global Change Master Directory (GCMD)": "EML keywordType discipline",
                   "place": "SANS1878 keywordType place",
                   "stratum": "SANS1878 keywordType stratum",
                   "temporal": "SANS1878 keywordType temporal",
@@ -1345,6 +1115,61 @@
       },
       "additionalProperties": false
     },
+    "contact": {
+      "type": "array",
+      "items": {
+        "allOf": [
+          {
+            "$ref": "#/$defs/responsibleParty"
+          },
+          {
+            "required": [
+              "electronicMailAddress",
+              "role"
+            ],
+            "properties": {
+              "role": {
+                "type": "string",
+                "const": "contactPerson"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "creator": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/responsibleParty"
+      },
+      "minItems": 1
+    },
+    "associatedParty": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/responsibleParty"
+      },
+      "minItems": 1
+    },
+    "publisher": {
+      "type": "object",
+      "properties": {
+        "organizationName": {
+          "type": "string",
+          "minLength": 1,
+          "translations": [
+            {
+              "t9nScheme": "saeon/datacite4",
+              "t9nTarget": "/publisher"
+            }
+          ]
+        }
+      },
+      "required": [
+        "organizationName"
+      ],
+      "additionalProperties": false
+    },
     "additionalMetadata": {
       "type": "object",
       "properties": {
@@ -1384,7 +1209,6 @@
         },
         "status": {
           "type": "array",
-          "description": "Reflects the ISO status element within the additionalMetadata block.",
           "items": {
             "$ref": "#/$defs/progressCode"
           },
@@ -1468,37 +1292,37 @@
               }
             }
           ]
-        }
-      },
-      "spatialRepresentationTypes": {
-        "type": "array",
-        "items": {
-          "$ref": "#/$defs/spatialRepresentationTypeCode"
         },
-        "minItems": 1,
-        "uniqueItems": true,
-        "translations": [
-          {
-            "t9nScheme": "saeon/datacite4",
-            "t9nTarget": "/subjects",
-            "t9nArray": {
-              "t9nObject": {
-                "subject": {},
-                "subjectScheme": {
-                  "t9nConst": "EML Spatial Representation Type"
+        "spatialRepresentationTypes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/spatialRepresentationTypeCode"
+          },
+          "minItems": 1,
+          "uniqueItems": true,
+          "translations": [
+            {
+              "t9nScheme": "saeon/datacite4",
+              "t9nTarget": "/subjects",
+              "t9nArray": {
+                "t9nObject": {
+                  "subject": {},
+                  "subjectScheme": {
+                    "t9nConst": "EML Spatial Representation Type"
+                  }
                 }
               }
             }
-          }
-        ]
-      }
+          ]
+        }
+      },
+      "additionalProperties": false
     }
   },
   "additionalProperties": false,
   "required": [
     "titles",
     "pubDate",
-    "responsibleParties",
     "coverage",
     "language",
     "characterEncoding",
@@ -1506,15 +1330,92 @@
     "abstract",
     "dataFormat",
     "methods",
-    "onlineResources",
     "packageId",
     "fileIdentifier",
+    "publisher",
+    "creator",
+    "contact",
     "additionalMetadata",
     "purpose",
     "licensed",
     "keywordSet"
   ],
   "$defs": {
+    "individualName": {
+      "type": "object",
+      "properties": {
+        "givenName": {
+          "type": "string"
+        },
+        "surName": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "givenName",
+        "surName"
+      ],
+      "additionalProperties": false
+    },
+    "userID": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "properties": {
+          "directory": {
+            "type": "string",
+            "format": "uri"
+          },
+          "value": {
+            "type": "string",
+            "oneOf": [
+              {
+                "format": "uri"
+              },
+              {
+                "pattern": "^[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{3}[0-9X]$"
+              }
+            ]
+          }
+        },
+        "required": [
+          "directory",
+          "value"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "responsibleParty": {
+      "type": "object",
+      "properties": {
+        "individualName": {
+          "$ref": "#/$defs/individualName"
+        },
+        "positionName": {
+          "type": "string"
+        },
+        "organizationName": {
+          "type": "string"
+        },
+        "userID": {
+          "$ref": "#/$defs/userID"
+        },
+        "electronicMailAddress": {
+          "type": "string",
+          "format": "email"
+        },
+        "role": {
+          "$ref": "#/$defs/emlResponsiblePartyRole"
+        }
+      },
+      "required": [
+        "individualName",
+        "organizationName",
+        "userID"
+      ],
+      "additionalProperties": false
+    },
     "distributionOnline": {
       "type": "object",
       "properties": {
@@ -1535,12 +1436,10 @@
       "type": "object",
       "properties": {
         "formatName": {
-          "type": "string",
-          "description": "The name of the data format (e.g., CSV, GeoTIFF, NetCDF)."
+          "type": "string"
         },
         "formatVersion": {
-          "type": "string",
-          "description": "The version of the format (e.g., 1.0, 4.0)."
+          "type": "string"
         }
       },
       "required": [
@@ -1548,39 +1447,11 @@
       ],
       "additionalProperties": false
     },
-    "dateChoice": {
-      "type": "object",
-      "oneOf": [
-        {
-          "required": [
-            "calendarDate"
-          ],
-          "properties": {
-            "calendarDate": {
-              "type": "string",
-              "format": "date"
-            }
-          }
-        },
-        {
-          "required": [
-            "dateTime"
-          ],
-          "properties": {
-            "dateTime": {
-              "type": "string",
-              "format": "date-time"
-            }
-          }
-        }
-      ]
-    },
     "emlResponsiblePartyRole": {
       "type": "string",
       "enum": [
         "metadataProvider",
         "custodian",
-        "steward",
         "owner",
         "user",
         "distributor",
@@ -1590,22 +1461,8 @@
         "processor",
         "publisher",
         "editor",
-        "author"
-      ]
-    },
-    "responsiblePartyRole": {
-      "type": "string",
-      "enum": [
-        "resourceProvider",
-        "custodian",
-        "owner",
-        "user",
-        "distributor",
-        "originator",
-        "pointOfContact",
-        "principalInvestigator",
-        "processor",
-        "publisher"
+        "author",
+        "contactPerson"
       ]
     },
     "onlineResource": {
@@ -1646,30 +1503,6 @@
         "utf8",
         "utf16",
         "UsASCII"
-      ]
-    },
-    "topicCategoryCode": {
-      "type": "string",
-      "enum": [
-        "farming",
-        "biota",
-        "boundaries",
-        "climatologyMeteorologyAtmosphere",
-        "economy",
-        "elevation",
-        "environment",
-        "geoscientificInformation",
-        "health",
-        "imageryBaseMapsEarth-Cover",
-        "intelligenceMilitary",
-        "inlandWaters",
-        "location",
-        "oceans",
-        "planningCadastre",
-        "society",
-        "structure",
-        "transportation",
-        "utilitiesCommunication"
       ]
     },
     "spatialRepresentationTypeCode": {
@@ -1719,6 +1552,7 @@
     "keywordType": {
       "type": "string",
       "enum": [
+        "Global Change Master Directory (GCMD)",
         "discipline",
         "place",
         "stratum",
@@ -1734,19 +1568,6 @@
         "CC-BY 4.0",
         "CC-BY-NC 4.0",
         "EMBARGO"
-      ]
-    },
-    "restrictionCode": {
-      "type": "string",
-      "enum": [
-        "copyright",
-        "patent",
-        "patentPending",
-        "trademark",
-        "license",
-        "intellectualPropertyRights",
-        "restricted",
-        "otherRestrictions"
       ]
     },
     "relatedIdentifierType": {

@@ -1,149 +1,207 @@
 {
-  "doi": "10.15493/DEA.MIMS.03832791",
-  "titles": [
-    {
-      "lang": "en",
-      "value": "Long-term Monitoring of Coastal Biodiversity in False Bay"
-    }
-  ],
-  "methods": {
-    "sampling": [
-      {
-        "citation": "Filander Z, et al. (2025). Quality control and validation procedures for benthic bycatch observer data. SAEON Technical Report.",
-        "studyExtent": "Sampling occurred annually between 2009 and 2023 during fishing seasons. The geographic extent covered waters surrounding the Prince Edward and Marion Islands. The study focused on benthic invertebrate bycatch associated with longline fisheries.",
-        "samplingDescription": "Observers divided each longline into segments of either 1,200 meters or 1,000 hooks in accordance with Conservation Measure 22-07. Prior to hauling, 50% of the segments were randomly selected for sampling. All benthic bycatch within selected segments was identified, counted and weighed.",
-        "spatialSamplingUnits": [
-          "Prince Edward Islands Exclusive Economic Zone",
-          "Longline fishing grounds surrounding Marion Island"
-        ]
-      }
-    ],
-    "methodStep": "Data were collected using onboard fisheries observers who monitored longline fishing operations targeting Patagonian toothfish around the Prince Edward and Marion Islands between 2009 and 2023. Observers recorded benthic bycatch by identifying, counting and weighing taxa from selected longline segments. Data were captured using standardized field sheets and later digitised into a central database.",
-    "qualityControl": "All records were validated through double data entry checks, taxonomic verification against WoRMS, and automated range checks for spatial coordinates and species occurrence. Outliers were flagged and reviewed by a senior marine ecologist prior to publication."
-  },
-  "pubDate": "2026-02-27",
-  "purpose": "To assess the impact of rising sea temperatures on coastal biodiversity over a 10-year period.",
-  "abstract": "This dataset contains long-term monitoring data regarding macroalgae and invertebrate populations collected along the rocky shores of False Bay, South Africa.",
-  "coverage": {
-    "temporalCoverage": {
-      "rangeOfDates": {
-        "endDate": "2026-01-03",
-        "beginDate": "2016-01-01"
-      }
-    },
-    "taxonomicCoverage": {
-      "taxonomicClassification": [
+    "doi": "10.15493/DEA.MIMS.03832791",
+    "titles": [
         {
-          "taxonRankName": "Kingdom",
-          "taxonRankValue": "Animalia"
+            "lang": "en",
+            "value": "Long-term Monitoring of Coastal Biodiversity in False Bay"
         }
-      ],
-      "generalTaxonomicCoverage": [
-        "Marine macroalgae and coastal invertebrates"
-      ]
-    },
-    "geographicCoverage": [
-      {
-        "boundingAltitudes": {
-          "altitudeUnits": "meter",
-          "altitudeMaximum": 5,
-          "altitudeMinimum": -20
-        },
-        "boundingCoordinates": {
-          "eastBoundingCoordinate": 18.9,
-          "westBoundingCoordinate": 18.3,
-          "northBoundingCoordinate": -34.0,
-          "southBoundingCoordinate": -34.4
-        },
-        "geographicDescription": "False Bay Coastline, South Africa"
-      }
-    ]
-  },
-  "language": [
-    "en"
-  ],
-  "licensed": [
-    {
-      "url": "https://creativecommons.org/licenses/by/4.0/",
-      "identifier": [
-        "CC-BY-SA 4.0"
-      ],
-      "licenseName": "Creative Commons Attribution 4.0 International"
-    }
-  ],
-  "dateStamp": "2026-02-19T14:30:00Z",
-  "packageId": "P10.15493/DEA.MIMS.03832791",
-  "dataFormat": {
-    "textFormat": {
-      "formatName": "CSV",
-      "formatVersion": "1.0"
-    }
-  },
-  "keywordSet": [
-    {
-      "keyword": "Marine Biology",
-      "keywordThesaurus": "discipline"
-    }
-  ],
-  "fileIdentifier": "A10.15493/DEA.MIMS.03832791",
-  "onlineResources": [
-    {
-      "name": "Full Dataset Download",
-      "linkage": "https://data.saeon.ac.za/download/dataset_01.zip",
-      "description": "download",
-      "applicationProfile": "[csv, json]"
-    }
-  ],
-  "spatialReference": {
-    "vertCoordSys": {
-      "depthSystemDefinition": {
-        "depthDatumName": "Lowest Astronomical Tide",
-        "depthDistanceUnits": "meter"
-      },
-      "altitudeSystemDefinition": {
-        "altitudeDatumName": "Mean Sea Level",
-        "altitudeDistanceUnits": "meter"
-      }
-    },
-    "horizCoordSysName": "EPSG:4326/WGS 84"
-  },
-  "characterEncoding": "utf8",
-  "additionalMetadata": {
-    "scope": "dataset",
-    "status": [
-      "completed"
     ],
-    "metadataLanguage": "en",
-    "metadataTimestamp": "2026-02-19T14:30:00Z",
-    "spatialResolution": "10 meters",
-    "metadataCharacterSet": "UTF-8",
-    "metadataStandardName": "Ecological Metadata Language",
-    "metadataStandardVersion": "2.2.0",
-    "spatialRepresentationTypes": [
-      "vector"
-    ]
-  },
-  "intellectualRights": "This work is licensed under a Creative Commons Attribution 4.0 International License (CC-BY 4.0).",
-  "responsibleParties": [
-    {
-      "role": "originator",
-      "contactInfo": "jane@example.ac.za",
-      "positionName": "Lead Scientist",
-      "individualName": "Dr. Jane Smith",
-      "onlineResource": {
-        "linkage": "https://orcid.org/0000-0000-0000-0000"
-      },
-      "organizationName": "SAEON Egagasini Node"
+    "methods": {
+        "sampling": [
+            {
+                "citation": "Filander Z, et al. (2024). Quality control and validation procedures for benthic bycatch observer data. SAEON Technical Report.",
+                "studyExtent": "Sampling occurred annually between 2009 and 2023 during fishing seasons. The geographic extent covered waters surrounding the Prince Edward and Marion Islands. The study focused on benthic invertebrate bycatch associated with longline fisheries.",
+                "samplingDescription": "Observers divided each longline into segments of either 1,200 meters or 1,000 hooks in accordance with Conservation Measure 22-07. Prior to hauling, 50% of the segments were randomly selected for sampling. All benthic bycatch within selected segments was identified, counted and weighed.",
+                "spatialSamplingUnits": [
+                    "Prince Edward Islands Exclusive Economic Zone",
+                    "Longline fishing grounds surrounding Marion Island"
+                ]
+            }
+        ],
+        "methodStep": "Data were collected using onboard fisheries observers who monitored longline fishing operations targeting Patagonian toothfish around the Prince Edward and Marion Islands between 2009 and 2023. Observers recorded benthic bycatch by identifying, counting and weighing taxa from selected longline segments. Data were captured using standardized field sheets and later digitised into a central database.",
+        "qualityControl": "All records were validated through double data entry checks, taxonomic verification against WoRMS, and automated range checks for spatial coordinates and species occurrence. Outliers were flagged and reviewed by a senior marine ecologist prior to publication."
     },
-    {
-      "role": "publisher",
-      "organizationName": "SAEON Data Repository"
+    "pubDate": "2026-02-27",
+    "purpose": "To assess the impact of rising sea temperatures on coastal biodiversity over a 10-year period.",
+    "abstract": "This dataset contains long-term monitoring data regarding macroalgae and invertebrate populations collected along the rocky shores of False Bay, South Africa.",
+    "coverage": {
+        "temporalCoverage": {
+            "rangeOfDates": {
+                "beginDate": "2016-01-01",
+                "endDate": "2026-01-03"
+            }
+        },
+        "taxonomicCoverage": {
+            "taxonomicClassification": [
+                {
+                    "taxonRankName": "Kingdom",
+                    "taxonRankValue": "Animalia"
+                }
+            ],
+            "generalTaxonomicCoverage": [
+                "Marine macroalgae and coastal invertebrates"
+            ]
+        },
+        "geographicCoverage": [
+            {
+                "boundingAltitudes": {
+                    "altitudeUnits": "meter",
+                    "altitudeMaximum": 5,
+                    "altitudeMinimum": -20
+                },
+                "boundingCoordinates": {
+                    "eastBoundingCoordinate": 18.9,
+                    "westBoundingCoordinate": 18.3,
+                    "northBoundingCoordinate": -34.0,
+                    "southBoundingCoordinate": -34.4
+                },
+                "geographicDescription": "False Bay Coastline, South Africa"
+            }
+        ]
     },
-    {
-      "role": "pointOfContact",
-      "contactInfo": "it@saeon.ac.za",
-      "individualName": "Data Manager",
-      "organizationName": "SAEON"
+    "language": [
+        "en"
+    ],
+    "licensed": [
+        {
+            "url": "https://creativecommons.org/licenses/by/4.0/",
+            "identifier": [
+                "CC-BY-SA 4.0"
+            ],
+            "licenseName": "Creative Commons Attribution 4.0 International"
+        }
+    ],
+    "dateStamp": "2026-02-19T14:30:00Z",
+    "packageId": "P10.15493/DEA.MIMS.03832791",
+    "dataFormat": {
+        "textFormat": {
+            "formatName": "CSV",
+            "formatVersion": "1.0"
+        }
+    },
+    "keywordSet": [
+        {
+            "keyword": "Biodiversity",
+            "keywordThesaurus": "Global Change Master Directory (GCMD)"
+        },
+        {
+            "keyword": "Climate change",
+            "keywordThesaurus": "Global Change Master Directory (GCMD)"
+        },
+        {
+            "keyword": "Offshore marine biota",
+            "keywordThesaurus": "Global Change Master Directory (GCMD)"
+        }
+    ],
+    "fileIdentifier": "A10.15493/DEA.MIMS.03832791",
+    "spatialReference": {
+        "vertCoordSys": {
+            "depthSystemDefinition": {
+                "depthDatumName": "Lowest Astronomical Tide",
+                "depthDistanceUnits": "meter"
+            },
+            "altitudeSystemDefinition": {
+                "altitudeDatumName": "Mean Sea Level",
+                "altitudeDistanceUnits": "meter"
+            }
+        },
+        "horizCoordSysName": "EPSG:4326/WGS 84"
+    },
+    "characterEncoding": "utf8",
+    "additionalMetadata": {
+        "scope": "dataset",
+        "status": [
+            "completed"
+        ],
+        "metadataLanguage": "en",
+        "spatialResolution": "10 meters",
+        "metadataCharacterSet": "UTF-8",
+        "metadataStandardName": "Ecological Metadata Language",
+        "metadataStandardVersion": "2.2.0",
+        "spatialRepresentationTypes": [
+            "vector"
+        ]
+    },
+    "intellectualRights": "This work is licensed under a Creative Commons Attribution 4.0 International License (CC-BY 4.0).",
+    "creator": [
+        {
+            "individualName": {
+                "givenName": "Jane",
+                "surName": "Smith"
+            },
+            "positionName": "Lead Scientist",
+            "organizationName": "SAEON Egagasini Node",
+            "role": "originator",
+            "userID": [
+                {
+                    "directory": "https://orcid.org",
+                    "value": "https://orcid.org/0000-0000-0000-0000"
+                },
+                {
+                    "directory": "https://ror.org",
+                    "value": "https://ror.org/02zz1kn61"
+                }
+            ]
+        }
+    ],
+    "publisher": {
+        "organizationName": "SAEON Data Repository"
+    },
+    "contact": [
+        {
+            "individualName": {
+                "givenName": "Data",
+                "surName": "Manager"
+            },
+            "organizationName": "SAEON",
+            "userID": [
+                {
+                    "directory": "https://orcid.org",
+                    "value": "https://orcid.org/0000-0000-0000-0000"
+                },
+                {
+                    "directory": "https://ror.org",
+                    "value": "https://ror.org/02zz1kn61"
+                }
+            ],
+            "role": "contactPerson",
+            "electronicMailAddress": "it@saeon.ac.za"
+        }
+    ],
+    "relatedIdentifiers": [
+        {
+            "relatedIdentifier": "10.1594/PANGAEA.123456",
+            "relatedIdentifierType": "DOI",
+            "relationType": "IsSupplementTo"
+        }
+    ],
+    "associatedParty": [
+        {
+            "individualName": {
+                "givenName": "John",
+                "surName": "Doe"
+            },
+            "positionName": "Data Curator",
+            "organizationName": "SAEON",
+            "role": "custodian",
+            "userID": [
+                {
+                    "directory": "https://orcid.org",
+                    "value": "https://orcid.org/0000-0002-3456-7890"
+                },
+                {
+                    "directory": "https://ror.org",
+                    "value": "https://ror.org/02zz1kn61"
+                }
+            ]
+        }
+    ],
+    "distribution": {
+        "online": [
+            {
+                "url": "https://data.saeon.ac.za/dataset/03832791",
+                "onlineDescription": "Dataset landing page with access to data and metadata"
+            }
+        ]
     }
-  ]
 }
