@@ -1,6 +1,12 @@
 from pydantic import BaseModel, EmailStr
 from typing import List, Optional
 
+
+class DownloadAuditResponse(BaseModel):
+    status: str
+    audit_id: int
+
+
 class DownloadAuditModel(BaseModel):
     id: int
     timestamp: str

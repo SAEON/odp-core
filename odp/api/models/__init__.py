@@ -30,4 +30,4 @@ from .schema import SchemaModel
 from .tag import TagInstanceModel, TagInstanceModelIn, TagModel
 from .user import UserModel, UserModelIn
 from .vocabulary import VocabularyModel, VocabularyTermModel, VocabularyTermModelIn
-from .download import DownloadAuditModel, DownloadStatsModel
+from .download import DownloadAuditModel, DownloadAuditResponse, DownloadStatsModel
