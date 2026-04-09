@@ -1,0 +1,306 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://odp.saeon.ac.za/schema/metadata/saeon/eml_translated_v3",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "value": { "type": "string" },
+          "lang": { "type": "string" }
+        },
+        "required": ["value"]
+      },
+      "translations": [
+        {
+          "t9nScheme": "saeon/datacite4",
+          "t9nTarget": "/titles",
+          "t9nArray": {
+            "t9nObject": {
+              "title": { "t9nSource": "0/value" },
+              "lang": { "t9nSource": "0/lang" }
+            }
+          }
+        }
+      ]
+    },
+    "pubDate": {
+      "type": "string",
+      "format": "date",
+      "translations": [
+        {
+          "t9nScheme": "saeon/datacite4",
+          "t9nTarget": "/publicationYear",
+          "t9nFilter": "date-to-year"
+        },
+        {
+          "t9nScheme": "saeon/datacite4",
+          "t9nTarget": "/dates",
+          "t9nArray": {
+            "t9nObject": {
+              "date": { "t9nSource": "0" },
+              "dateType": { "t9nConst": "Issued" }
+            }
+          }
+        }
+      ]
+    },
+    "responsibleParty": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "individualName": { "type": "string" },
+          "organizationName": { "type": "string" },
+          "positionName": { "type": "string" },
+          "role": { "type": "string" }
+        },
+        "translations": [
+          {
+            "t9nScheme": "saeon/datacite4",
+            "t9nTarget": "/creators",
+            "t9nCondition": {
+              "properties": { "role": { "enum": ["originator", "principalInvestigator"] } }
+            },
+            "t9nArray": {
+              "t9nObject": {
+                "name": { "t9nSource": "0/individualName" },
+                "affiliation": {
+                  "t9nArray": {
+                    "t9nObject": { "affiliation": { "t9nSource": "0/organizationName" } }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "t9nScheme": "saeon/datacite4",
+            "t9nTarget": "/contributors",
+            "t9nCondition": {
+              "properties": { "role": { "enum": ["processor", "custodian", "distributor", "pointOfContact"] } }
+            },
+            "t9nArray": {
+              "t9nObject": {
+                "name": { "t9nSource": "0/individualName" },
+                "affiliation": {
+                  "t9nArray": {
+                    "t9nObject": { "affiliation": { "t9nSource": "0/organizationName" } }
+                  }
+                },
+                "contributorType": {
+                  "t9nSource": "0/role",
+                  "t9nFilter": {
+                    "processor": "ProjectMember",
+                    "custodian": "DataManager",
+                    "distributor": "Distributor",
+                    "pointOfContact": "ContactPerson"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "t9nScheme": "saeon/datacite4",
+            "t9nTarget": "/publisher",
+            "t9nCondition": {
+              "properties": { "role": { "const": "publisher" } }
+            },
+            "t9nSource": "0/organizationName"
+          }
+        ]
+      }
+    },
+    "abstract": {
+      "type": "string",
+      "translations": [
+        {
+          "t9nScheme": "saeon/datacite4",
+          "t9nTarget": "/descriptions",
+          "t9nArray": {
+            "t9nObject": {
+              "description": { "t9nSource": "0" },
+              "descriptionType": { "t9nConst": "Abstract" }
+            }
+          }
+        }
+      ]
+    },
+    "purpose": {
+      "type": "object",
+      "properties": {
+        "para": { "type": "array", "items": { "type": "string" } }
+      },
+      "translations": [
+        {
+          "t9nScheme": "saeon/datacite4",
+          "t9nTarget": "/descriptions",
+          "t9nArray": {
+            "t9nObject": {
+              "description": { "t9nSource": "0/para/0" },
+              "descriptionType": { "t9nConst": "Other" }
+            }
+          }
+        }
+      ]
+    },
+    "methods": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "methodStep": { "type": "array", "items": { "type": "string" } }
+        },
+        "translations": [
+          {
+            "t9nScheme": "saeon/datacite4",
+            "t9nTarget": "/descriptions",
+            "t9nArray": {
+              "t9nObject": {
+                "description": { "t9nSource": "0/methodStep/0" },
+                "descriptionType": { "t9nConst": "Methods" }
+              }
+            }
+          }
+        ]
+      }
+    },
+    "keywordSet": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "keyword": { "type": "array", "items": { "type": "string" } }
+        },
+        "translations": [
+          {
+            "t9nScheme": "saeon/datacite4",
+            "t9nTarget": "/subjects",
+            "t9nArray": {
+              "t9nObject": { "subject": { "t9nSource": "0/keyword/0" } }
+            }
+          }
+        ]
+      }
+    },
+    "intellectualRights": {
+      "type": "object",
+      "properties": {
+        "licensed": { "type": "string" },
+        "licenseName": { "type": "string" }
+      },
+      "translations": [
+        {
+          "t9nScheme": "saeon/datacite4",
+          "t9nTarget": "/rightsList",
+          "t9nArray": {
+            "t9nObject": {
+              "rights": { "t9nSource": "0/licenseName" },
+              "rightsURI": { "t9nFilter": { "CC BY-SA 4.0": "https://creativecommons.org/licenses/by-sa/4.0/" } }
+            }
+          }
+        }
+      ]
+    },
+    "dataFormat": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": { "formatName": { "type": "string" } },
+        "translations": [
+          {
+            "t9nScheme": "saeon/datacite4",
+            "t9nTarget": "/formats",
+            "t9nArray": { "t9nObject": { "format": { "t9nSource": "0/formatName" } } }
+          }
+        ]
+      }
+    },
+    "geographicCoverage": {
+      "type": "object",
+      "properties": {
+        "boundingCoordinates": {
+          "type": "object",
+          "properties": {
+            "northBoundingCoordinate": { "type": "number" },
+            "southBoundingCoordinate": { "type": "number" },
+            "eastBoundingCoordinate": { "type": "number" },
+            "westBoundingCoordinate": { "type": "number" }
+          }
+        }
+      },
+      "translations": [
+        {
+          "t9nScheme": "saeon/datacite4",
+          "t9nTarget": "/geoLocations",
+          "t9nArray": {
+            "t9nObject": {
+              "geoLocationBox": {
+                "t9nObject": {
+                  "westBoundLongitude": { "t9nSource": "0/boundingCoordinates/westBoundingCoordinate" },
+                  "eastBoundLongitude": { "t9nSource": "0/boundingCoordinates/eastBoundingCoordinate" },
+                  "southBoundLatitude": { "t9nSource": "0/boundingCoordinates/southBoundingCoordinate" },
+                  "northBoundLatitude": { "t9nSource": "0/boundingCoordinates/northBoundingCoordinate" }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "coverage": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "temporalCoverage": {
+            "type": "object",
+            "properties": {
+              "rangeOfDates": {
+                "type": "object",
+                "properties": {
+                  "beginDate": { "type": "string", "format": "date" },
+                  "endDate": { "type": "string", "format": "date" }
+                }
+              }
+            }
+          }
+        },
+        "translations": [
+          {
+            "t9nScheme": "saeon/datacite4",
+            "t9nTarget": "/dates",
+            "t9nArray": {
+              "t9nObject": {
+                "date": { "t9nConcat": ["0/temporalCoverage/rangeOfDates/beginDate", "0/temporalCoverage/rangeOfDates/endDate"], "t9nSep": "/" },
+                "dateType": { "t9nConst": "Collected" }
+              }
+            }
+          }
+        ]
+      }
+    },
+    "schemaVersion": {
+      "type": "string",
+      "const": "http://datacite.org/schema/kernel-4",
+      "translations": [
+        {
+          "t9nScheme": "saeon/datacite4",
+          "t9nTarget": "/schemaVersion",
+          "t9nConst": "http://datacite.org/schema/kernel-4"
+        }
+      ]
+    }
+  },
+  "required": [
+    "title",
+    "pubDate",
+    "responsibleParty",
+    "abstract",
+    "keywordSet",
+    "intellectualRights",
+    "geographicCoverage",
+    "schemaVersion"
+  ]
+}
