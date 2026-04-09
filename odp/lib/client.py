@@ -46,6 +46,9 @@ class ODPBaseClient:
 
     def put_files(self, path: str, files: dict, **params: Any) -> Any:
         return self.request('PUT', path, files=files, **params)
+      
+    def stream_post(self, path: str, data: dict, **params: Any) -> Any:
+        return self.request('POST', path, data=data, stream=True, **params)
 
     def delete(self, path: str, **params: Any) -> Any:
         return self.request('DELETE', path, **params)
@@ -58,13 +61,14 @@ class ODPBaseClient:
             data: dict = None,
             files: dict = None,
             return_bytes: bool = False,
+            stream: bool = False,
             **params: Any,
     ) -> Any:
         api_url = params.pop('api_url', self.api_url)
         headers = {}
         if data is not None:
             headers |= {'Content-Type': 'application/json'}
-        if not return_bytes:
+        if not return_bytes and not stream:
             headers |= {'Accept': 'application/json'}
 
         try:
@@ -75,9 +79,12 @@ class ODPBaseClient:
                 files,
                 params,
                 headers,
+                stream=stream
             )
             r.raise_for_status()
 
+            if stream:
+                return r
             return r.content if return_bytes else r.json()
 
         except requests.RequestException as e:
@@ -104,6 +111,7 @@ class ODPBaseClient:
             files: dict | None,
             params: dict,
             headers: dict,
+            stream: bool = False,
     ) -> requests.Response:
         raise NotImplementedError
 
@@ -145,6 +153,7 @@ class ODPClient(ODPBaseClient):
             files: dict | None,
             params: dict,
             headers: dict,
+            stream: bool = False,
     ) -> requests.Response:
         for _ in range(2):
             headers |= {
@@ -157,6 +166,7 @@ class ODPClient(ODPBaseClient):
                 files=files,
                 params=params,
                 headers=headers,
+                stream=stream,
             )
             if response.status_code == 403:
                 # the token has probably expired; fetch a new one and try once more

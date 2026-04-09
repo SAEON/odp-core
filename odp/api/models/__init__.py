@@ -31,3 +31,4 @@ from .tag import TagInstanceModel, TagInstanceModelIn, TagModel
 from .user import UserModel, UserModelIn
 from .vocabulary import VocabularyModel, VocabularyTermModel, VocabularyTermModelIn
 from .submission import SubmissionModelIn, SubmissionListItemModel
+from .download import DownloadAuditModel, DownloadAuditResponse, DownloadStatsModel
