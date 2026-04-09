@@ -33,19 +33,25 @@ class ODPBaseClient:
         raise NotImplementedError
 
     def get(self, path: str, **params: Any) -> Any:
-        return self.request('GET', path, data=None, **params)
+        return self.request('GET', path, **params)
+
+    def get_bytes(self, path: str, **params: Any) -> bytes:
+        return self.request('GET', path, return_bytes=True, **params)
 
     def post(self, path: str, data: dict, **params: Any) -> Any:
         return self.request('POST', path, data=data, **params)
 
-    def stream_post(self, path: str, data: dict, **params: Any) -> Any:
-        return self.request('POST', path, data=data, stream=True, **params)
-
     def put(self, path: str, data: dict, **params: Any) -> Any:
         return self.request('PUT', path, data=data, **params)
 
+    def put_files(self, path: str, files: dict, **params: Any) -> Any:
+        return self.request('PUT', path, files=files, **params)
+      
+    def stream_post(self, path: str, data: dict, **params: Any) -> Any:
+        return self.request('POST', path, data=data, stream=True, **params)
+
     def delete(self, path: str, **params: Any) -> Any:
-        return self.request('DELETE', path, None, **params)
+        return self.request('DELETE', path, **params)
 
     def request(
             self,
