@@ -180,78 +180,37 @@
                 ],
                 "properties": {
                   "altitudeMinimum": {
-                    "type": "number",
-                    "translations": [
-                      {
-                        "t9nScheme": "saeon/datacite4",
-                        "t9nTarget": "/subjects",
-                        "t9nArray": {
-                          "t9nObject": {
-                            "subject": {
-                              "t9nCast": "string"
-                            },
-                            "subjectScheme": {
-                              "t9nConst": "EML altitudeMinimum"
-                            }
-                          }
-                        }
-                      }
-                    ]
+                    "type": "number"
                   },
                   "altitudeMaximum": {
-                    "type": "number",
-                    "translations": [
-                      {
-                        "t9nScheme": "saeon/datacite4",
-                        "t9nTarget": "/subjects",
-                        "t9nArray": {
-                          "t9nObject": {
-                            "subject": {
-                              "t9nCast": "string"
-                            },
-                            "subjectScheme": {
-                              "t9nConst": "EML altitudeMaximum"
-                            }
-                          }
-                        }
-                      }
-                    ]
+                    "type": "number"
                   },
                   "altitudeUnits": {
-                    "type": "string",
-                    "translations": [
-                      {
-                        "t9nScheme": "saeon/datacite4",
-                        "t9nTarget": "/subjects",
-                        "t9nArray": {
-                          "t9nObject": {
-                            "subject": {},
-                            "subjectScheme": {
-                              "t9nConst": "EML altitudeUnits"
-                            }
-                          }
-                        }
-                      }
-                    ]
-                  },
-                  "altitudeDatumName": {
-                    "type": "string",
-                    "translations": [
-                      {
-                        "t9nScheme": "saeon/datacite4",
-                        "t9nTarget": "/subjects",
-                        "t9nArray": {
-                          "t9nObject": {
-                            "subject": {},
-                            "subjectScheme": {
-                              "t9nConst": "EML altitudeDatumName"
-                            }
-                          }
-                        }
-                      }
-                    ]
+                    "type": "string"
                   }
-                }
+                },
+                "translations": [
+                  {
+                    "t9nScheme": "saeon/datacite4",
+                    "t9nTarget": "/descriptions",
+                    "t9nArray": {
+                      "t9nObject": {
+                        "description": {
+                          "t9nConcat": [
+                            "0/altitudeMinimum",
+                            "0/altitudeMaximum",
+                            "0/altitudeUnits"
+                          ],
+                          "t9nSep": ", ",
+                          "t9nFormat": "Altitude/Depth: minimum: {}, maximum: {}, units: {}, Mean Sea Level"
+                        },
+                        "descriptionType": {
+                          "t9nConst": "TechnicalInfo"
+                        }
+                      }
+                    }
+                  }
+                ]
               }
             }
           },
@@ -1256,39 +1215,11 @@
         },
         "metadataStandardName": {
           "type": "string",
-          "const": "Ecological Metadata Language",
-          "translations": [
-            {
-              "t9nScheme": "saeon/datacite4",
-              "t9nTarget": "/descriptions",
-              "t9nArray": {
-                "t9nObject": {
-                  "description": {},
-                  "descriptionType": {
-                    "t9nConst": "Other"
-                  }
-                }
-              }
-            }
-          ]
+          "const": "Ecological Metadata Language"
         },
         "metadataStandardVersion": {
           "type": "string",
-          "const": "2.2.0",
-          "translations": [
-            {
-              "t9nScheme": "saeon/datacite4",
-              "t9nTarget": "/descriptions",
-              "t9nArray": {
-                "t9nObject": {
-                  "description": {},
-                  "descriptionType": {
-                    "t9nConst": "Other"
-                  }
-                }
-              }
-            }
-          ]
+          "const": "2.2.0"
         },
         "metadataLanguage": {
           "type": "string",
@@ -1302,21 +1233,7 @@
         },
         "metadataCharacterSet": {
           "type": "string",
-          "const": "UTF-8",
-          "translations": [
-            {
-              "t9nScheme": "saeon/datacite4",
-              "t9nTarget": "/descriptions",
-              "t9nArray": {
-                "t9nObject": {
-                  "description": {},
-                  "descriptionType": {
-                    "t9nConst": "TechnicalInfo"
-                  }
-                }
-              }
-            }
-          ]
+          "const": "UTF-8"
         },
         "spatialRepresentationTypes": {
           "type": "array",
