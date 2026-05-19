@@ -1020,7 +1020,7 @@
                   "t9nObject": {
                     "subject": {},
                     "subjectScheme": {
-                      "t9nConst": "SANS1878 Constraint"
+                      "t9nConst": "EML 2.2.0 Constraint"
                     }
                   }
                 }
@@ -1140,7 +1140,32 @@
     "creator": {
       "type": "array",
       "items": {
-        "$ref": "#/$defs/responsibleParty"
+        "allOf": [
+          {
+            "$ref": "#/$defs/responsibleParty"
+          },
+          {
+            "translations": [
+              {
+                "t9nScheme": "saeon/datacite4",
+                "t9nTarget": "/creators",
+                "t9nArray": {
+                  "t9nObject": {
+                    "name": {
+                      "t9nSource": "0/individualName/surName"
+                    },
+                    "givenName": {
+                      "t9nSource": "0/individualName/givenName"
+                    },
+                    "familyName": {
+                      "t9nSource": "0/individualName/surName"
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        ]
       },
       "minItems": 1
     },
