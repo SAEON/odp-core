@@ -1,5 +1,5 @@
 from pydantic import BaseModel, EmailStr
-from typing import List, Optional
+from typing import Any, Dict, List, Optional
 
 
 class DownloadAuditResponse(BaseModel):
@@ -34,6 +34,15 @@ class DailyDownloadStats(BaseModel):
     downloads: int
     successful: int
     failed: int
+
+class BundledRecordDataset(BaseModel):
+    zip_path: str
+    total_size: int
+    record_count: int
+    failed_count: int
+    processed: List[str]
+    failed: List[Dict[str, Any]]
+
 
 class DownloadStatsModel(BaseModel):
     total_downloads: int
