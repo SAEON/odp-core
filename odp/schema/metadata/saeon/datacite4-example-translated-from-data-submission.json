@@ -1,0 +1,240 @@
+{
+  "schemaVersion": "http://datacite.org/schema/kernel-4",
+  "doi": "10.15493/example-saeon-iso19115",
+  "titles": [
+    {
+      "title": "Example Metadata Record: ISO19115 - SAEON Profile"
+    }
+  ],
+  "descriptions": [
+    {
+      "description": "Concerning things that'd like to be under the sea, in an octopus's garden, in the shade.",
+      "descriptionType": "Abstract"
+    },
+    {
+      "description": "The study was conducted using a tentacles-on approach below the storm.",
+      "descriptionType": "Methods"
+    }
+  ],
+  "publicationYear": 2020,
+  "publisher": "Reef Community",
+  "language": "en-us",
+  "dates": [
+    {
+      "date": "2020-10-29",
+      "dateType": "Issued"
+    },
+    {
+      "date": "2019-11-01/2019-12-01",
+      "dateType": "Valid"
+    }
+  ],
+  "formats": [
+    "ZIP"
+  ],
+  "sizes": [
+    "145MB"
+  ],
+  "subjects": [
+    {
+      "subject": "0.5m2",
+      "subjectScheme": "ISO 19115-1 spatialResolution"
+    },
+    {
+      "subject": "completed",
+      "subjectScheme": "ISO 19115-1 status"
+    },
+    {
+      "subject": "WGS 84 / UTM zone 34S",
+      "subjectScheme": "ISO 19115-1 referenceSystemName"
+    },
+    {
+      "subject": "oceans",
+      "subjectScheme": "ISO 19115-1 topicCategory"
+    },
+    {
+      "subject": "OCEANS",
+      "subjectScheme": "GCMD Earth Science"
+    },
+    {
+      "subject": "-50m",
+      "subjectScheme": "ISO 19115-1 minimumValue"
+    },
+    {
+      "subject": "-10m",
+      "subjectScheme": "ISO 19115-1 maximumValue"
+    },
+    {
+      "subject": "Metres below sea level",
+      "subjectScheme": "ISO 19115-1 verticalDatum"
+    },
+    {
+      "subject": "m",
+      "subjectScheme": "ISO 19115-1 unitOfMeasure"
+    },
+    {
+      "subject": "Project Seabed Safehaven",
+      "subjectScheme": "Projects"
+    },
+    {
+      "subject": "SEABED",
+      "subjectScheme": "GCMD Science Keywords"
+    },
+    {
+      "subject": "REEF HABITATS",
+      "subjectScheme": "GCMD Science Keywords"
+    },
+    {
+      "subject": "SHALLOW WATER CORALS",
+      "subjectScheme": "GCMD Science Keywords"
+    },
+    {
+      "subject": "UNDERWATER CAMERA",
+      "subjectScheme": "GCMD Instruments"
+    },
+    {
+      "subject": "SIDE-SCAN SONAR",
+      "subjectScheme": "GCMD Instruments"
+    },
+    {
+      "subject": "ATLANTIC OCEAN",
+      "subjectScheme": "GCMD Locations"
+    },
+    {
+      "subject": "CAPE PENINSULA",
+      "subjectScheme": "GCMD Locations"
+    },
+    {
+      "subject": "Sub-surface Ocean Temperature",
+      "subjectScheme": "Essential Climate Variables",
+      "schemeURI": "https://library.wmo.int/idurl/4/58111"
+    },
+    {
+      "subject": "Benthic invertebrates",
+      "subjectScheme": "Essential Ocean Variables"
+    },
+    {
+      "subject": "Community composition",
+      "subjectScheme": "Essential Biodiversity Variables"
+    },
+    {
+      "subject": "Aquaculture monitoring",
+      "subjectScheme": "Essential Agricultural Variables"
+    }
+  ],
+  "creators": [
+    {
+      "name": "Ophelia, the Octopus",
+      "familyName": "Ophelia",
+      "givenName": "the Octopus",
+      "nameIdentifiers": [
+        {
+          "nameIdentifier": "https://orcid.org/0000-0001-2345-6789",
+          "nameIdentifierScheme": "ORCID",
+          "schemeURI": "https://orcid.org"
+        }
+      ],
+      "affiliation": [
+        {
+          "affiliation": "The Octopus's Garden\nUnder The Sea",
+          "affiliationIdentifier": "https://ror.org/00tjv0s33",
+          "affiliationIdentifierScheme": "ROR",
+          "schemeURI": "https://ror.org"
+        }
+      ]
+    }
+  ],
+  "contributors": [
+    {
+      "name": "Leroy, the Limpet",
+      "nameType": "Personal",
+      "contributorType": "ContactPerson",
+      "familyName": "Leroy",
+      "givenName": "the Limpet",
+      "nameIdentifiers": [
+        {
+          "nameIdentifier": "https://orcid.org/0000-0002-9876-5432",
+          "nameIdentifierScheme": "ORCID",
+          "schemeURI": "http://orcid.org/"
+        }
+      ],
+      "affiliation": [
+        {
+          "affiliation": "Rock Pool Inc\nLand-Sea Interface Consultant\nIntertidal Zone, Seashore Business Park, email: leroy.limpet@reefcommunity.org",
+          "affiliationIdentifier": "https://ror.org/00tjv0s33",
+          "affiliationIdentifierScheme": "ROR",
+          "schemeURI": "https://ror.org/"
+        }
+      ]
+    }
+  ],
+  "geoLocations": [
+    {
+      "geoLocationPlace": "Somewhere off the Atlantic coast of Cape Town",
+      "geoLocationBox": {
+        "westBoundLongitude": 17.9,
+        "eastBoundLongitude": 18.3,
+        "southBoundLatitude": -34.4,
+        "northBoundLatitude": -34.0
+      },
+      "geoLocationPoint": {
+        "pointLongitude": 18.19,
+        "pointLatitude": -34.01
+      }
+    }
+  ],
+  "immutableResource": {
+    "resourceName": "Benthic Habitat Survey Trajectories",
+    "resourceDescription": "Time-series track logs mapping the seabed floor topography around the main reef garden structures.",
+    "resourceDownload": {
+      "downloadURL": "https://example.com/octopus_garden_benthic_survey.zip",
+      "fileFormat": "shp",
+      "fileName": "octopus_garden_benthic_survey",
+      "fileChecksum": "a8fbc8d8f9e0a2b1c4d5e6f7a8b9c0d1",
+      "checksumAlgorithm": "md5",
+      "archive": false
+    }
+  },
+  "linkedResources": [
+    {
+      "resourceName": "The Picture",
+      "resourceDescription": "High-resolution sub-surface photography showcasing local coral cover diversity.",
+      "resourceFormat": "JPEG",
+      "resourceURL": "https://images.genius.com/8fa8b8afd1e7142232b9627901967dcf.550x400x1.jpg",
+      "linkedResourceType": "Information"
+    },
+    {
+      "resourceName": "The Song",
+      "resourceDescription": "Full lyrical documentation of the environmental backdrop and emotional themes under the sea.",
+      "resourceFormat": "HTML",
+      "resourceURL": "https://genius.com/The-beatles-octopuss-garden-lyrics",
+      "linkedResourceType": "Information"
+    }
+  ],
+  "relatedIdentifiers": [
+    {
+      "relatedIdentifier": "https://images.rapgenius.com/a69f8be10aa6228ba1a64e427b3bce28.900x643x1.jpg",
+      "relatedIdentifierType": "URL",
+      "relationType": "IsVariantFormOf"
+    }
+  ],
+  "types": {
+    "resourceType": "Benthic Map Output Layer",
+    "resourceTypeGeneral": "Dataset"
+  },
+  "rightsList": [
+    {
+      "rights": "Attribution 4.0 International (CC BY 4.0)",
+      "rightsURI": "Attribution 4.0 International (CC BY 4.0)"
+    }
+  ],
+  "fundingReferences": [
+    {
+      "funderName": "Marine Biodiversity Conservation Foundation",
+      "funderIdentifier": "https://doi.org/10.13039/100000001",
+      "funderIdentifierType": "Crossref Funder ID",
+      "awardNumber": "MBCF-2020-OCTO-09",
+      "awardTitle": "Deep Marine Refugia Tracking Grant"
+    }
+  ]
+}
