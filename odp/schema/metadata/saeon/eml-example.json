@@ -1,9 +1,50 @@
 {
-    "doi": "10.15493/DEA.MIMS.03832791",
+    "doi": "10.15493/DEA.MIMS.67666206",
     "titles": [
         {
             "lang": "en",
-            "value": "Long-term Monitoring of Coastal Biodiversity in False Bay"
+            "value": "Testing Creator 18-19 May 2026 Long-term Monitoring of Coastal Fish Biodiversity in Hout Bay"
+        }
+    ],
+    "contact": [
+        {
+            "role": "contactPerson",
+            "userID": [
+                {
+                    "value": "https://orcid.org/0000-0000-0000-0000",
+                    "directory": "https://orcid.org"
+                },
+                {
+                    "value": "https://ror.org/02zz1kn61",
+                    "directory": "https://ror.org"
+                }
+            ],
+            "individualName": {
+                "surName": "Manager",
+                "givenName": "Data"
+            },
+            "organizationName": "SAEON",
+            "electronicMailAddress": "it@saeon.ac.za"
+        }
+    ],
+    "creator": [
+        {
+            "userID": [
+                {
+                    "value": "https://ror.org/01vm69c87",
+                    "directory": "https://ror.org"
+                },
+                {
+                    "value": "https://orcid.org/0009-0006-9506-7364",
+                    "directory": "https://orcid.org"
+                }
+            ],
+            "positionName": "Specialist Systems Developer",
+            "individualName": {
+                "surName": "Zhou",
+                "givenName": "Grace"
+            },
+            "organizationName": "NRF SAEON"
         }
     ],
     "methods": {
@@ -27,8 +68,8 @@
     "coverage": {
         "temporalCoverage": {
             "rangeOfDates": {
-                "beginDate": "2016-01-01",
-                "endDate": "2026-01-03"
+                "endDate": "2026-01-03",
+                "beginDate": "2016-01-01"
             }
         },
         "taxonomicCoverage": {
@@ -47,7 +88,7 @@
                 "boundingAltitudes": {
                     "altitudeUnits": "meter",
                     "altitudeMaximum": 5,
-                    "altitudeMinimum": -20
+                    "altitudeMinimum": -21
                 },
                 "boundingCoordinates": {
                     "eastBoundingCoordinate": 18.9,
@@ -72,7 +113,10 @@
         }
     ],
     "dateStamp": "2026-02-19T14:30:00Z",
-    "packageId": "P10.15493/DEA.MIMS.03832791",
+    "packageId": "10.15493/DEA.MIMS.67666206",
+    "publisher": {
+        "organizationName": "SAEON Data Repository"
+    },
     "dataFormat": {
         "textFormat": {
             "formatName": "CSV",
@@ -93,7 +137,36 @@
             "keywordThesaurus": "Global Change Master Directory (GCMD)"
         }
     ],
-    "fileIdentifier": "A10.15493/DEA.MIMS.03832791",
+    "distribution": {
+        "online": [
+            {
+                "url": "https://data.saeon.ac.za/dataset/03832791",
+                "onlineDescription": "Dataset landing page with access to data and metadata"
+            }
+        ]
+    },
+    "fileIdentifier": "10.15493/DEA.MIMS.67666206",
+    "associatedParty": [
+        {
+            "role": "custodian",
+            "userID": [
+                {
+                    "value": "https://orcid.org/0000-0002-3456-7890",
+                    "directory": "https://orcid.org"
+                },
+                {
+                    "value": "https://ror.org/02zz1kn61",
+                    "directory": "https://ror.org"
+                }
+            ],
+            "positionName": "Data Curator",
+            "individualName": {
+                "surName": "Doe",
+                "givenName": "John"
+            },
+            "organizationName": "SAEON"
+        }
+    ],
     "spatialReference": {
         "vertCoordSys": {
             "depthSystemDefinition": {
@@ -123,85 +196,11 @@
         ]
     },
     "intellectualRights": "This work is licensed under a Creative Commons Attribution 4.0 International License (CC-BY 4.0).",
-    "creator": [
-        {
-            "individualName": {
-                "givenName": "Jane",
-                "surName": "Smith"
-            },
-            "positionName": "Lead Scientist",
-            "organizationName": "SAEON Egagasini Node",
-            "role": "originator",
-            "userID": [
-                {
-                    "directory": "https://orcid.org",
-                    "value": "https://orcid.org/0000-0000-0000-0000"
-                },
-                {
-                    "directory": "https://ror.org",
-                    "value": "https://ror.org/02zz1kn61"
-                }
-            ]
-        }
-    ],
-    "publisher": {
-        "organizationName": "SAEON Data Repository"
-    },
-    "contact": [
-        {
-            "individualName": {
-                "givenName": "Data",
-                "surName": "Manager"
-            },
-            "organizationName": "SAEON",
-            "userID": [
-                {
-                    "directory": "https://orcid.org",
-                    "value": "https://orcid.org/0000-0000-0000-0000"
-                },
-                {
-                    "directory": "https://ror.org",
-                    "value": "https://ror.org/02zz1kn61"
-                }
-            ],
-            "role": "contactPerson",
-            "electronicMailAddress": "it@saeon.ac.za"
-        }
-    ],
     "relatedIdentifiers": [
         {
+            "relationType": "IsSupplementTo",
             "relatedIdentifier": "10.1594/PANGAEA.123456",
-            "relatedIdentifierType": "DOI",
-            "relationType": "IsSupplementTo"
+            "relatedIdentifierType": "DOI"
         }
-    ],
-    "associatedParty": [
-        {
-            "individualName": {
-                "givenName": "John",
-                "surName": "Doe"
-            },
-            "positionName": "Data Curator",
-            "organizationName": "SAEON",
-            "role": "custodian",
-            "userID": [
-                {
-                    "directory": "https://orcid.org",
-                    "value": "https://orcid.org/0000-0002-3456-7890"
-                },
-                {
-                    "directory": "https://ror.org",
-                    "value": "https://ror.org/02zz1kn61"
-                }
-            ]
-        }
-    ],
-    "distribution": {
-        "online": [
-            {
-                "url": "https://data.saeon.ac.za/dataset/03832791",
-                "onlineDescription": "Dataset landing page with access to data and metadata"
-            }
-        ]
-    }
+    ]
 }
