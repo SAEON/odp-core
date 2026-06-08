@@ -93,16 +93,6 @@ class PDFGenerationRequest(BaseModel):
         }
 
 
-class PDFBinaryResponse:
-    """Response model for PDF endpoints.
-
-    Note: This is not a Pydantic model, as the response is binary PDF data.
-    The response is handled directly as application/pdf content type.
-    """
-
-    pass
-
-
 class PDFGenerationErrorResponse(BaseModel):
     """Error response model for PDF generation failures.
 
