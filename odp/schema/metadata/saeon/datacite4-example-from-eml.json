@@ -1,15 +1,12 @@
 {
-  "id": "https://doi.org/10.15493/dea.mims.67666206",
+  "schemaVersion": "http://datacite.org/schema/kernel-4",
   "doi": "10.15493/DEA.MIMS.67666206",
-  "url": "http://localhost:2020/catalog/MIMS/go/10.15493/DEA.MIMS.67666206",
-  "types": {
-    "ris": "DATA",
-    "bibtex": "misc",
-    "citeproc": "dataset",
-    "schemaOrg": "Dataset",
-    "resourceType": "dataset",
-    "resourceTypeGeneral": "Dataset"
-  },
+  "titles": [
+    {
+      "title": "Testing Creator 18-19 May 2026 Long-term Monitoring of Coastal Fish Biodiversity in Hout Bay",
+      "lang": "en"
+    }
+  ],
   "creators": [
     {
       "name": "Zhou",
@@ -17,16 +14,46 @@
       "familyName": "Zhou"
     }
   ],
-  "titles": [
+  "descriptions": [
     {
-      "lang": "en",
-      "title": "Testing Creator 18-19 May 2026 Long-term Monitoring of Coastal Fish Biodiversity in Hout Bay"
+      "description": "Data were collected using onboard fisheries observers who monitored longline fishing operations targeting Patagonian toothfish around the Prince Edward and Marion Islands between 2009 and 2023. Observers recorded benthic bycatch by identifying, counting and weighing taxa from selected longline segments. Data were captured using standardized field sheets and later digitised into a central database.",
+      "descriptionType": "Methods"
+    },
+    {
+      "description": "To assess the impact of rising sea temperatures on coastal biodiversity over a 10-year period.",
+      "descriptionType": "Other"
+    },
+    {
+      "description": "This dataset contains long-term monitoring data regarding macroalgae and invertebrate populations collected along the rocky shores of False Bay, South Africa.",
+      "descriptionType": "Abstract"
+    },
+    {
+      "description": "-21, 5, meter",
+      "descriptionType": "TechnicalInfo"
     }
   ],
-  "publisher": {
-    "name": "SAEON Data Repository"
-  },
-  "container": {},
+  "publicationYear": 2026,
+  "dates": [
+    {
+      "date": "2016-01-01/2026-01-03",
+      "dateType": "Valid"
+    },
+    {
+      "date": "2026-02-19T14:30:00Z",
+      "dateType": "Issued"
+    }
+  ],
+  "geoLocations": [
+    {
+      "geoLocationPlace": "False Bay Coastline, South Africa",
+      "geoLocationBox": {
+        "westBoundLongitude": 18.3,
+        "eastBoundLongitude": 18.9,
+        "southBoundLatitude": -34.4,
+        "northBoundLatitude": -34.0
+      }
+    }
+  ],
   "subjects": [
     {
       "subject": "CC-BY-SA 4.0",
@@ -73,72 +100,33 @@
       "subjectScheme": "EML Spatial Representation Type"
     }
   ],
-  "dates": [
+  "rightsList": [
     {
-      "date": "2016-01-01/2026-01-03",
-      "dateType": "Valid"
-    },
-    {
-      "date": "2026-02-19T14:30:00Z",
-      "dateType": "Issued"
+      "rights": "Creative Commons Attribution 4.0 International",
+      "rightsURI": "https://creativecommons.org/licenses/by/4.0/"
     }
   ],
-  "publicationYear": 2026,
-  "language": "en",
   "identifiers": [
+    {
+      "identifier": "10.15493/DEA.MIMS.67666206",
+      "identifierType": "DOI"
+    },
     {
       "identifier": "10.15493/DEA.MIMS.67666206",
       "identifierType": "alternateIdentifier"
     }
   ],
-  "rightsList": [
-    {
-      "rights": "Creative Commons Attribution 4.0 International",
-      "rightsUri": "https://creativecommons.org/licenses/by/4.0/legalcode",
-      "schemeUri": "https://spdx.org/licenses/",
-      "rightsIdentifier": "cc-by-4.0",
-      "rightsIdentifierScheme": "SPDX"
-    }
-  ],
-  "descriptions": [
-    {
-      "description": "Data were collected using onboard fisheries observers who monitored longline fishing operations targeting Patagonian toothfish around the Prince Edward and Marion Islands between 2009 and 2023. Observers recorded benthic bycatch by identifying, counting and weighing taxa from selected longline segments. Data were captured using standardized field sheets and later digitised into a central database.",
-      "descriptionType": "Methods"
-    },
-    {
-      "description": "To assess the impact of rising sea temperatures on coastal biodiversity over a 10-year period.",
-      "descriptionType": "Other"
-    },
-    {
-      "description": "This dataset contains long-term monitoring data regarding macroalgae and invertebrate populations collected along the rocky shores of False Bay, South Africa.",
-      "descriptionType": "Abstract"
-    },
-    {
-      "description": "-21, 5, meter",
-      "descriptionType": "TechnicalInfo"
-    }
-  ],
-  "geoLocations": [
-    {
-      "geoLocationBox": {
-        "eastBoundLongitude": 18.9,
-        "northBoundLatitude": -34.0,
-        "southBoundLatitude": -34.4,
-        "westBoundLongitude": 18.3
-      },
-      "geoLocationPlace": "False Bay Coastline, South Africa"
-    }
-  ],
+  "publisher": "SAEON Data Repository",
+  "types": {
+    "resourceType": "dataset",
+    "resourceTypeGeneral": "Dataset"
+  },
+  "language": "en",
   "relatedIdentifiers": [
     {
-      "relationType": "IsSupplementTo",
       "relatedIdentifier": "10.1594/PANGAEA.123456",
-      "relatedIdentifierType": "DOI"
+      "relatedIdentifierType": "DOI",
+      "relationType": "IsSupplementTo"
     }
-  ],
-  "schemaVersion": "http://datacite.org/schema/kernel-4",
-  "providerId": "nrf",
-  "clientId": "nrf.saeon",
-  "agency": "datacite",
-  "state": "findable"
+  ]
 }
