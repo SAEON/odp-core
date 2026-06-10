@@ -31,3 +31,4 @@ from .tag import TagInstanceModel, TagInstanceModelIn, TagModel
 from .user import UserModel, UserModelIn
 from .vocabulary import VocabularyModel, VocabularyTermModel, VocabularyTermModelIn
 from .download import BundledRecordDataset, DownloadAuditModel, DownloadAuditResponse, DownloadStatsModel
+from .pdf import MetadataFormatRequest, PDFGenerationErrorResponse, PDFGenerationRequest
