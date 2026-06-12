@@ -24,6 +24,7 @@ class DownloadAuditModel(BaseModel):
 class OrganisationStats(BaseModel):
     name: str = Field(..., description="Organisation name")
     downloads: int = Field(..., description="Total downloads by this organisation")
+    unique_users: int = Field(..., description="Number of unique users from this organisation")
 
 
 class TopRecordStats(BaseModel):
