@@ -1,6 +1,28 @@
-from typing import Any, Optional
+from typing import Any, List, Optional
 
 from pydantic import BaseModel, EmailStr, Field
+
+
+class UserData(BaseModel):
+    name: str = Field(..., description="Full name of the user", min_length=1)
+    email: str = Field(..., description="Email address of the user", min_length=1)
+    organisation: str = Field(..., description="Organization or institution name", min_length=1)
+
+
+class DownloadAuditCreateModel(BaseModel):
+    client_id: str = Field(default='unknown')
+    user_id: Optional[str] = None
+    download_url: Optional[str] = None
+    file_size: Optional[int] = None
+    success: bool = True
+    download_type: Optional[str] = None
+    name: Optional[str] = None
+    email: Optional[str] = None
+    organisation: Optional[str] = None
+    doi: Optional[str] = None
+    record_id: Optional[str] = None
+    record_ids: Optional[List[str]] = None
+    catalog_url: Optional[str] = None
 
 
 class DownloadAuditResponse(BaseModel):
