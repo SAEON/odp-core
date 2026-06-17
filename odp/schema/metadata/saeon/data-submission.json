@@ -382,7 +382,7 @@
           "t9nArray": {
             "t9nObject": {
               "geoLocationPlace": {
-                "t9nSource": "0/location_name"
+                "t9nSource": "1/location_name"
               },
               "geoLocationBox": {
                 "t9nObject": {

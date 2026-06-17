@@ -38,8 +38,8 @@
     "start_date": "2019-11-01",
     "end_date": "2019-12-01"
   },
+  "location_name": "Somewhere off the Atlantic coast of Cape Town",
   "geographic_extent": {
-    "location_name": "Somewhere off the Atlantic coast of Cape Town",
     "map": null,
     "west_bound_longitude": 17.9,
     "east_bound_longitude": 18.3,
