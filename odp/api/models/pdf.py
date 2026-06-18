@@ -5,7 +5,9 @@ These models provide request/response validation for PDF generation endpoints,
 supporting both DataCite and ISO19115 metadata formats.
 """
 
-from typing import Dict, Any, List, Optional
+from datetime import datetime
+from typing import Any, List, Optional
+
 from pydantic import BaseModel, Field
 
 
@@ -31,7 +33,7 @@ class PDFGenerationRequest(BaseModel):
         description="Schema format: auto, datacite4, iso19115",
         examples=["auto", "datacite4", "iso19115"],
     )
-    metadata: Dict[str, Any] = Field(
+    metadata: dict[str, Any] = Field(
         ...,
         description="Metadata dict (DataCite4 or ISO19115 structure)",
         examples=[
@@ -48,12 +50,12 @@ class PDFGenerationRequest(BaseModel):
         description="Keywords associated with the record",
         examples=[["ocean", "climate", "data"]],
     )
-    temporal_start: Optional[str] = Field(
+    temporal_start: Optional[datetime] = Field(
         default=None,
         description="Temporal extent start date (ISO 8601 format)",
         examples=["2020-01-01T00:00:00Z"],
     )
-    temporal_end: Optional[str] = Field(
+    temporal_end: Optional[datetime] = Field(
         default=None,
         description="Temporal extent end date (ISO 8601 format)",
         examples=["2023-12-31T23:59:59Z"],
@@ -149,7 +151,7 @@ class MetadataFormatRequest(BaseModel):
         temporal_end: Optional ISO 8601 end date
     """
 
-    metadata: Dict[str, Any] = Field(
+    metadata: dict[str, Any] = Field(
         ...,
         description="Metadata dict (DataCite4 or ISO19115 structure)",
     )
@@ -157,11 +159,11 @@ class MetadataFormatRequest(BaseModel):
         default=None,
         description="Keywords associated with the record",
     )
-    temporal_start: Optional[str] = Field(
+    temporal_start: Optional[datetime] = Field(
         default=None,
         description="Temporal extent start date (ISO 8601 format)",
     )
-    temporal_end: Optional[str] = Field(
+    temporal_end: Optional[datetime] = Field(
         default=None,
         description="Temporal extent end date (ISO 8601 format)",
     )
