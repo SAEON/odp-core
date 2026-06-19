@@ -1,4 +1,4 @@
-from typing import Any, List, Optional
+from typing import Any, Optional
 
 from pydantic import BaseModel, EmailStr, Field
 
@@ -21,7 +21,7 @@ class DownloadAuditCreateModel(BaseModel):
     organisation: Optional[str] = None
     doi: Optional[str] = None
     record_id: Optional[str] = None
-    record_ids: Optional[List[str]] = None
+    record_ids: Optional[list[str]] = None
     catalog_url: Optional[str] = None
 
 
