@@ -63,14 +63,6 @@ class DailyDownloadStats(BaseModel):
     failed: int = Field(..., description="Failed downloads on this date")
 
 
-class BundledRecordDataset(BaseModel):
-    zip_path: str = Field(..., description="Path or filename of the generated ZIP")
-    total_size: int = Field(..., description="Total size of the ZIP in bytes")
-    record_count: int = Field(..., description="Number of records successfully included")
-    failed_count: int = Field(..., description="Number of records that failed to include")
-    processed: list[str] = Field(..., description="List of successfully processed record IDs")
-    failed: list[dict[str, Any]] = Field(..., description="List of failed records with error details")
-
 
 class DownloadStatsModel(BaseModel):
     total_downloads: int = Field(..., description="Total number of download events")
@@ -82,3 +74,16 @@ class DownloadStatsModel(BaseModel):
     organisations: list[OrganisationStats] = Field(..., description="Per-organisation download stats")
     top_records: list[TopRecordStats] = Field(..., description="Most downloaded records")
     daily_downloads: list[DailyDownloadStats] = Field(..., description="Daily download breakdown")
+
+
+class MetadataBundleRecord(BaseModel):
+    folder_name: str
+    metadata_pdf: str               # base64-encoded PDF bytes
+    data_file_url: str | None       # direct URL (without /download suffix)
+    data_file_name: str | None
+
+
+class MetadataBundleResponse(BaseModel):
+    records: list[MetadataBundleRecord]
+    total: int
+    failed: int
