@@ -41,6 +41,7 @@ class DownloadAuditModel(BaseModel):
     ip_address: Optional[str] = Field(default=None, description="IP address of the requester")
     doi: Optional[str] = Field(default=None, description="DOI of the downloaded record (single_record type)")
     record_ids: list[str] = Field(default=[], description="List of record IDs included in the download")
+    catalog_url: Optional[str] = Field(default=None, description="Base URL of the catalog that initiated the download")
 
 
 class OrganisationStats(BaseModel):
