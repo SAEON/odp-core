@@ -385,6 +385,11 @@
                 "t9nSource": "1/location_name"
               },
               "geoLocationBox": {
+                "t9nCondition": {
+                  "required": [
+                    "west_bound_longitude"
+                  ]
+                },
                 "t9nObject": {
                   "westBoundLongitude": {
                     "t9nSource": "0/west_bound_longitude"
@@ -401,6 +406,11 @@
                 }
               },
               "geoLocationPoint": {
+                "t9nCondition": {
+                  "required": [
+                    "point_latitude"
+                  ]
+                },
                 "t9nObject": {
                   "pointLongitude": {
                     "t9nSource": "0/point_longitude"
