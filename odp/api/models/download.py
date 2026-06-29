@@ -1,6 +1,6 @@
 from typing import Any, Optional
 
-from pydantic import BaseModel, EmailStr, Field
+from pydantic import BaseModel, Field
 
 
 class UserData(BaseModel):
@@ -34,7 +34,7 @@ class DownloadAuditModel(BaseModel):
     id: int = Field(..., description="Audit record ID")
     timestamp: str = Field(..., description="ISO 8601 timestamp of the download")
     name: Optional[str] = Field(default=None, description="Name of the user who downloaded")
-    email: Optional[EmailStr] = Field(default=None, description="Email of the user who downloaded")
+    email: Optional[str] = Field(default=None, description="Email of the user who downloaded")
     organisation: Optional[str] = Field(default=None, description="Organisation of the user")
     download_type: Optional[str] = Field(default=None, description="Type of download: single_record or zip_bundle")
     success: bool = Field(..., description="Whether the download succeeded")
