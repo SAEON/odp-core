@@ -32,5 +32,5 @@ from .user import UserModel, UserModelIn
 from .vocabulary import VocabularyModel, VocabularyTermModel, VocabularyTermModelIn
 from .download import (DownloadAuditCreateModel, DownloadAuditModel,
                        DownloadAuditResponse, DownloadStatsModel, MetadataBundleRecord,
-                       MetadataBundleResponse, UserData)
+                       MetadataBundleRequest, MetadataBundleResponse, UserData)
 from .pdf import MetadataFormatRequest, PDFGenerationErrorResponse, PDFGenerationRequest

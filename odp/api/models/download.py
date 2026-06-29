@@ -77,6 +77,14 @@ class DownloadStatsModel(BaseModel):
     daily_downloads: list[DailyDownloadStats] = Field(..., description="Daily download breakdown")
 
 
+class MetadataBundleRequest(BaseModel):
+    record_ids: list[str]
+    user_data: UserData
+    client_ip: Optional[str] = None
+    user_agent: Optional[str] = None
+    referer: Optional[str] = None
+
+
 class MetadataBundleRecord(BaseModel):
     folder_name: str
     metadata_pdf: str               # base64-encoded PDF bytes
