@@ -30,3 +30,7 @@ from .schema import SchemaModel
 from .tag import TagInstanceModel, TagInstanceModelIn, TagModel
 from .user import UserModel, UserModelIn
 from .vocabulary import VocabularyModel, VocabularyTermModel, VocabularyTermModelIn
+from .download import (DownloadAuditCreateModel, DownloadAuditModel,
+                       DownloadAuditResponse, DownloadStatsModel, MetadataBundleRecord,
+                       MetadataBundleRequest, MetadataBundleResponse, UserData)
+from .pdf import MetadataFormatRequest, PDFGenerationErrorResponse, PDFGenerationRequest
