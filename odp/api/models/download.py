@@ -1,6 +1,6 @@
 from typing import Any, Optional
 
-from pydantic import BaseModel, EmailStr, Field
+from pydantic import BaseModel, Field
 
 
 class UserData(BaseModel):
@@ -34,13 +34,14 @@ class DownloadAuditModel(BaseModel):
     id: int = Field(..., description="Audit record ID")
     timestamp: str = Field(..., description="ISO 8601 timestamp of the download")
     name: Optional[str] = Field(default=None, description="Name of the user who downloaded")
-    email: Optional[EmailStr] = Field(default=None, description="Email of the user who downloaded")
+    email: Optional[str] = Field(default=None, description="Email of the user who downloaded")
     organisation: Optional[str] = Field(default=None, description="Organisation of the user")
     download_type: Optional[str] = Field(default=None, description="Type of download: single_record or zip_bundle")
     success: bool = Field(..., description="Whether the download succeeded")
     ip_address: Optional[str] = Field(default=None, description="IP address of the requester")
     doi: Optional[str] = Field(default=None, description="DOI of the downloaded record (single_record type)")
     record_ids: list[str] = Field(default=[], description="List of record IDs included in the download")
+    catalog_url: Optional[str] = Field(default=None, description="Base URL of the catalog that initiated the download")
 
 
 class OrganisationStats(BaseModel):
@@ -74,6 +75,14 @@ class DownloadStatsModel(BaseModel):
     organisations: list[OrganisationStats] = Field(..., description="Per-organisation download stats")
     top_records: list[TopRecordStats] = Field(..., description="Most downloaded records")
     daily_downloads: list[DailyDownloadStats] = Field(..., description="Daily download breakdown")
+
+
+class MetadataBundleRequest(BaseModel):
+    record_ids: list[str]
+    user_data: UserData
+    client_ip: Optional[str] = None
+    user_agent: Optional[str] = None
+    referer: Optional[str] = None
 
 
 class MetadataBundleRecord(BaseModel):
