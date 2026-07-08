@@ -1,0 +1,132 @@
+{
+  "schemaVersion": "http://datacite.org/schema/kernel-4",
+  "doi": "10.15493/DEA.MIMS.67666206",
+  "titles": [
+    {
+      "title": "Testing Creator 18-19 May 2026 Long-term Monitoring of Coastal Fish Biodiversity in Hout Bay",
+      "lang": "en"
+    }
+  ],
+  "creators": [
+    {
+      "name": "Zhou",
+      "givenName": "Grace",
+      "familyName": "Zhou"
+    }
+  ],
+  "descriptions": [
+    {
+      "description": "Data were collected using onboard fisheries observers who monitored longline fishing operations targeting Patagonian toothfish around the Prince Edward and Marion Islands between 2009 and 2023. Observers recorded benthic bycatch by identifying, counting and weighing taxa from selected longline segments. Data were captured using standardized field sheets and later digitised into a central database.",
+      "descriptionType": "Methods"
+    },
+    {
+      "description": "To assess the impact of rising sea temperatures on coastal biodiversity over a 10-year period.",
+      "descriptionType": "Other"
+    },
+    {
+      "description": "This dataset contains long-term monitoring data regarding macroalgae and invertebrate populations collected along the rocky shores of False Bay, South Africa.",
+      "descriptionType": "Abstract"
+    },
+    {
+      "description": "-21, 5, meter",
+      "descriptionType": "TechnicalInfo"
+    }
+  ],
+  "publicationYear": 2026,
+  "dates": [
+    {
+      "date": "2016-01-01/2026-01-03",
+      "dateType": "Valid"
+    },
+    {
+      "date": "2026-02-19T14:30:00Z",
+      "dateType": "Issued"
+    }
+  ],
+  "geoLocations": [
+    {
+      "geoLocationPlace": "False Bay Coastline, South Africa",
+      "geoLocationBox": {
+        "westBoundLongitude": 18.3,
+        "eastBoundLongitude": 18.9,
+        "southBoundLatitude": -34.4,
+        "northBoundLatitude": -34.0
+      }
+    }
+  ],
+  "subjects": [
+    {
+      "subject": "CC-BY-SA 4.0",
+      "subjectScheme": "EML 2.2.0 Constraint"
+    },
+    {
+      "subject": "Biodiversity",
+      "subjectScheme": "EML keywordType discipline"
+    },
+    {
+      "subject": "Climate change",
+      "subjectScheme": "EML keywordType discipline"
+    },
+    {
+      "subject": "Offshore marine biota",
+      "subjectScheme": "EML keywordType discipline"
+    },
+    {
+      "subject": "Lowest Astronomical Tide",
+      "subjectScheme": "EML Spatial Reference: depthDatumName"
+    },
+    {
+      "subject": "meter",
+      "subjectScheme": "EML Spatial Reference: depthDistanceUnits"
+    },
+    {
+      "subject": "Mean Sea Level",
+      "subjectScheme": "EML Spatial Reference: altitudeDatumName"
+    },
+    {
+      "subject": "meter",
+      "subjectScheme": "EML Spatial Reference: altitudeDistanceUnits"
+    },
+    {
+      "subject": "EPSG:4326/WGS 84",
+      "subjectScheme": "EML Spatial Reference: horizCoordSysName"
+    },
+    {
+      "subject": "completed",
+      "subjectScheme": "EML Status"
+    },
+    {
+      "subject": "vector",
+      "subjectScheme": "EML Spatial Representation Type"
+    }
+  ],
+  "rightsList": [
+    {
+      "rights": "Creative Commons Attribution 4.0 International",
+      "rightsURI": "https://creativecommons.org/licenses/by/4.0/"
+    }
+  ],
+  "identifiers": [
+    {
+      "identifier": "10.15493/DEA.MIMS.67666206",
+      "identifierType": "DOI"
+    },
+    {
+      "identifier": "10.15493/DEA.MIMS.67666206",
+      "identifierType": "alternateIdentifier"
+    }
+  ],
+  "publisher": "SAEON Data Repository",
+  "types": {
+    "resourceType": "dataset",
+    "resourceTypeGeneral": "Dataset"
+  },
+  "language": "en",
+  "relatedIdentifiers": [
+    {
+      "relatedIdentifier": "10.1594/PANGAEA.123456",
+      "relatedIdentifierType": "DOI",
+      "relationType": "IsSupplementTo"
+    }
+  ]
+}

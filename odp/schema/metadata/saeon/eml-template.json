@@ -1,0 +1,37 @@
+{
+  "title": [],
+  "date": "",
+  "abstract": "",
+  "keywords": [],
+  "responsibleParties": [
+    {
+      "individualName": "",
+      "organizationName": "",
+      "email": "",
+      "role": ""
+    }
+  ],
+  "spatialExtent": [
+    {
+      "westBoundLongitude": 0.0,
+      "eastBoundLongitude": 0.0,
+      "southBoundLatitude": 0.0,
+      "northBoundLatitude": 0.0
+    }
+  ],
+  "temporalExtent": [
+    {
+      "startDate": "",
+      "endDate": ""
+    }
+  ],
+  "language": [],
+  "characterSet": "",
+  "topicCategory": [],
+  "spatialResolution": [],
+  "distribution": {
+    "url": "",
+    "format": ""
+  },
+  "onlineResource": []
+}
