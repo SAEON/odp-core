@@ -8,5 +8,4 @@ class ORCIDConfig(BaseConfig):
         env_prefix = 'ORCID_'
 
     BASE_URL: AnyHttpUrl
-    CLIENT_ID: str
-    CLIENT_SECRET: str
+    API_KEY: str
