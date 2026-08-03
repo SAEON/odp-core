@@ -1106,18 +1106,73 @@
           {
             "translations": [
               {
+                "$comment": "Natural-person creator",
                 "t9nScheme": "saeon/datacite4",
                 "t9nTarget": "/creators",
+                "t9nCondition": {
+                  "properties": {
+                    "individualName": {
+                      "type": "object"
+                    }
+                  }
+                },
                 "t9nArray": {
                   "t9nObject": {
                     "name": {
-                      "t9nSource": "0/individualName/surName"
+                      "t9nConcat": [
+                        "0/individualName/surName",
+                        "0/individualName/givenName"
+                      ],
+                      "t9nSep": ", "
                     },
                     "givenName": {
                       "t9nSource": "0/individualName/givenName"
                     },
                     "familyName": {
                       "t9nSource": "0/individualName/surName"
+                    },
+                    "nameType": {
+                      "t9nConst": "Personal"
+                    },
+                    "affiliation": {
+                      "t9nArray": {
+                        "t9nObject": {
+                          "affiliation": {
+                            "t9nSource": "0/organizationName"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "$comment": "Organisational-unit creator",
+                "t9nScheme": "saeon/datacite4",
+                "t9nTarget": "/creators",
+                "t9nCondition": {
+                  "properties": {
+                    "individualName": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "t9nArray": {
+                  "t9nObject": {
+                    "name": {
+                      "t9nSource": "0/individualName"
+                    },
+                    "nameType": {
+                      "t9nConst": "Organizational"
+                    },
+                    "affiliation": {
+                      "t9nArray": {
+                        "t9nObject": {
+                          "affiliation": {
+                            "t9nSource": "0/organizationName"
+                          }
+                        }
+                      }
                     }
                   }
                 }
@@ -1283,14 +1338,16 @@
     "keywordSet"
   ],
   "$defs": {
-    "individualName": {
+    "personIndividualName": {
       "type": "object",
       "properties": {
         "givenName": {
-          "type": "string"
+          "type": "string",
+          "minLength": 1
         },
         "surName": {
-          "type": "string"
+          "type": "string",
+          "minLength": 1
         }
       },
       "required": [
@@ -1330,15 +1387,23 @@
     },
     "responsibleParty": {
       "type": "object",
+      "minLength": 1,
       "properties": {
         "individualName": {
-          "$ref": "#/$defs/individualName"
-        },
-        "positionName": {
-          "type": "string"
+          "oneOf": [
+            {
+              "$ref": "#/$defs/personIndividualName"
+            },
+            {
+              "$comment": "For an organisation or organisational unit when no natural-person name is given",
+              "type": "string",
+              "minLength": 1
+            }
+          ]
         },
         "organizationName": {
-          "type": "string"
+          "type": "string",
+          "minLength": 1
         },
         "userID": {
           "$ref": "#/$defs/userID"
@@ -1349,12 +1414,14 @@
         },
         "role": {
           "$ref": "#/$defs/emlResponsiblePartyRole"
+        },
+        "positionName": {
+          "type": "string"
         }
       },
       "required": [
         "individualName",
-        "organizationName",
-        "userID"
+        "organizationName"
       ],
       "additionalProperties": false
     },
@@ -1509,7 +1576,7 @@
         "CC-BY-SA 4.0",
         "CC-BY 4.0",
         "CC-BY-NC 4.0",
-        "EMBARGO"
+        "Embargoed"
       ]
     },
     "relatedIdentifierType": {
