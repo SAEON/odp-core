@@ -1091,7 +1091,87 @@
                 "type": "string",
                 "const": "contactPerson"
               }
-            }
+            },
+            "translations": [
+              {
+                "$comment": "Natural-person contact",
+                "t9nScheme": "saeon/datacite4",
+                "t9nTarget": "/contributors",
+                "t9nCondition": {
+                  "properties": {
+                    "individualName": {
+                      "type": "object"
+                    }
+                  }
+                },
+                "t9nArray": {
+                  "t9nObject": {
+                    "name": {
+                      "t9nConcat": [
+                        "0/individualName/surName",
+                        "0/individualName/givenName"
+                      ],
+                      "t9nSep": ", "
+                    },
+                    "givenName": {
+                      "t9nSource": "0/individualName/givenName"
+                    },
+                    "familyName": {
+                      "t9nSource": "0/individualName/surName"
+                    },
+                    "nameType": {
+                      "t9nConst": "Personal"
+                    },
+                    "affiliation": {
+                      "t9nArray": {
+                        "t9nObject": {
+                          "affiliation": {
+                            "t9nSource": "0/organizationName"
+                          }
+                        }
+                      }
+                    },
+                    "contributorType": {
+                      "t9nConst": "ContactPerson"
+                    }
+                  }
+                }
+              },
+              {
+                "$comment": "Organisational-unit contact",
+                "t9nScheme": "saeon/datacite4",
+                "t9nTarget": "/contributors",
+                "t9nCondition": {
+                  "properties": {
+                    "individualName": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "t9nArray": {
+                  "t9nObject": {
+                    "name": {
+                      "t9nSource": "0/individualName"
+                    },
+                    "nameType": {
+                      "t9nConst": "Organizational"
+                    },
+                    "affiliation": {
+                      "t9nArray": {
+                        "t9nObject": {
+                          "affiliation": {
+                            "t9nSource": "0/organizationName"
+                          }
+                        }
+                      }
+                    },
+                    "contributorType": {
+                      "t9nConst": "ContactPerson"
+                    }
+                  }
+                }
+              }
+            ]
           }
         ]
       }
@@ -1104,6 +1184,14 @@
             "$ref": "#/$defs/responsibleParty"
           },
           {
+            "properties": {
+              "role": {
+                "$ref": "#/$defs/emlResponsiblePartyRole"
+              }
+            },
+            "required": [
+              "role"
+            ],
             "translations": [
               {
                 "$comment": "Natural-person creator",
@@ -1186,7 +1274,119 @@
     "associatedParty": {
       "type": "array",
       "items": {
-        "$ref": "#/$defs/responsibleParty"
+        "allOf": [
+          {
+            "$ref": "#/$defs/responsibleParty"
+          },
+          {
+            "properties": {
+              "role": {
+                "$ref": "#/$defs/emlAssociatedPartyRole"
+              }
+            },
+            "required": [
+              "role"
+            ],
+            "translations": [
+              {
+                "$comment": "Natural-person contact",
+                "t9nScheme": "saeon/datacite4",
+                "t9nTarget": "/contributors",
+                "t9nCondition": {
+                  "properties": {
+                    "individualName": {
+                      "type": "object"
+                    }
+                  }
+                },
+                "t9nArray": {
+                  "t9nObject": {
+                    "name": {
+                      "t9nConcat": [
+                        "0/individualName/surName",
+                        "0/individualName/givenName"
+                      ],
+                      "t9nSep": ", "
+                    },
+                    "givenName": {
+                      "t9nSource": "0/individualName/givenName"
+                    },
+                    "familyName": {
+                      "t9nSource": "0/individualName/surName"
+                    },
+                    "nameType": {
+                      "t9nConst": "Personal"
+                    },
+                    "affiliation": {
+                      "t9nArray": {
+                        "t9nObject": {
+                          "affiliation": {
+                            "t9nSource": "0/organizationName"
+                          }
+                        }
+                      }
+                    },
+                    "contributorType": {
+                      "t9nSource": "0/role",
+                      "t9nFilter": {
+                        "metadataProvider": "HostingInstitution",
+                        "custodianSteward": "DataManager",
+                        "owner": "RightsHolder",
+                        "distributor": "Distributor",
+                        "pointOfContact": "ContactPerson",
+                        "processor": "ProjectMember",
+                        "editor": "Editor"
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "$comment": "Organisational-unit contact",
+                "t9nScheme": "saeon/datacite4",
+                "t9nTarget": "/contributors",
+                "t9nCondition": {
+                  "properties": {
+                    "individualName": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "t9nArray": {
+                  "t9nObject": {
+                    "name": {
+                      "t9nSource": "0/individualName"
+                    },
+                    "nameType": {
+                      "t9nConst": "Organizational"
+                    },
+                    "affiliation": {
+                      "t9nArray": {
+                        "t9nObject": {
+                          "affiliation": {
+                            "t9nSource": "0/organizationName"
+                          }
+                        }
+                      }
+                    },
+                    "contributorType": {
+                      "t9nSource": "0/role",
+                      "t9nFilter": {
+                        "metadataProvider": "HostingInstitution",
+                        "custodianSteward": "DataManager",
+                        "owner": "RightsHolder",
+                        "distributor": "Distributor",
+                        "pointOfContact": "ContactPerson",
+                        "processor": "ProjectMember",
+                        "editor": "Editor"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        ]
       },
       "minItems": 1
     },
@@ -1413,7 +1613,7 @@
           "format": "email"
         },
         "role": {
-          "$ref": "#/$defs/emlResponsiblePartyRole"
+          "type": "string"
         },
         "positionName": {
           "type": "string"
@@ -1456,22 +1656,24 @@
       ],
       "additionalProperties": false
     },
-    "emlResponsiblePartyRole": {
+    "emlAssociatedPartyRole": {
       "type": "string",
       "enum": [
         "metadataProvider",
-        "custodian",
+        "custodianSteward",
         "owner",
-        "user",
         "distributor",
-        "originator",
         "pointOfContact",
-        "principalInvestigator",
         "processor",
-        "publisher",
-        "editor",
+        "editor"
+      ]
+    },
+    "emlResponsiblePartyRole": {
+      "type": "string",
+      "enum": [
+        "principalInvestigator",
         "author",
-        "contactPerson"
+        "originator"
       ]
     },
     "onlineResource": {
