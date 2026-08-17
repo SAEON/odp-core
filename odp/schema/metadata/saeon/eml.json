@@ -644,24 +644,30 @@
         "methodStep",
         "sampling"
       ],
+      "translations": [
+        {
+          "t9nScheme": "saeon/datacite4",
+          "t9nTarget": "/descriptions",
+          "t9nArray": {
+            "t9nObject": {
+              "description": {
+                "t9nConcat": [
+                  "0/methodStep",
+                  "0/qualityControl"
+                ],
+                "t9nSep": "\n\nQuality Control: "
+              },
+              "descriptionType": {
+                "t9nConst": "Methods"
+              }
+            }
+          }
+        }
+      ],
       "properties": {
         "methodStep": {
           "type": "string",
-          "minLength": 1,
-          "translations": [
-            {
-              "t9nScheme": "saeon/datacite4",
-              "t9nTarget": "/descriptions",
-              "t9nArray": {
-                "t9nObject": {
-                  "description": {},
-                  "descriptionType": {
-                    "t9nConst": "Methods"
-                  }
-                }
-              }
-            }
-          ]
+          "minLength": 1
         },
         "sampling": {
           "type": "array",
