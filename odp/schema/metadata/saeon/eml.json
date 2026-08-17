@@ -1645,6 +1645,25 @@
       "required": [
         "url"
       ],
+      "translations": [
+        {
+          "$comment": "Translate EML online distribution to downloadable resource",
+          "t9nScheme": "saeon/datacite4",
+          "t9nTarget": "/immutableResource",
+          "t9nObject": {
+            "resourceDescription": {
+              "t9nSource": "0/onlineDescription"
+            },
+            "resourceDownload": {
+              "t9nObject": {
+                "downloadURL": {
+                  "t9nSource": "0/url"
+                }
+              }
+            }
+          }
+        }
+      ],
       "additionalProperties": false
     },
     "formatBase": {
