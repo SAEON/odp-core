@@ -941,7 +941,7 @@
             "type": "string"
           },
           "keywordThesaurus": {
-            "$ref": "#/$defs/keywordType"
+            "type": "string"
           }
         },
         "required": [
@@ -961,15 +961,7 @@
                 "t9nSource": "0/keyword"
               },
               "subjectScheme": {
-                "t9nSource": "0/keywordThesaurus",
-                "t9nFilter": {
-                  "Global Change Master Directory (GCMD)": "EML keywordType discipline",
-                  "place": "SANS1878 keywordType place",
-                  "stratum": "SANS1878 keywordType stratum",
-                  "temporal": "SANS1878 keywordType temporal",
-                  "theme": "SANS1878 keywordType theme",
-                  "general": "SANS1878 keywordType general"
-                }
+                "t9nSource": "0/keywordThesaurus"
               }
             }
           }
@@ -1208,9 +1200,6 @@
                 "$ref": "#/$defs/emlResponsiblePartyRole"
               }
             },
-            "required": [
-              "role"
-            ],
             "translations": [
               {
                 "$comment": "Natural-person creator",
@@ -1796,18 +1785,6 @@
         "planned",
         "required",
         "underDevelopment"
-      ]
-    },
-    "keywordType": {
-      "type": "string",
-      "enum": [
-        "Global Change Master Directory (GCMD)",
-        "discipline",
-        "place",
-        "stratum",
-        "temporal",
-        "theme",
-        "general"
       ]
     },
     "licenseIdentifier": {
