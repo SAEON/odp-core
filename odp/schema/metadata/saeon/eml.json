@@ -556,7 +556,20 @@
                 }
               }
             }
-          }
+          },
+          "oneOf": [
+            {
+              "required": [
+                "altitudeSystemDefinition"
+              ]
+            },
+            {
+              "required": [
+                "depthSystemDefinition"
+              ]
+            }
+          ],
+          "additionalProperties": false
         }
       },
       "additionalProperties": false
