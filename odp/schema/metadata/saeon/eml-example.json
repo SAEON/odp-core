@@ -20,8 +20,8 @@
                 }
             ],
             "individualName": {
-                "surName": "Manager",
-                "givenName": "Data"
+                "surName": "Newton",
+                "givenName": "John"
             },
             "organizationName": "SAEON",
             "electronicMailAddress": "it@saeon.ac.za"
@@ -29,6 +29,7 @@
     ],
     "creator": [
         {
+            "role": "author",
             "userID": [
                 {
                     "value": "https://ror.org/01vm69c87",
@@ -44,7 +45,7 @@
                 "surName": "Zhou",
                 "givenName": "Grace"
             },
-            "organizationName": "NRF SAEON"
+            "organizationName": "The NRF SAEON"
         }
     ],
     "methods": {
@@ -62,7 +63,7 @@
         "methodStep": "Data were collected using onboard fisheries observers who monitored longline fishing operations targeting Patagonian toothfish around the Prince Edward and Marion Islands between 2009 and 2023. Observers recorded benthic bycatch by identifying, counting and weighing taxa from selected longline segments. Data were captured using standardized field sheets and later digitised into a central database.",
         "qualityControl": "All records were validated through double data entry checks, taxonomic verification against WoRMS, and automated range checks for spatial coordinates and species occurrence. Outliers were flagged and reviewed by a senior marine ecologist prior to publication."
     },
-    "pubDate": "2026-02-27",
+    "pubDate": "2026-02-28",
     "purpose": "To assess the impact of rising sea temperatures on coastal biodiversity over a 10-year period.",
     "abstract": "This dataset contains long-term monitoring data regarding macroalgae and invertebrate populations collected along the rocky shores of False Bay, South Africa.",
     "coverage": {
@@ -107,16 +108,13 @@
         {
             "url": "https://creativecommons.org/licenses/by/4.0/",
             "identifier": [
-                "CC-BY-SA 4.0"
+                "Embargoed"
             ],
-            "licenseName": "Creative Commons Attribution 4.0 International"
+            "licenseName": "Hidden"
         }
     ],
     "dateStamp": "2026-02-19T14:30:00Z",
     "packageId": "10.15493/DEA.MIMS.67666206",
-    "publisher": {
-        "organizationName": "SAEON Data Repository"
-    },
     "dataFormat": {
         "textFormat": {
             "formatName": "CSV",
@@ -148,7 +146,7 @@
     "fileIdentifier": "10.15493/DEA.MIMS.67666206",
     "associatedParty": [
         {
-            "role": "custodian",
+            "role": "distributor",
             "userID": [
                 {
                     "value": "https://orcid.org/0000-0002-3456-7890",
@@ -159,10 +157,10 @@
                     "directory": "https://ror.org"
                 }
             ],
-            "positionName": "Data Curator",
+            "positionName": "distributor",
             "individualName": {
-                "surName": "Doe",
-                "givenName": "John"
+                "surName": "Pink",
+                "givenName": "Flamingo"
             },
             "organizationName": "SAEON"
         }

@@ -7,11 +7,43 @@
       "lang": "en"
     }
   ],
+  "contributors": [
+    {
+      "name": "Newton, John",
+      "givenName": "John",
+      "familyName": "Newton",
+      "nameType": "Personal",
+      "affiliation": [
+        {
+          "affiliation": "SAEON"
+        }
+      ],
+      "contributorType": "ContactPerson"
+    },
+    {
+      "name": "Pink, Flamingo",
+      "givenName": "Flamingo",
+      "familyName": "Pink",
+      "nameType": "Personal",
+      "affiliation": [
+        {
+          "affiliation": "SAEON"
+        }
+      ],
+      "contributorType": "Distributor"
+    }
+  ],
   "creators": [
     {
-      "name": "Zhou",
+      "name": "Zhou, Grace",
       "givenName": "Grace",
-      "familyName": "Zhou"
+      "familyName": "Zhou",
+      "nameType": "Personal",
+      "affiliation": [
+        {
+          "affiliation": "The NRF SAEON"
+        }
+      ]
     }
   ],
   "descriptions": [
@@ -56,7 +88,7 @@
   ],
   "subjects": [
     {
-      "subject": "CC-BY-SA 4.0",
+      "subject": "Embargoed",
       "subjectScheme": "EML 2.2.0 Constraint"
     },
     {
@@ -102,7 +134,7 @@
   ],
   "rightsList": [
     {
-      "rights": "Creative Commons Attribution 4.0 International",
+      "rights": "Hidden",
       "rightsURI": "https://creativecommons.org/licenses/by/4.0/"
     }
   ],
