@@ -3,7 +3,7 @@
     "titles": [
         {
             "lang": "en",
-            "value": "Testing Creator 18-19 May 2026 Long-term Monitoring of Coastal Fish Biodiversity in Hout Bay"
+            "value": "6 Taxonomic Testing Creator 18-19 May 2026 Long-term Monitoring of Coastal Fish Biodiversity in Hout Bay"
         }
     ],
     "contact": [
@@ -20,7 +20,7 @@
                 }
             ],
             "individualName": {
-                "surName": "Newton",
+                "surName": "Newtony",
                 "givenName": "John"
             },
             "organizationName": "SAEON",
@@ -46,6 +46,25 @@
                 "givenName": "Grace"
             },
             "organizationName": "The NRF SAEON"
+        },
+        {
+            "role": "author",
+            "userID": [
+                {
+                    "value": "https://ror.org/01vm69c87",
+                    "directory": "https://ror.org"
+                },
+                {
+                    "value": "https://orcid.org/0009-0006-9506-7364",
+                    "directory": "https://orcid.org"
+                }
+            ],
+            "positionName": "Specialist Systems Developer",
+            "individualName": {
+                "surName": "Badgery",
+                "givenName": "Honey"
+            },
+            "organizationName": "Masai Mara"
         }
     ],
     "methods": {
@@ -76,12 +95,12 @@
         "taxonomicCoverage": {
             "taxonomicClassification": [
                 {
-                    "taxonRankName": "Kingdom",
-                    "taxonRankValue": "Animalia"
+                    "taxonRankName": "Species",
+                    "taxonRankValue": "Spheniscus demersus"
                 }
             ],
             "generalTaxonomicCoverage": [
-                "Marine macroalgae and coastal invertebrates"
+                "African penguins occurring along the southern African coastline"
             ]
         },
         "geographicCoverage": [
@@ -115,6 +134,9 @@
     ],
     "dateStamp": "2026-02-19T14:30:00Z",
     "packageId": "10.15493/DEA.MIMS.67666206",
+    "publisher": {
+        "organizationName": "SAEON Data Repository"
+    },
     "dataFormat": {
         "textFormat": {
             "formatName": "CSV",
@@ -157,20 +179,16 @@
                     "directory": "https://ror.org"
                 }
             ],
-            "positionName": "distributor",
+            "positionName": "Data Curator",
             "individualName": {
-                "surName": "Pink",
-                "givenName": "Flamingo"
+                "surName": "Sitheto",
+                "givenName": "Anicia"
             },
             "organizationName": "SAEON"
         }
     ],
     "spatialReference": {
         "vertCoordSys": {
-            "depthSystemDefinition": {
-                "depthDatumName": "Lowest Astronomical Tide",
-                "depthDistanceUnits": "meter"
-            },
             "altitudeSystemDefinition": {
                 "altitudeDatumName": "Mean Sea Level",
                 "altitudeDistanceUnits": "meter"
