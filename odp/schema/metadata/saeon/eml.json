@@ -387,10 +387,12 @@
                 "type": "object",
                 "properties": {
                   "taxonRankName": {
-                    "type": "string"
+                    "type": "string",
+                    "minLength": 1
                   },
                   "taxonRankValue": {
-                    "type": "string"
+                    "type": "string",
+                    "minLength": 1
                   },
                   "taxonId": {
                     "type": "string"
@@ -400,7 +402,8 @@
                   }
                 },
                 "required": [
-                  "taxonRankName"
+                  "taxonRankName",
+                  "taxonRankValue"
                 ]
               }
             },
@@ -611,7 +614,26 @@
           ],
           "properties": {
             "binaryRasterFormat": {
-              "$ref": "#/$defs/formatBase"
+              "allOf": [
+                {
+                  "$ref": "#/$defs/formatBase"
+                },
+                {
+                  "translations": [
+                    {
+                      "t9nScheme": "saeon/datacite4",
+                      "t9nTarget": "/formats",
+                      "t9nArray": {
+                        "t9nConcat": [
+                          "0/formatName",
+                          "0/formatVersion"
+                        ],
+                        "t9nSep": " "
+                      }
+                    }
+                  ]
+                }
+              ]
             }
           },
           "additionalProperties": false
@@ -622,7 +644,26 @@
           ],
           "properties": {
             "externallyDefinedFormat": {
-              "$ref": "#/$defs/formatBase"
+              "allOf": [
+                {
+                  "$ref": "#/$defs/formatBase"
+                },
+                {
+                  "translations": [
+                    {
+                      "t9nScheme": "saeon/datacite4",
+                      "t9nTarget": "/formats",
+                      "t9nArray": {
+                        "t9nConcat": [
+                          "0/formatName",
+                          "0/formatVersion"
+                        ],
+                        "t9nSep": " "
+                      }
+                    }
+                  ]
+                }
+              ]
             }
           },
           "additionalProperties": false
@@ -633,21 +674,29 @@
           ],
           "properties": {
             "textFormat": {
-              "$ref": "#/$defs/formatBase"
+              "allOf": [
+                {
+                  "$ref": "#/$defs/formatBase"
+                },
+                {
+                  "translations": [
+                    {
+                      "t9nScheme": "saeon/datacite4",
+                      "t9nTarget": "/formats",
+                      "t9nArray": {
+                        "t9nConcat": [
+                          "0/formatName",
+                          "0/formatVersion"
+                        ],
+                        "t9nSep": " "
+                      }
+                    }
+                  ]
+                }
+              ]
             }
           },
           "additionalProperties": false
-        }
-      ],
-      "translations": [
-        {
-          "t9nScheme": "saeon/datacite4",
-          "t9nTarget": "/formats",
-          "t9nConcat": [
-            "0/*/formatName",
-            "0/*/formatVersion"
-          ],
-          "t9nSep": " "
         }
       ]
     },
