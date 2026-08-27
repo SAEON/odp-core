@@ -51,7 +51,7 @@ class ODPBaseClient:
         return self.request('PUT', path, files=files, **params)
 
     def delete(self, path: str, **params: Any) -> Any:
-        return self.request('DELETE', path, None, **params)
+        return self.request('DELETE', path, **params)
 
     def request(
             self,

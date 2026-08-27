@@ -17,4 +17,4 @@ class SubmissionModelIn(BaseModel):
 class SubmissionListItemModel(BaseModel):
     id: int
     title: str
-    status: str
+    status: SubmissionStatus
