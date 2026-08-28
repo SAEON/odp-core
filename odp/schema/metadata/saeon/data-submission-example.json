@@ -1,0 +1,131 @@
+{
+  "doi": "10.15493/example-saeon-iso19115",
+  "title": "Example Metadata Record: ISO19115 - SAEON Profile",
+  "abstract": "Concerning things that'd like to be under the sea, in an octopus's garden, in the shade.",
+  "methods": "The study was conducted using a tentacles-on approach below the storm.",
+  "publication_year": "2020",
+  "publisher": "Reef Community",
+  "language": "en-us",
+  "timestamp": "2020-10-29",
+  "format": "ZIP",
+  "data_size": "145MB",
+  "spatial_resolution": "0.5m2",
+  "status": "completed",
+  "reference_system": "WGS 84 / UTM zone 34S",
+  "topic_categories": "oceans",
+  "earth_science_theme_keyword": "OCEANS",
+  "creators": [
+    {
+      "first_name": "the Octopus",
+      "last_name": "Ophelia",
+      "orcid": "https://orcid.org/0000-0001-2345-6789",
+      "affiliation_name": "The Octopus's Garden\nUnder The Sea",
+      "ror": "https://ror.org/00tjv0s33"
+    }
+  ],
+  "contributors": [
+    {
+      "first_name": "the Limpet",
+      "last_name": "Leroy",
+      "contributor_type": "ContactPerson",
+      "email": "leroy.limpet@reefcommunity.org",
+      "orcid": "https://orcid.org/0000-0002-9876-5432",
+      "affiliation_name": "Rock Pool Inc\nLand-Sea Interface Consultant\nIntertidal Zone, Seashore Business Park",
+      "ror": "https://ror.org/00tjv0s33"
+    }
+  ],
+  "date_range": {
+    "start_date": "2019-11-01",
+    "end_date": "2019-12-01"
+  },
+  "location_name": "Somewhere off the Atlantic coast of Cape Town",
+  "geographic_extent": {
+    "map": null,
+    "west_bound_longitude": 17.9,
+    "east_bound_longitude": 18.3,
+    "south_bound_latitude": -34.4,
+    "north_bound_latitude": -34.0,
+    "point_longitude": 18.19,
+    "point_latitude": -34.01
+  },
+  "vertical_extent": {
+    "height": "-50m",
+    "depth": "-10m",
+    "measurement": "Metres below sea level"
+  },
+  "immutable_resource": {
+    "resource_name": "Benthic Habitat Survey Trajectories",
+    "resource_description": "Time-series track logs mapping the seabed floor topography around the main reef garden structures.",
+    "download_url": "https://example.com/octopus_garden_benthic_survey.zip",
+    "file_name": "octopus_garden_benthic_survey",
+    "file_format": "shp",
+    "file_checksum": "a8fbc8d8f9e0a2b1c4d5e6f7a8b9c0d1"
+  },
+  "linked_resource": [
+    {
+      "resource_name": "The Picture",
+      "resource_description": "High-resolution sub-surface photography showcasing local coral cover diversity.",
+      "resource_format": "JPEG",
+      "linked_resource_type": "Information",
+      "resource_url": "https://images.genius.com/8fa8b8afd1e7142232b9627901967dcf.550x400x1.jpg"
+    },
+    {
+      "resource_name": "The Song",
+      "resource_description": "Full lyrical documentation of the environmental backdrop and emotional themes under the sea.",
+      "resource_format": "HTML",
+      "linked_resource_type": "Information",
+      "resource_url": "https://genius.com/The-beatles-octopuss-garden-lyrics"
+    }
+  ],
+  "related_identifiers": [
+    {
+      "related_identifier": "https://images.rapgenius.com/a69f8be10aa6228ba1a64e427b3bce28.900x643x1.jpg",
+      "relationship_type": "IsVariantFormOf"
+    }
+  ],
+  "resource_types": {
+    "resource_type": "Benthic Map Output Layer",
+    "resource_type_general": "Dataset"
+  },
+  "license": {
+    "license": "Attribution 4.0 International (CC BY 4.0)",
+    "embargo_reason": ""
+  },
+  "funding_reference": [
+    {
+      "funder_name": "Marine Biodiversity Conservation Foundation",
+      "funder_identifier": "https://doi.org/10.13039/100000001",
+      "funder_identifier_type": "Crossref Funder ID",
+      "award_number": "MBCF-2020-OCTO-09",
+      "award_title": "Deep Marine Refugia Tracking Grant"
+    }
+  ],
+  "project": [
+    "Project Seabed Safehaven"
+  ],
+  "keywords": [
+    "SEABED",
+    "REEF HABITATS",
+    "SHALLOW WATER CORALS"
+  ],
+  "instruments": [
+    "UNDERWATER CAMERA",
+    "SIDE-SCAN SONAR"
+  ],
+  "place_keywords": [
+    "ATLANTIC OCEAN",
+    "CAPE PENINSULA"
+  ],
+  "ecv_keywords": [
+    "Sub-surface Ocean Temperature"
+  ],
+  "eov_keywords": [
+    "Benthic invertebrates"
+  ],
+  "ebv_keywords": [
+    "Community composition"
+  ],
+  "eav_keywords": [
+    "Aquaculture monitoring"
+  ]
+}
