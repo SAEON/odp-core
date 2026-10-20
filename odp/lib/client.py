@@ -35,6 +35,9 @@ class ODPBaseClient:
     def get(self, path: str, **params: Any) -> Any:
         return self.request('GET', path, data=None, **params)
 
+    def get_bytes(self, path: str, **params: Any) -> bytes:
+        return self.request('GET', path, return_bytes=True, **params)
+
     def post(self, path: str, data: dict, **params: Any) -> Any:
         return self.request('POST', path, data=data, **params)
 
@@ -44,8 +47,11 @@ class ODPBaseClient:
     def put(self, path: str, data: dict, **params: Any) -> Any:
         return self.request('PUT', path, data=data, **params)
 
+    def put_files(self, path: str, files: dict, **params: Any) -> Any:
+        return self.request('PUT', path, files=files, **params)
+
     def delete(self, path: str, **params: Any) -> Any:
-        return self.request('DELETE', path, None, **params)
+        return self.request('DELETE', path, **params)
 
     def request(
             self,
@@ -53,6 +59,7 @@ class ODPBaseClient:
             path: str,
             *,
             data: dict = None,
+            files: dict = None,
             return_bytes: bool = False,
             stream: bool = False,
             **params: Any,
@@ -69,6 +76,7 @@ class ODPBaseClient:
                 method,
                 api_url + path,
                 data,
+                files,
                 params,
                 headers,
                 stream=stream
@@ -100,6 +108,7 @@ class ODPBaseClient:
             method: str,
             url: str,
             data: dict | None,
+            files: dict | None,
             params: dict,
             headers: dict,
             stream: bool = False,
@@ -141,6 +150,7 @@ class ODPClient(ODPBaseClient):
             method: str,
             url: str,
             data: dict | None,
+            files: dict | None,
             params: dict,
             headers: dict,
             stream: bool = False,
@@ -153,6 +163,7 @@ class ODPClient(ODPBaseClient):
                 method=method,
                 url=url,
                 json=data,
+                files=files,
                 params=params,
                 headers=headers,
                 stream=stream,

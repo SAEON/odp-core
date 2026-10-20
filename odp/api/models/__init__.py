@@ -34,3 +34,4 @@ from .download import (DownloadAuditCreateModel, DownloadAuditModel,
                        DownloadAuditResponse, DownloadStatsModel, MetadataBundleRecord,
                        MetadataBundleRequest, MetadataBundleResponse, UserData)
 from .pdf import MetadataFormatRequest, PDFGenerationErrorResponse, PDFGenerationRequest
+from .submission import SubmissionModelIn, SubmissionListItemModel

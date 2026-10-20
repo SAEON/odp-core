@@ -10,6 +10,7 @@ class SchemaType(DBEnum):
     metadata = 'metadata'
     tag = 'tag'
     vocabulary = 'vocabulary'
+    keyword = 'keyword'
 
 
 class ScopeType(DBEnum):
@@ -45,3 +46,9 @@ class IdentityCommand(DBEnum):
     create = 'create'
     edit = 'edit'
     delete = 'delete'
+
+
+class SubmissionStatus(DBEnum):
+    in_progress = 'in_progress'
+    submitted = 'submitted'
+    accepted = 'accepted'
